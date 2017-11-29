@@ -18,13 +18,8 @@
                 </el-dropdown>
             </div>
         </div>
-        <!-- breadcrumb -->
-        <el-breadcrumb class="header-breadcrumb" separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-        </el-breadcrumb>
+        <!-- 面包屑组件 -->
+        <my-breadcrumb></my-breadcrumb>
     </el-header>
 </template>
 <script>
@@ -38,10 +33,14 @@ export default {
         handleCommand(command) {
             if (command === 'exit') {
             }
+        },
+        // 设置面包屑组件样式
+        setBreadcrumbStyle() {
+            this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
         }
     },
     mounted() {
-        this.$el.querySelector('#header .header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
+        this.setBreadcrumbStyle()
     }
 }
 </script>

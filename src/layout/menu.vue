@@ -1,40 +1,72 @@
 <template>
     <el-aside id="menu" width="240px">
-        <el-menu default-active="/index/home" :router="true">
-            <el-menu-item index="/index/home">
-                <i class="el-icon-setting"></i>
-                <span slot="title">主页</span>
-            </el-menu-item>
-            <el-submenu index="1">
-                <template slot="title"><i class="el-icon-menu"></i>前言</template>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-            </el-submenu>
-            <el-submenu index="2">
-                <template slot="title"><i class="el-icon-menu"></i>组件</template>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-            </el-submenu>
+        <el-menu :default-active="defaultActive" :router="true" :default-openeds="defaultOpeneds">
+            <template v-for="(list,listIndex) in json">
+                <!-- subMenu -->
+                <el-submenu v-if="list.children" :index="list.path" :key="listIndex">
+                    <template slot="title"><i class="el-icon-menu"></i><span slot="title">{{list.name}}</span></template>
+                    <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex">{{item.name}}</el-menu-item>
+                </el-submenu>
+                <!-- menu-item -->
+                <el-menu-item v-else :index="list.path" :key="listIndex"><i class="el-icon-setting"></i><span slot="title">{{list.name}}</span></el-menu-item>
+            </template>
         </el-menu>
     </el-aside>
 </template>
 <script>
+import { routes } from '@/router'
 export default {
     name: 'menu',
     data() {
         return {
+            json: [],
+            defaultActive: '',      // 默认active的路由
+            defaultOpeneds: []      // 默认open的菜单
         }
     },
-    computed: {
+    watch: {
+        $route() {
+            this.activeRoute()
+        }
     },
     methods: {
-
+        // 过滤路由
+        filterRoutes(arr) {
+            arr.forEach(list => {
+                if (list.name === '首页' && list.children) {
+                    list.children.forEach(item => {
+                        item.path = list.path + '/' + item.path
+                        this.json.push(item)
+                    })
+                } else if (list.name && list.children) {
+                    list.children.forEach(item => {
+                        item.path = list.path + '/' + item.path
+                    })
+                    this.json.push(list)
+                }
+            })
+        },
+        // 默认active的路由
+        activeRoute() {
+            this.defaultActive = this.$route.path
+        },
+        // 默认open的菜单
+        openRoute() {
+            this.json.forEach(item => {
+                this.defaultOpeneds.push(item.path)
+            })
+        }
     },
-    mounted() {
-
+    created() {
+        this.filterRoutes(routes)
+        this.activeRoute()
+        this.openRoute()
     }
 }
 </script>
 <style lang='stylus'>
 #menu {
+    user-select: none;
     .el-menu{
         min-height: 100%;
     }

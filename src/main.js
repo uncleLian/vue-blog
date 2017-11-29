@@ -16,6 +16,7 @@ import VueProgressBar from 'vue-progressbar'
 import myHeader from '@/layout/header'
 import myMenu from '@/layout/menu'
 import myPage from '@/layout/page'
+import myBreadcrumb from '@/components/breadcrumb'
 
 Vue.config.productionTip = false
 
@@ -29,6 +30,7 @@ Vue.use(VueProgressBar, {
 Vue.component('my-header', myHeader)
 Vue.component('my-menu', myMenu)
 Vue.component('my-page', myPage)
+Vue.component('my-breadcrumb', myBreadcrumb)
 
 /* eslint-disable no-new */
 new Vue({
