@@ -1,17 +1,19 @@
 <template>
-    <el-aside id="menu" width="240px">
-        <el-menu :default-active="defaultActive" :router="true" :default-openeds="defaultOpeneds">
-            <template v-for="(list,listIndex) in json">
-                <!-- subMenu -->
-                <el-submenu v-if="list.children" :index="list.path" :key="listIndex">
-                    <template slot="title"><i class="el-icon-menu"></i><span slot="title">{{list.name}}</span></template>
-                    <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex">{{item.name}}</el-menu-item>
-                </el-submenu>
-                <!-- menu-item -->
-                <el-menu-item v-else :index="list.path" :key="listIndex"><i class="el-icon-setting"></i><span slot="title">{{list.name}}</span></el-menu-item>
-            </template>
-        </el-menu>
-    </el-aside>
+    <my-sticky>
+        <el-aside id="menu" width="240px">
+            <el-menu :default-active="defaultActive" :router="true" :default-openeds="defaultOpeneds">
+                <template v-for="(list,listIndex) in json">
+                    <!-- subMenu -->
+                    <el-submenu v-if="list.children" :index="list.path" :key="listIndex">
+                        <template slot="title"><i class="el-icon-menu"></i><span slot="title">{{list.name}}</span></template>
+                        <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex">{{item.name}}</el-menu-item>
+                    </el-submenu>
+                    <!-- menu-item -->
+                    <el-menu-item v-else :index="list.path" :key="listIndex"><i class="el-icon-setting"></i><span slot="title">{{list.name}}</span></el-menu-item>
+                </template>
+            </el-menu>
+        </el-aside>
+    </my-sticky>
 </template>
 <script>
 import { routes } from '@/router'

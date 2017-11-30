@@ -13,7 +13,8 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
-    "element-ui": "^2.0.5",
+    "element-ui": "^2.0.7",
+    "iview": "^2.7.3",
     "js-cookie": "^2.2.0",
     "qs": "^6.5.1",
     "vue": "^2.5.2",

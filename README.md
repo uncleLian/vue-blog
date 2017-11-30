@@ -4,7 +4,6 @@
 ![image](https://img.shields.io/badge/vue--router-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/element--ui-2.0.5-blue.svg)
-![image](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## 骨架
 ##### 1、路由：router

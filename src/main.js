@@ -13,24 +13,26 @@ import 'element-ui/lib/theme-green/index.css'
 import VueProgressBar from 'vue-progressbar'
 
 // 自定义组件
-import myHeader from '@/layout/header'
-import myMenu from '@/layout/menu'
-import myPage from '@/layout/page'
-import myBreadcrumb from '@/components/breadcrumb'
+import header from '@/layout/header'
+import menu from '@/layout/menu'
+import page from '@/layout/page'
+import breadcrumb from '@/components/breadcrumb'
+import sticky from '@/components/sticky'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(VueProgressBar, {
-    color: 'rgb(143, 255, 199)',
+    color: '#29F',
     failedColor: 'red',
-    height: '2px'
+    thickness: '2px'
 })
 
-Vue.component('my-header', myHeader)
-Vue.component('my-menu', myMenu)
-Vue.component('my-page', myPage)
-Vue.component('my-breadcrumb', myBreadcrumb)
+Vue.component('my-header', header)
+Vue.component('my-menu', menu)
+Vue.component('my-page', page)
+Vue.component('my-breadcrumb', breadcrumb)
+Vue.component('my-sticky', sticky)
 
 /* eslint-disable no-new */
 new Vue({

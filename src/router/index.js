@@ -3,8 +3,9 @@ import Router from 'vue-router'
 // page
 import index from '@/page/index/index'
 import home from '@/page/index/children/home'
-// components
-import breadcrumb from '@/components/breadcrumb'
+// componentsView
+import breadcrumbView from '@/page/index/children/componentsView/breadcrumb_view'
+import stickyView from '@/page/index/children/componentsView/sticky_view'
 
 Vue.use(Router)
 
@@ -35,7 +36,12 @@ export const routes = [
             {
                 name: '面包屑',
                 path: 'breadcrumb',
-                component: breadcrumb
+                component: breadcrumbView
+            },
+            {
+                name: '图钉',
+                path: 'sticky',
+                component: stickyView
             }
         ]
     }

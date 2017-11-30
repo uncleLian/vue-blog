@@ -1,5 +1,5 @@
 <template>
-    <div class="breadcrumb">
+    <div class="my-breadcrumb">
         <el-breadcrumb class="header-breadcrumb" separator-class="el-icon-arrow-right">
             <el-breadcrumb-item v-for="(item,index) in json" :key="index" :to="item.path">{{item.name}}</el-breadcrumb-item>
         </el-breadcrumb>
@@ -34,5 +34,5 @@ export default {
 }
 </script>
 <style lang='stylus'>
-#breadcrumb {}
+.my-breadcrumb {}
 </style>
