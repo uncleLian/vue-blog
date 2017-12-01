@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- 面包屑组件 -->
-        <my-breadcrumb></my-breadcrumb>
+        <my-breadcrumb class="header-breadcrumb"></my-breadcrumb>
     </el-header>
 </template>
 <script>

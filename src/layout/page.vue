@@ -24,7 +24,7 @@ export default {
 </script>
 <style lang='stylus'>
 #page {
-    height: 100%;
+    min-height: 100%;
     background: #fff;
     overflow: auto;
 }

@@ -33,6 +33,6 @@ export default {
 <style lang='stylus'>
 #app {
     position: relative;
-    min-height: inherit;
+    height: 100%;
 }
 </style>

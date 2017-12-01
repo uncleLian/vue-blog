@@ -1,6 +1,6 @@
 <template>
     <div :style="wrapperStyles">
-        <div :class="[{'my-sticky': sticky}, stickyClass]" :style="styles">
+        <div :class="[{'my-sticky': sticky}, stickyClass]" :style="stickyStyles">
             <slot></slot>
         </div>
     </div>
@@ -30,10 +30,11 @@ export default {
         return {
             sticky: false,
             wrapperStyles: {},
-            styles: {}
+            stickyStyles: {}
         }
     },
     computed: {
+        // sticky类型
         offsetType () {
             let type = 'top'
             if (this.offsetBottom >= 0) {
@@ -79,7 +80,7 @@ export default {
                     width: `${elOffset.width}px`,
                     height: `${elOffset.height}px`
                 }
-                this.styles = {
+                this.stickyStyles = {
                     top: `${this.offsetTop}px`,
                     left: `${elOffset.left}px`,
                     width: `${this.$el.offsetWidth}px`
@@ -88,7 +89,7 @@ export default {
             } else if ((elOffset.top - this.offsetTop) > scrollTop && this.offsetType === 'top' && sticky) {
                 this.sticky = false
                 this.wrapperStyles = null
-                this.styles = null
+                this.stickyStyles = null
                 this.$emit('change', false)
             }
 
@@ -99,7 +100,7 @@ export default {
                     width: `${elOffset.width}px`,
                     height: `${elOffset.height}px`
                 }
-                this.styles = {
+                this.stickyStyles = {
                     bottom: `${this.offsetBottom}px`,
                     left: `${elOffset.left}px`,
                     width: `${this.$el.offsetWidth}px`
@@ -108,7 +109,7 @@ export default {
             } else if ((elOffset.top + this.offsetBottom + elHeight) < (scrollTop + windowHeight) && this.offsetType === 'bottom' && sticky) {
                 this.sticky = false
                 this.wrapperStyles = null
-                this.styles = null
+                this.stickyStyles = null
                 this.$emit('change', false)
             }
         }

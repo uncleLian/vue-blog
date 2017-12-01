@@ -1,5 +1,5 @@
 <template>
-    <my-sticky>
+    <my-sticky sticky-class="sticky-class">
         <el-aside id="menu" width="240px">
             <el-menu :default-active="defaultActive" :router="true" :default-openeds="defaultOpeneds">
                 <template v-for="(list,listIndex) in json">
@@ -67,8 +67,12 @@ export default {
 }
 </script>
 <style lang='stylus'>
+.sticky-class{
+    height: 100%;
+}
 #menu {
     user-select: none;
+    height: 100%;
     .el-menu{
         min-height: 100%;
     }

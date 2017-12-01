@@ -1,5 +1,5 @@
 <template>
-    <div id="sticky">
+    <div id="sticky_view">
         <!-- 1 -->
         <my-sticky>
             <el-button class="demo-sticky" type='primary'>固定在最顶部</el-button>
@@ -34,7 +34,7 @@
 </template>
 <script>
 export default {
-    name: 'sticky',
+    name: 'sticky_view',
     methods: {
         stickeyChange(val) {
             this.$message.info('sticky的值为：' + val)
@@ -43,7 +43,7 @@ export default {
 }
 </script>
 <style lang='stylus'>
-#sticky {
+#sticky_view {
     .demo-sticky{
         opacity: 0.9;
     }
