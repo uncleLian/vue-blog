@@ -8,17 +8,13 @@ export default {
     name: 'home',
     data() {
         return {
-
         }
     },
     computed: {
-
     },
     methods: {
-
     },
     mounted() {
-
     }
 }
 </script>
