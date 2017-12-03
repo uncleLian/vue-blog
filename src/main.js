@@ -9,7 +9,7 @@ import '@/assets/css/global.css'
 
 // 第三方库
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-green/index.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import VueProgressBar from 'vue-progressbar'
 
 // 自定义组件
