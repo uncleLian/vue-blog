@@ -18,6 +18,7 @@ import menu from '@/layout/menu'
 import page from '@/layout/page'
 import breadcrumb from '@/components/breadcrumb'
 import sticky from '@/components/sticky'
+import backTop from '@/components/backTop'
 
 Vue.config.productionTip = false
 
@@ -33,6 +34,7 @@ Vue.component('my-menu', menu)
 Vue.component('my-page', page)
 Vue.component('my-breadcrumb', breadcrumb)
 Vue.component('my-sticky', sticky)
+Vue.component('my-backTop', backTop)
 
 /* eslint-disable no-new */
 new Vue({

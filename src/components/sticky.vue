@@ -29,8 +29,8 @@ export default {
     data() {
         return {
             sticky: false,
-            wrapperStyles: {},
-            stickyStyles: {}
+            wrapperStyles: {},  // 外层容器样式
+            stickyStyles: {}    // sticky容器样式
         }
     },
     computed: {
@@ -55,7 +55,7 @@ export default {
             const scrollTop = this.getScroll(window, true)
             const scrollLeft = this.getScroll(window)
 
-            // 减去 clientTop 和 clientLeft 是解决IE的body有2px距离的问题
+            // 减去 clientTop 和 clientLeft 是解决IE的getBoundingClientRect方法以(2, 2)开始计算的问题
             const docEl = window.document.body
             const clientTop = docEl.clientTop || 0
             const clientLeft = docEl.clientLeft || 0

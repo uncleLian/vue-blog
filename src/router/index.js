@@ -6,6 +6,7 @@ import home from '@/page/index/children/home'
 // componentsView
 import breadcrumbView from '@/page/index/children/componentsView/breadcrumb_view'
 import stickyView from '@/page/index/children/componentsView/sticky_view'
+import backTopView from '@/page/index/children/componentsView/backTop_view'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export const routes = [
                 name: '图钉',
                 path: 'sticky',
                 component: stickyView
+            },
+            {
+                name: '回到顶部',
+                path: 'backTop',
+                component: backTopView
             }
         ]
     }
