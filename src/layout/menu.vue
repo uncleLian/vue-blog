@@ -3,13 +3,13 @@
         <el-aside id="menu" width="240px">
             <el-menu :default-active="defaultActive" :router="true" :default-openeds="defaultOpeneds">
                 <template v-for="(list,listIndex) in json">
-                    <!-- subMenu -->
+                    <!-- 有子路由的 -->
                     <el-submenu v-if="list.children" :index="list.path" :key="listIndex">
-                        <template slot="title"><i class="el-icon-menu"></i><span slot="title">{{list.name}}</span></template>
-                        <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex">{{item.name}}</el-menu-item>
+                        <template slot="title"><i v-if="list.icon" :class="list.icon"></i><span slot="title">{{list.name}}</span></template>
+                        <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex"><i v-if="item.icon" :class="item.icon"></i>{{item.name}}</el-menu-item>
                     </el-submenu>
-                    <!-- menu-item -->
-                    <el-menu-item v-else :index="list.path" :key="listIndex"><i class="el-icon-setting"></i><span slot="title">{{list.name}}</span></el-menu-item>
+                    <!-- 没有子路由的 -->
+                    <el-menu-item v-else :index="list.path" :key="listIndex"><i v-if="list.icon" :class="list.icon"></i><span slot="title">{{list.name}}</span></el-menu-item>
                 </template>
             </el-menu>
         </el-aside>
@@ -21,7 +21,7 @@ export default {
     name: 'menu',
     data() {
         return {
-            json: [],
+            json: [],               // 过滤后的路由
             defaultActive: '',      // 默认active的路由
             defaultOpeneds: []      // 默认open的菜单
         }
@@ -48,21 +48,21 @@ export default {
                 }
             })
         },
-        // 默认active的路由
-        activeRoute() {
-            this.defaultActive = this.$route.path
-        },
         // 默认open的菜单
         openRoute() {
             this.json.forEach(item => {
                 this.defaultOpeneds.push(item.path)
             })
+        },
+        // 默认active的路由
+        activeRoute() {
+            this.defaultActive = this.$route.path
         }
     },
     created() {
         this.filterRoutes(routes)
-        this.activeRoute()
         this.openRoute()
+        this.activeRoute()
     }
 }
 </script>

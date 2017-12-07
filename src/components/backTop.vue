@@ -120,14 +120,15 @@ export default {
         display: block;
     }
     &-inner{
-        background-color: rgba(0,0,0,.6);
+        background-color: rgba(66,185,131,.9);
         border-radius: 2px;
-        box-shadow: 0 1px 3px rgba(0,0,0,.2);
+        box-shadow: 0 1px 3px rgba(66,185,131,.2);
         transition: all .2s ease-in-out;
         i{
             color: #fff;
             font-size: 24px;
             padding: 8px 12px;
+            font-weight: bold;
         }
     }
 }  

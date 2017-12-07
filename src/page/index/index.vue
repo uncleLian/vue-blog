@@ -1,16 +1,18 @@
 <template>
     <div id="index">
         <el-container class="container" direction="vertical">
-            <!-- header -->
+            <!-- 头部 -->
             <my-header></my-header>
-            <!-- container -->
+            <!-- 容器 -->
             <el-container direction="horizontal">
-                <!-- menu -->
+                <!-- 菜单栏 -->
                 <my-menu></my-menu>
-                <!-- page -->
+                <!-- 页面 -->
                 <my-page></my-page>
             </el-container>
         </el-container>
+        <!-- backTop组件 -->
+        <my-backTop></my-backTop>
     </div>
 </template>
 <script>

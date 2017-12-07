@@ -22,6 +22,7 @@ export const routes = [
         component: index,
         children: [
             {
+                icon: 'el-icon-fa-home el-icon-fa-lg',
                 name: '主页',
                 path: 'home',
                 component: home
@@ -29,23 +30,27 @@ export const routes = [
         ]
     },
     {
+        icon: 'el-icon-menu',
         name: '组件',
         path: '/index/component',
         redirect: '/index/component/breadcrumb',
         component: index,
         children: [
             {
+                icon: 'el-icon-arrow-right',
                 name: '面包屑',
                 path: 'breadcrumb',
                 component: breadcrumbView
             },
             {
+                icon: 'el-icon-fa-thumb-tack el-icon-fa-lg',
                 name: '图钉',
                 path: 'sticky',
                 component: stickyView
             },
             {
-                name: '回到顶部',
+                icon: 'el-icon-arrow-up',
+                name: '返回顶部',
                 path: 'backTop',
                 component: backTopView
             }

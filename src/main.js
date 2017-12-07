@@ -3,14 +3,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-// css
-import '@/assets/css/reset.css'
-import '@/assets/css/global.css'
 
 // 第三方库
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueProgressBar from 'vue-progressbar'
+
+// css
+import '@/assets/css/reset.css'
+import '@/assets/css/icon.less'
+import '@/assets/css/global.css'
 
 // 自定义组件
 import header from '@/layout/header'

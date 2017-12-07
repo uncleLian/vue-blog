@@ -29,8 +29,8 @@ export default {
     .demo{
         margin-bottom: 50px;
         .el-alert{
-            margin-bottom: 20px;
             width: 50%;
+            margin-bottom: 20px;
         }
     }
 }
