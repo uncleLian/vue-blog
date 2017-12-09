@@ -19,6 +19,7 @@
     "js-cookie": "^2.2.0",
     "qs": "^6.5.1",
     "vue": "^2.5.9",
+    "vue-count-to": "^1.0.10",
     "vue-progressbar": "^0.7.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

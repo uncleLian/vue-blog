@@ -7,6 +7,7 @@ import home from '@/page/index/children/home'
 import breadcrumbView from '@/page/index/children/componentsView/breadcrumb_view'
 import stickyView from '@/page/index/children/componentsView/sticky_view'
 import backTopView from '@/page/index/children/componentsView/backTop_view'
+import countToView from '@/page/index/children/componentsView/countTo_view'
 
 Vue.use(Router)
 
@@ -53,6 +54,12 @@ export const routes = [
                 name: '返回顶部',
                 path: 'backTop',
                 component: backTopView
+            },
+            {
+                icon: 'el-icon-arrow-up',
+                name: '动态数值',
+                path: 'countToView',
+                component: countToView
             }
         ]
     }

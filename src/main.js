@@ -21,6 +21,7 @@ import page from '@/layout/page'
 import breadcrumb from '@/components/breadcrumb'
 import sticky from '@/components/sticky'
 import backTop from '@/components/backTop'
+import countTo from '@/components/countTo'
 
 Vue.config.productionTip = false
 
@@ -37,6 +38,7 @@ Vue.component('my-page', page)
 Vue.component('my-breadcrumb', breadcrumb)
 Vue.component('my-sticky', sticky)
 Vue.component('my-backTop', backTop)
+Vue.component('my-countTo', countTo)
 
 /* eslint-disable no-new */
 new Vue({

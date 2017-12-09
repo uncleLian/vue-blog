@@ -15,6 +15,7 @@
 * right     组件距离右部的距离
 * duration  滚动动画持续时间，单位：毫秒
 */
+import { requestAnimationFrame } from '@/utils/RAFrame.js'
 const prefixCls = 'my-backTop'
 export default {
     props: {
@@ -41,18 +42,15 @@ export default {
         }
     },
     computed: {
-        // my-backTop my-backTop-show 类名
         classes () {
             return [`${prefixCls}`, {[`${prefixCls}-show`]: this.backTop}]
         },
-        // my-backTop 样式
         styles() {
             return {
                 bottom: `${this.bottom}px`,
                 right: `${this.right}px`
             }
         },
-        // my-backTop-inner 类名
         innerClasses () {
             return `${prefixCls}-inner`
         }
@@ -60,17 +58,6 @@ export default {
     methods: {
         // 滚动方法
         scrollTop(from = 0, to = 0, duration = 500) {
-            // 浏览器兼容
-            if (!window.requestAnimationFrame) {
-                window.requestAnimationFrame = (
-                    window.webkitRequestAnimationFrame ||
-                    window.mozRequestAnimationFrame ||
-                    window.msRequestAnimationFrame ||
-                    function (callback) {
-                        return window.setTimeout(callback, 1000 / 60)
-                    }
-                )
-            }
             // 距离
             const difference = Math.abs(from - to)
             // 速度
@@ -84,7 +71,7 @@ export default {
                     d = (start - step < end) ? end : start - step
                 }
                 window.scrollTo(d, d)
-                window.requestAnimationFrame(() => scroll(d, end, step))
+                requestAnimationFrame(() => scroll(d, end, step))
             }
             scroll(from, to, step)
         },
