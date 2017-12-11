@@ -8,9 +8,12 @@
 <script>
 /*
 * @params
-* offsetTop：    距离窗口顶部的偏移量
-* offsetBottom： 距离窗口底部的偏移量
-* stickyClass：  自定义sticky元素的类名
+* offsetTop     距离窗口顶部的偏移量
+* offsetBottom  距离窗口底部的偏移量
+* stickyClass   自定义sticky元素的类名
+*
+* @callback
+* change        sticky发生变化
 */
 export default {
     name: 'sticky',

@@ -23,7 +23,7 @@ export const routes = [
         component: index,
         children: [
             {
-                icon: 'el-icon-fa-home el-icon-fa-lg',
+                icon: 'el-icon-fa-home',
                 name: '主页',
                 path: 'home',
                 component: home
@@ -44,7 +44,7 @@ export const routes = [
                 component: breadcrumbView
             },
             {
-                icon: 'el-icon-fa-thumb-tack el-icon-fa-lg',
+                icon: 'el-icon-fa-thumb-tack',
                 name: '图钉',
                 path: 'sticky',
                 component: stickyView
@@ -56,7 +56,7 @@ export const routes = [
                 component: backTopView
             },
             {
-                icon: 'el-icon-arrow-up',
+                icon: 'el-icon-fa-calculator',
                 name: '动态数值',
                 path: 'countToView',
                 component: countToView

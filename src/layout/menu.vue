@@ -1,15 +1,23 @@
 <template>
     <my-sticky sticky-class="sticky-class">
         <el-aside id="menu" width="240px">
-            <el-menu :default-active="defaultActive" :router="true" :default-openeds="defaultOpeneds">
+            <el-menu :default-active="$route.path" :router="true" :default-openeds="defaultOpeneds">
                 <template v-for="(list,listIndex) in json">
                     <!-- 有子路由的 -->
                     <el-submenu v-if="list.children" :index="list.path" :key="listIndex">
-                        <template slot="title"><i v-if="list.icon" :class="list.icon"></i><span slot="title">{{list.name}}</span></template>
-                        <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex"><i v-if="item.icon" :class="item.icon"></i>{{item.name}}</el-menu-item>
+                        <template slot="title">
+                            <i v-if="list.icon" :class="list.icon"></i>
+                            <span slot="title">{{list.name}}</span>
+                        </template>
+                        <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex">
+                            <i v-if="item.icon" :class="[item.icon, 'menu-icon']"></i>{{item.name}}
+                        </el-menu-item>
                     </el-submenu>
                     <!-- 没有子路由的 -->
-                    <el-menu-item v-else :index="list.path" :key="listIndex"><i v-if="list.icon" :class="list.icon"></i><span slot="title">{{list.name}}</span></el-menu-item>
+                    <el-menu-item v-else :index="list.path" :key="listIndex">
+                        <i v-if="list.icon" :class="list.icon"></i>
+                        <span slot="title">{{list.name}}</span>
+                    </el-menu-item>
                 </template>
             </el-menu>
         </el-aside>
@@ -22,13 +30,7 @@ export default {
     data() {
         return {
             json: [],               // 过滤后的路由
-            defaultActive: '',      // 默认active的路由
-            defaultOpeneds: []      // 默认open的菜单
-        }
-    },
-    watch: {
-        $route() {
-            this.activeRoute()
+            defaultOpeneds: []      // 默认打开的二级菜单
         }
     },
     methods: {
@@ -48,21 +50,16 @@ export default {
                 }
             })
         },
-        // 默认open的菜单
+        // 默认打开的二级菜单
         openRoute() {
             this.json.forEach(item => {
                 this.defaultOpeneds.push(item.path)
             })
-        },
-        // 默认active的路由
-        activeRoute() {
-            this.defaultActive = this.$route.path
         }
     },
     created() {
         this.filterRoutes(routes)
         this.openRoute()
-        this.activeRoute()
     }
 }
 </script>
@@ -75,6 +72,9 @@ export default {
     height: 100%;
     .el-menu{
         min-height: 100%;
+        .menu-icon{
+            font-size: 12px;
+        }
     }
 }
 </style>

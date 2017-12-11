@@ -10,10 +10,14 @@
 <script>
 /*
 * @params
-* height    页面滚动高度达到该值时才显示BackTop组件
-* bottom    组件距离底部的距离
-* right     组件距离右部的距离
-* duration  滚动动画持续时间，单位：毫秒
+* height        页面滚动高度达到该值时才显示BackTop组件
+* bottom        组件距离底部的距离
+* right         组件距离右部的距离
+* duration      滚动动画持续时间，单位：毫秒
+*
+* @callback
+* onClick       触发点击的回调
+* complete      滚动到达顶部的回调
 */
 import { requestAnimationFrame } from '@/utils/RAFrame.js'
 const prefixCls = 'my-backTop'
@@ -63,9 +67,11 @@ export default {
             // 速度
             const step = Math.ceil(difference / duration * 50)
 
-            function scroll(start, end, step) {
-                if (start === end) return
-
+            const scroll = (start, end, step) => {
+                if (start === end) {
+                    this.$emit('complete')
+                    return
+                }
                 let d = (start + step > end) ? end : start + step
                 if (start > end) {
                     d = (start - step < end) ? end : start - step
@@ -84,7 +90,7 @@ export default {
         back() {
             const sTop = window.pageYOffset
             this.scrollTop(sTop, 0, this.duration)
-            this.$emit('on-click')
+            this.$emit('onClick')
         }
     },
     mounted() {

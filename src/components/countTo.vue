@@ -1,22 +1,32 @@
 <template>
     <span>
-      {{displayValue}}
+        {{displayValue}}
     </span>
 </template>
 <script>
 /*
 * @params
-* startVal      开始的数值
-* endVal        结束的数值
-* duration      动画时长
-* autoplay      自动运行
-* prefix        数值的前缀
-* suffix        数值的后缀
-* separator     分隔符
-* decimals      保留小数点的位数
-* decimal       小数点的符号
-* ease          是否平滑
-* easeMethod    平滑的方法
+* startVal          开始的数值
+* endVal            结束的数值
+* duration          动画时长
+* autoplay          自动运行
+* prefix            数值的前缀
+* suffix            数值的后缀
+* separator         分隔符
+* decimals          保留小数点的位数
+* decimal           小数点的符号
+* ease              是否平滑
+* easeMethod        平滑的方法
+*
+* @event
+* start()           开始
+* pause()           暂停
+* resume()          恢复
+* reset()           重置
+* pauseResume()     暂停/恢复
+*
+* @callback
+* complete          动画完成
 */
 import { requestAnimationFrame, cancelAnimationFrame } from '@/utils/RAFrame.js'
 export default {
@@ -80,7 +90,7 @@ export default {
             localDuration: this.duration,
             displayValue: this.formatNumber(this.startVal),
             printVal: null,
-            paused: false,
+            isPause: false,
             startTime: null,
             remaining: null,
             rAF: null
@@ -114,7 +124,7 @@ export default {
             let progress = timestamp - this.startTime
             // 剩余进度
             this.remaining = (this.localDuration - progress) > 0 ? (this.localDuration - progress) : 0
-
+            // 计算逻辑
             if (this.ease) {
                 if (this.countDown) {
                     this.printVal = this.localStartVal - this.easeMethod(progress, 0, this.localStartVal - this.endVal, this.localDuration)
@@ -134,31 +144,33 @@ export default {
             } else {
                 this.printVal = this.printVal > this.endVal ? this.endVal : this.printVal
             }
-
+            // 最终显示值
             this.displayValue = this.formatNumber(this.printVal)
 
             // 当前进度时间小于设置时长？继续执行 ：结束
             if (progress < this.localDuration) {
                 this.rAF = requestAnimationFrame(this.count)
             } else {
-                this.$emit('callback')
+                this.$emit('complete', this.displayValue)
             }
         },
         // 开始
         start() {
-            this.localStartVal = this.startVal
+            this.isPause = false
             this.startTime = null
+            this.localStartVal = this.startVal
             this.localDuration = this.duration
-            this.paused = false
             this.rAF = requestAnimationFrame(this.count)
         },
         // 暂停
         pause() {
+            this.isPause = true
             cancelAnimationFrame(this.rAF)
         },
         // 恢复
         resume() {
             if (this.remaining > 0) {
+                this.isPause = false
                 this.startTime = null
                 this.localStartVal = this.printVal
                 this.localDuration = this.remaining
@@ -173,13 +185,7 @@ export default {
         },
         // 恢复和暂停
         pauseResume() {
-            if (this.paused) {
-                this.resume()
-                this.paused = false
-            } else {
-                this.pause()
-                this.paused = true
-            }
+            this.isPause ? this.resume() : this.pause()
         },
         isNumber(val) {
             return !isNaN(parseFloat(val))
@@ -213,7 +219,6 @@ export default {
         if (this.autoplay) {
             this.start()
         }
-        this.$emit('mountedCallback')
     },
     beforeDestroy() {
         cancelAnimationFrame(this.rAF)
