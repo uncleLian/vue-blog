@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// page
+// 一级路由
 import index from '@/page/index/index'
+// home
 import home from '@/page/index/children/home'
 // componentsView
 import breadcrumbView from '@/page/index/children/componentsView/breadcrumb_view'
 import stickyView from '@/page/index/children/componentsView/sticky_view'
 import backTopView from '@/page/index/children/componentsView/backTop_view'
 import countToView from '@/page/index/children/componentsView/countTo_view'
+// collection
+import progressbar from '@/page/index/children/collection/progressbar'
+import editor from '@/page/index/children/collection/editor'
 
 Vue.use(Router)
 
@@ -33,8 +37,8 @@ export const routes = [
     {
         icon: 'el-icon-menu',
         name: '组件',
-        path: '/index/component',
-        redirect: '/index/component/breadcrumb',
+        path: '/index/components',
+        redirect: '/index/components/breadcrumb',
         component: index,
         children: [
             {
@@ -62,8 +66,30 @@ export const routes = [
                 component: countToView
             }
         ]
+    },
+    {
+        icon: 'el-icon-menu',
+        name: '集成',
+        path: '/index/collection',
+        redirect: '/index/collection/progressbar',
+        component: index,
+        children: [
+            {
+                icon: 'el-icon-arrow-up',
+                name: '进度条',
+                path: 'progressbar',
+                component: progressbar
+            },
+            {
+                icon: 'el-icon-arrow-up',
+                name: '富文本编辑器',
+                path: 'editor',
+                component: editor
+            }
+        ]
     }
 ]
+
 export default new Router({
     mode: 'history',
     scrollBehavior(to, from, savedPosition) {

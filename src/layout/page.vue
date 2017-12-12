@@ -26,6 +26,6 @@ export default {
 #page {
     min-height: 100%;
     background: #fff;
-    overflow: auto;
+    overflow: inherit;
 }
 </style>
