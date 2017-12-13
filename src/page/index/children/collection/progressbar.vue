@@ -80,6 +80,8 @@
                 })
             </code>
         </pre>
+
+        <p class="moreLink">更多内容：<a href="https://github.com/hilongjw/vue-progressbar" target="_blank">vue-progressbar</a></p>
     </div>
 </template>
 <script>
@@ -117,6 +119,7 @@ export default {
     pre{
         width: fit-content;
         padding: 0 50px 10px 0;
+        margin: 20px 0;
         &.info{
             background: #f3f4f5;
         }

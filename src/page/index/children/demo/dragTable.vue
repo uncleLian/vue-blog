@@ -1,11 +1,10 @@
 <template>
-	<el-main id="page">
-        <router-view></router-view>
-    </el-main>
+    <div id="dragTable">
+    </div>
 </template>
 <script>
 export default {
-    name: 'page',
+    name: 'dragTable',
     data() {
         return {
 
@@ -23,10 +22,5 @@ export default {
 }
 </script>
 <style lang='stylus'>
-#page {
-    position: relative;
-    min-height: 100%;
-    background: #fff;
-    overflow: inherit;
-}
+#dragTable {}
 </style>

@@ -16,4 +16,9 @@ body{
 }
 a{
   text-decoration: none;
+  color: #42b983;
+  font-size: 600;
+}
+.moreLink{
+  margin-top: 50px;
 }

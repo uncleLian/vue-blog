@@ -22,6 +22,9 @@
                                 <div class="ql-formats">
                                     <button class="ql-header" value="1" title="H1标题"></button>
                                     <button class="ql-bold" title="加粗"></button>
+                                    <button class="ql-italic" title="斜体"></button>
+                                    <button class="ql-underline" title="下划线"></button>
+                                    <button class="ql-strike" title="删除线"></button>
                                     <button class="ql-blockquote" title="引用"></button>
                                     <button class="ql-list" value='ordered' title="有序列表"></button>
                                     <button class="ql-list" value="bullet" title="无序列表"></button>
@@ -52,6 +55,11 @@
                     <h4>正文：</h4>
                     <div>{{content}}</div>
                 </div>
+            </div>
+
+            <div class="moreLink">
+                <p>自定义图片上传：<a href="https://github.com/uncleLian/vue2-health" target="_blank">请参考项目里publish.vue组件</a></p>
+                <p>更多内容：<a href="https://github.com/surmon-china/vue-quill-editor" target="_blank">vue-quill-editor</a></p>
             </div>
         </div>
     </div>
@@ -114,7 +122,7 @@ export default {
         // 获取草稿
         getDraft() {
             let draft = JSON.parse(get_local_cache('draft'))
-            if (draft) {
+            if (draft && (draft.title || draft.content)) {
                 this.draft = true
                 this.title = draft.title
                 this.content = draft.content

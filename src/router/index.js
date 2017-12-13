@@ -12,6 +12,9 @@ import countToView from '@/page/index/children/componentsView/countTo_view'
 // collection
 import progressbar from '@/page/index/children/collection/progressbar'
 import editor from '@/page/index/children/collection/editor'
+import draggable from '@/page/index/children/collection/draggable'
+// demo
+import dragTable from '@/page/index/children/demo/dragTable'
 
 Vue.use(Router)
 
@@ -85,6 +88,27 @@ export const routes = [
                 name: '富文本编辑器',
                 path: 'editor',
                 component: editor
+            },
+            {
+                icon: 'el-icon-arrow-up',
+                name: '列表拖拽',
+                path: 'draggable',
+                component: draggable
+            }
+        ]
+    },
+    {
+        icon: 'el-icon-menu',
+        name: '示例',
+        path: '/index/demo',
+        redirect: '/index/demo/dragTable',
+        component: index,
+        children: [
+            {
+                icon: '',
+                name: '拖拽表格',
+                path: 'dragTable',
+                component: dragTable
             }
         ]
     }

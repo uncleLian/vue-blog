@@ -6,11 +6,12 @@ import store from './store'
 
 // 第三方库
 import axios from 'axios'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import VueProgressBar from 'vue-progressbar'
 import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.snow.css'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import draggable from 'vuedraggable'
 
 // css
 import '@/assets/css/reset.css'
@@ -30,15 +31,17 @@ import countTo from '@/components/countTo'
 
 Vue.config.productionTip = false
 
+// 第三方
 Vue.prototype.$http = axios
+Vue.use(ElementUI)
 Vue.use(VueProgressBar, {
     color: '#29F',
     failedColor: 'red',
     thickness: '2px'
 })
 Vue.use(VueQuillEditor)
-Vue.use(ElementUI)
 
+Vue.component('my-draggable', draggable)
 Vue.component('my-header', header)
 Vue.component('my-menu', menu)
 Vue.component('my-page', page)
