@@ -37,8 +37,8 @@
                                 <div class="ql-formats">
                                     <button class="ql-clean" title="清除格式"></button>
                                     <!-- 自定义图标和操作 -->
-                                    <button class="undo" title="撤销" @click.stop="editor.history.undo()"></button>
-                                    <button class="redo" title="重做" @click.stop="editor.history.redo()"></button>
+                                    <button class="undo" title="撤销" @click.stop="editor.history.undo()"><i class="el-icon-fa-undo"></i></button>
+                                    <button class="redo" title="重做" @click.stop="editor.history.redo()"><i class="el-icon-fa-repeat"></i></button>
                                 </div>
                                 <div class="draftSave" :class="{on : isSave}"></div>
                             </div>
@@ -229,6 +229,14 @@ export default {
                         button {
                             width: 30px;
                             height: 26px;
+                            outline: none;
+                            &:hover{
+                                color: #06c;
+                            }
+                            i{
+                                font-size: 17px;
+                                color: #555;
+                            }
                         }
                         .el-picture{
                             font-size: 20px;
@@ -285,20 +293,6 @@ export default {
             }
         }
     }
-}
-</style>
-<style>
-#editor .undo {
-    background: url(~@/assets/img/laststep.png)no-repeat center center;
-}
-#editor .undo.nothing {
-    opacity: 0.3;
-}
-#editor .redo {
-    background: url(~@/assets/img/nextstep.png)no-repeat center center;
-}
-#editor .redo.nothing {
-    opacity: 0.3;
 }
 @keyframes slideDown {
     6%{

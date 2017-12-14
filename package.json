@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
+    "clipboard": "^1.7.1",
     "element-ui": "^2.0.7",
     "font-awesome": "^4.7.0",
     "iview": "^2.7.4",

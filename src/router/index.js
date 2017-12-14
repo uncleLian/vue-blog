@@ -13,6 +13,7 @@ import countToView from '@/page/index/children/componentsView/countTo_view'
 import progressbar from '@/page/index/children/collection/progressbar'
 import editor from '@/page/index/children/collection/editor'
 import draggable from '@/page/index/children/collection/draggable'
+import clipboard from '@/page/index/children/collection/clipboard'
 // demo
 import dragTable from '@/page/index/children/demo/dragTable'
 
@@ -94,6 +95,12 @@ export const routes = [
                 name: '列表拖拽',
                 path: 'draggable',
                 component: draggable
+            },
+            {
+                icon: 'el-icon-arrow-up',
+                name: '剪贴板',
+                path: 'clipboard',
+                component: clipboard
             }
         ]
     },
