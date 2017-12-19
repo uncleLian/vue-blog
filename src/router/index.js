@@ -39,15 +39,17 @@ export const routes = [
         ]
     },
     {
-        icon: 'el-icon-menu',
         name: '组件',
+        icon: 'el-icon-menu',
+        open: true,
         path: '/index/components',
         redirect: '/index/components/breadcrumb',
         component: index,
         children: [
             {
-                icon: 'el-icon-arrow-right',
                 name: '面包屑',
+                icon: 'el-icon-arrow-right',
+                open: true,
                 path: 'breadcrumb',
                 component: breadcrumbView
             },
@@ -72,32 +74,32 @@ export const routes = [
         ]
     },
     {
-        icon: 'el-icon-menu',
         name: '集成',
+        icon: 'el-icon-fa-cube',
         path: '/index/collection',
         redirect: '/index/collection/progressbar',
         component: index,
         children: [
             {
-                icon: 'el-icon-arrow-up',
+                icon: 'el-icon-fa-minus',
                 name: '进度条',
                 path: 'progressbar',
                 component: progressbar
             },
             {
-                icon: 'el-icon-arrow-up',
+                icon: 'el-icon-fa-pencil',
                 name: '富文本编辑器',
                 path: 'editor',
                 component: editor
             },
             {
-                icon: 'el-icon-arrow-up',
+                icon: 'el-icon-fa-arrows',
                 name: '列表拖拽',
                 path: 'draggable',
                 component: draggable
             },
             {
-                icon: 'el-icon-arrow-up',
+                icon: 'el-icon-fa-clipboard',
                 name: '剪贴板',
                 path: 'clipboard',
                 component: clipboard
@@ -105,8 +107,8 @@ export const routes = [
         ]
     },
     {
-        icon: 'el-icon-menu',
-        name: '示例',
+        name: '综合实例',
+        icon: 'el-icon-fa-file-text',
         path: '/index/demo',
         redirect: '/index/demo/dragTable',
         component: index,

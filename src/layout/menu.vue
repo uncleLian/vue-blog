@@ -2,23 +2,7 @@
     <my-sticky sticky-class="sticky-class">
         <el-aside id="menu" width="240px">
             <el-menu :default-active="$route.path" :router="true" :default-openeds="defaultOpeneds">
-                <template v-for="(list,listIndex) in json">
-                    <!-- 有子路由的 -->
-                    <el-submenu v-if="list.children" :index="list.path" :key="listIndex">
-                        <template slot="title">
-                            <i v-if="list.icon" :class="list.icon"></i>
-                            <span slot="title">{{list.name}}</span>
-                        </template>
-                        <el-menu-item v-for="(item,itemIndex) in list.children" :index="item.path" :key="itemIndex">
-                            <i v-if="item.icon" :class="[item.icon, 'menu-icon']"></i>{{item.name}}
-                        </el-menu-item>
-                    </el-submenu>
-                    <!-- 没有子路由的 -->
-                    <el-menu-item v-else :index="list.path" :key="listIndex">
-                        <i v-if="list.icon" :class="list.icon"></i>
-                        <span slot="title">{{list.name}}</span>
-                    </el-menu-item>
-                </template>
+                <my-menu-item :json="json"></my-menu-item>
             </el-menu>
         </el-aside>
     </my-sticky>
@@ -35,8 +19,9 @@ export default {
     },
     methods: {
         // 过滤路由
-        filterRoutes(arr) {
-            arr.forEach(list => {
+        filterRoutes(routes) {
+            routes.forEach(list => {
+                // 顶级路由如果是首页，则只添加子路由
                 if (list.name === '首页' && list.children) {
                     list.children.forEach(item => {
                         item.path = list.path + '/' + item.path
@@ -49,17 +34,17 @@ export default {
                     this.json.push(list)
                 }
             })
-        },
-        // 默认打开的二级菜单
-        openRoute() {
+
+            // 是否展开列表
             this.json.forEach(item => {
-                this.defaultOpeneds.push(item.path)
+                if (item.open) {
+                    this.defaultOpeneds.push(item.path)
+                }
             })
         }
     },
     created() {
         this.filterRoutes(routes)
-        this.openRoute()
     }
 }
 </script>
@@ -72,8 +57,10 @@ export default {
     height: 100%;
     .el-menu{
         min-height: 100%;
-        .menu-icon{
-            font-size: 12px;
+        .el-menu-item{
+            i{
+                font-size: 12px;
+            }
         }
     }
 }

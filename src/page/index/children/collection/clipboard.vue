@@ -1,15 +1,23 @@
 <template>
     <div id="clipboard">
+        <!-- 直接调用 -->
         <div class="demo">
             <el-input class='copy1' v-model="copy1" >
-                <el-button slot="append" @click="copy($event, copy1)">复制</el-button>
+                <el-button slot="append" @click.stop="copy(copy1)">复制</el-button>
             </el-input>
-
             <el-input class="cut1" v-model="cut1" >
-                <el-button slot="append" @click="cut($event)">剪切</el-button>
+                <el-button slot="append" @click.stop="cut">剪切</el-button>
             </el-input>
         </div>
-        
+        <!-- 指令调用 -->
+        <div class="demo">
+            <el-input class='copy2' v-model="copy2" >
+                <el-button slot="append" v-clipboard:copy="copy2" v-clipboard:success="onCopySuccess" v-clipboard:error="onCopyError">复制</el-button>
+            </el-input>
+            <el-input class="cut2" v-model="cut2" >
+                <el-button slot="append" v-clipboard:cut="cut2" v-clipboard:success="onCutSuccess" v-clipboard:error="onCutError">剪切</el-button>
+            </el-input>
+        </div>
     </div>
 </template>
 <script>
@@ -18,29 +26,52 @@ export default {
     data() {
         return {
             copy1: '复制复制复制复制复制',
-            cut1: '剪切剪切剪切剪切剪切'
+            cut1: '剪切剪切剪切剪切剪切',
+            copy2: '复制复制复制复制复制',
+            cut2: '剪切剪切剪切剪切剪切'
         }
-    },
-    computed: {
-
     },
     methods: {
-        copy(event, val) {
-            this.$clip({
-                event: event,
-                text: val
+        copy(val) {
+            // 复制功能需要：绑定变量的值
+            this.$copyText(val)
+            .then(res => {
+                console.log('copy', res)
+                this.$message.success('直接调用：复制成功')
+            })
+            .catch(err => {
+                console.log(err)
+                this.$message.error('直接调用：复制失败')
             })
         },
-        cut(event) {
-            this.$clip({
-                event: event,
-                action: 'cut',
-                target: this.$el.querySelector('.cut1 input')
+        cut() {
+            // 剪切功能需要：剪切元素（只适用于input 和 textarea）
+            this.$cutText(this.$el.querySelector('.cut1 input'))
+            .then(res => {
+                console.log('cut', res)
+                this.$message.success('直接调用：剪切成功')
             })
+            .catch(err => {
+                console.log(err)
+                this.$message.error('直接调用：剪切失败')
+            })
+        },
+        onCopySuccess(e) {
+            console.log('指令调用：复制成功', e)
+            this.$message.success('指令调用：复制成功')
+        },
+        onCopyError(e) {
+            console.log('指令调用：复制失败', e)
+            this.$message.error('直接调用：复制失败')
+        },
+        onCutSuccess(e) {
+            console.log('指令调用：剪切成功', e)
+            this.$message.success('直接调用：剪切成功')
+        },
+        onCutError(e) {
+            console.log('指令调用：剪切失败', e)
+            this.$message.error('直接调用：剪切失败')
         }
-    },
-    mounted() {
-
     }
 }
 </script>

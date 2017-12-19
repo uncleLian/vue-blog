@@ -21,6 +21,7 @@ import draggable from 'vuedraggable'
 // 自定义组件
 import header from '@/layout/header'
 import menu from '@/layout/menu'
+import menuItem from '@/layout/menuItem'
 import page from '@/layout/page'
 import breadcrumb from '@/components/breadcrumb'
 import sticky from '@/components/sticky'
@@ -28,7 +29,7 @@ import backTop from '@/components/backTop'
 import countTo from '@/components/countTo'
 
 // 自定义方法
-import clipboard from '@/utils/clipboard.js'
+import vueClipboard from '@/utils/clipboard.js'
 
 Vue.config.productionTip = false
 
@@ -46,14 +47,15 @@ Vue.component('my-draggable', draggable)
 // 自定义组件
 Vue.component('my-header', header)
 Vue.component('my-menu', menu)
+Vue.component('my-menu-item', menuItem)
 Vue.component('my-page', page)
 Vue.component('my-breadcrumb', breadcrumb)
 Vue.component('my-sticky', sticky)
 Vue.component('my-backTop', backTop)
 Vue.component('my-countTo', countTo)
 
-// 自定义方法
-Vue.prototype.$clip = clipboard
+// 自定义指令
+Vue.use(vueClipboard)
 
 /* eslint-disable no-new */
 new Vue({

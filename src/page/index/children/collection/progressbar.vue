@@ -81,7 +81,9 @@
             </code>
         </pre>
 
-        <p class="moreLink">更多内容：<a href="https://github.com/hilongjw/vue-progressbar" target="_blank">vue-progressbar</a></p>
+        <div class="moreLink">
+            <p class="moreLink">更多内容：<a href="https://github.com/hilongjw/vue-progressbar" target="_blank">vue-progressbar</a></p>
+        </div>
     </div>
 </template>
 <script>

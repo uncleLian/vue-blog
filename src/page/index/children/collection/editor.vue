@@ -8,12 +8,10 @@
             </div>
 
             <div class="editor-writer">
-                <!-- title -->
                 <div class="title">
                     <input type='text' placeholder="标题 (5-30个字符)" v-model.trim="title">
                     <div class="title-count" :class="{'error': (title.length < 5 || title.length > 30) && title.length > 0}">{{title.length}} / 30</div>
                 </div>
-                <!-- content -->
                 <div class="content">
                     <quill-editor v-model.trim="content" ref="myQuillEditor" :options="editorOption">
                         <!-- slot方式 -->
