@@ -1,25 +1,11 @@
 <template>
 	<el-main id="page">
-        <router-view></router-view>
+		<router-view></router-view>
     </el-main>
 </template>
 <script>
 export default {
-    name: 'page',
-    data() {
-        return {
-
-        }
-    },
-    computed: {
-
-    },
-    methods: {
-
-    },
-    mounted() {
-
-    }
+    name: 'page'
 }
 </script>
 <style lang='stylus'>

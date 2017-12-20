@@ -16,8 +16,12 @@
     </div>
 </template>
 <script>
+import myHeader from '@/layout/header'
+import myMenu from '@/layout/menu'
+import myPage from '@/layout/page'
 export default {
-    name: 'index'
+    name: 'index',
+    components: { myHeader, myMenu, myPage }
 }
 </script>
 <style lang='stylus'>

@@ -1,50 +1,55 @@
 <template>
     <my-sticky sticky-class="sticky-class">
         <el-aside id="menu" width="240px">
-            <el-menu :default-active="$route.path" :router="true" :default-openeds="defaultOpeneds">
-                <my-menu-item :json="json"></my-menu-item>
+            <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds">
+                <my-menu-item :json="filterRoutes"></my-menu-item>
             </el-menu>
         </el-aside>
     </my-sticky>
 </template>
 <script>
 import { routes } from '@/router'
+import myMenuItem from './menuItem'
 export default {
     name: 'menu',
+    components: { myMenuItem },
     data() {
         return {
-            json: [],               // 过滤后的路由
+            filterRoutes: [],       // 过滤后的路由
             defaultOpeneds: []      // 默认打开的二级菜单
         }
     },
     methods: {
         // 过滤路由
-        filterRoutes(routes) {
-            routes.forEach(list => {
-                // 顶级路由如果是首页，则只添加子路由
-                if (list.name === '首页' && list.children) {
-                    list.children.forEach(item => {
-                        item.path = list.path + '/' + item.path
-                        this.json.push(item)
-                    })
-                } else if (list.name && list.children) {
-                    list.children.forEach(item => {
-                        item.path = list.path + '/' + item.path
-                    })
-                    this.json.push(list)
+        handleRoutes(Arr) {
+            const Routes = Arr.filter(route => {
+                if (route.name) {
+                    // 过滤默认打开的菜单
+                    if (route.open) {
+                        this.defaultOpeneds.push(route.name)
+                    }
+                    // 递归
+                    if (route.children) {
+                        route.children = this.handleRoutes(route.children)
+                    }
+                    return true
+                } else {
+                    return false
                 }
             })
-
-            // 是否展开列表
-            this.json.forEach(item => {
-                if (item.open) {
-                    this.defaultOpeneds.push(item.path)
-                }
-            })
+            return Routes
+        },
+        // 过滤出index路由
+        handleIndexRoutes() {
+            let filterRoutes = this.handleRoutes(routes)
+            let indexRoutes = filterRoutes[0]
+            if (indexRoutes.name === '首页' && indexRoutes.children) {
+                this.filterRoutes = indexRoutes.children
+            }
         }
     },
     created() {
-        this.filterRoutes(routes)
+        this.handleIndexRoutes()
     }
 }
 </script>
@@ -57,10 +62,8 @@ export default {
     height: 100%;
     .el-menu{
         min-height: 100%;
-        .el-menu-item{
-            i{
-                font-size: 12px;
-            }
+        .el-submenu [class^=el-icon-] {
+            font-size: 16px;
         }
     }
 }
