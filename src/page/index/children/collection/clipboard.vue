@@ -2,6 +2,7 @@
     <div id="clipboard">
         <!-- 直接调用 -->
         <div class="demo">
+            <h3>直接调用</h3>
             <el-input class='copy1' v-model="copy1" >
                 <el-button slot="append" @click.stop="copy(copy1)">复制</el-button>
             </el-input>
@@ -11,6 +12,7 @@
         </div>
         <!-- 指令调用 -->
         <div class="demo">
+            <h3>指令调用</h3>
             <el-input class='copy2' v-model="copy2" >
                 <el-button slot="append" v-clipboard:copy="copy2" v-clipboard:success="onCopySuccess" v-clipboard:error="onCopyError">复制</el-button>
             </el-input>
@@ -62,15 +64,15 @@ export default {
         },
         onCopyError(e) {
             console.log('指令调用：复制失败', e)
-            this.$message.error('直接调用：复制失败')
+            this.$message.error('指令调用：复制失败')
         },
         onCutSuccess(e) {
             console.log('指令调用：剪切成功', e)
-            this.$message.success('直接调用：剪切成功')
+            this.$message.success('指令调用：剪切成功')
         },
         onCutError(e) {
             console.log('指令调用：剪切失败', e)
-            this.$message.error('直接调用：剪切失败')
+            this.$message.error('指令调用：剪切失败')
         }
     }
 }
