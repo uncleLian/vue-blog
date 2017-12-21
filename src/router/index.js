@@ -3,23 +3,23 @@ import Router from 'vue-router'
 
 // layout
 // view组件是用在多层嵌套但依然想渲染在主页面的page视图下的场景
-import view from '@/layout/view'
+const view = () => import('@/layout/view')
 // 一级路由
-import index from '@/page/index/index'
+const index = () => import('@/page/index/index')
 // home
-import home from '@/page/index/children/home'
+const home = () => import('@/page/index/children/home')
 // componentsView
-import breadcrumbView from '@/page/index/children/componentsView/breadcrumb_view'
-import stickyView from '@/page/index/children/componentsView/sticky_view'
-import backTopView from '@/page/index/children/componentsView/backTop_view'
-import countToView from '@/page/index/children/componentsView/countTo_view'
+const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
+const stickyView = () => import('@/page/index/children/componentsView/sticky_view')
+const backTopView = () => import('@/page/index/children/componentsView/backTop_view')
+const countToView = () => import('@/page/index/children/componentsView/countTo_view')
 // collection
-import progressbar from '@/page/index/children/collection/progressbar'
-import editor from '@/page/index/children/collection/editor'
-import draggable from '@/page/index/children/collection/draggable'
-import clipboard from '@/page/index/children/collection/clipboard'
+const progressbar = () => import('@/page/index/children/collection/progressbar')
+const editor = () => import('@/page/index/children/collection/editor')
+const draggable = () => import('@/page/index/children/collection/draggable')
+const clipboard = () => import('@/page/index/children/collection/clipboard')
 // demo
-import dragTable from '@/page/index/children/demo/dragTable'
+const dragTable = () => import('@/page/index/children/demo/dragTable')
 
 Vue.use(Router)
 
@@ -135,7 +135,7 @@ export const routes = [
 ]
 
 export default new Router({
-    mode: 'history',
+    // mode: 'history',
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             to.meta.position = savedPosition
