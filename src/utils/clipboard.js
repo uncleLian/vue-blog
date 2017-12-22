@@ -22,6 +22,7 @@ var vueClipboard = {
  * success:      成功回调
  * error:        失败回调
  */
+
 let copyText = (text) => {
     let el = document.createElement('button')
     return new Promise((resolve, reject) => {

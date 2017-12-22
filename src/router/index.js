@@ -103,7 +103,7 @@ export const routes = [
                         component: editor
                     },
                     {
-                        name: '列表拖拽',
+                        name: '拖拽列表',
                         path: 'draggable',
                         icon: 'el-icon-fa-arrows',
                         component: draggable

@@ -11,6 +11,9 @@ import '@/assets/css/reset.css'
 import '@/assets/css/icon.less'
 import '@/assets/css/global.css'
 
+// mock数据
+import '@/mock/index.js'
+
 // 第三方
 import axios from 'axios'
 import ElementUI from 'element-ui'

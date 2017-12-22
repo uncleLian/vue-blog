@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import { fetch } from '@/utils/fetch.js'
+import fetch from '@/utils/fetch.js'
 
 Vue.use(Vuex)
 
@@ -16,7 +16,12 @@ const mutations = {
 
 }
 
-const actions = {}
+const actions = {
+    get_list_data() {
+        let res = fetch('/list', 'GET')
+        return res
+    }
+}
 export default new Vuex.Store({
     state,
     getters,
