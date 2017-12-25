@@ -56,7 +56,7 @@
             </div>
 
             <div class="moreLink">
-                <p>自定义图片上传：<a href="https://github.com/uncleLian/vue2-health" target="_blank">请参考项目里publish.vue组件</a></p>
+                <p>自定义图片上传、草稿功能：<router-link :to="{name: '图片上传'}">请参考综合实例里的upload组件</router-link></p>
                 <p>更多内容：<a href="https://github.com/surmon-china/vue-quill-editor" target="_blank">vue-quill-editor</a></p>
             </div>
         </div>

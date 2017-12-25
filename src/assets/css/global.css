@@ -22,3 +22,13 @@ a{
 .moreLink{
   margin-top: 50px;
 }
+
+/*被拖拽的item样式*/
+.sortable-chosen{
+   background-color: #f0f9eb !important;
+}
+
+/*被放置的item样式*/
+.sortable-ghost{
+  background-color: #42b983 !important;
+}

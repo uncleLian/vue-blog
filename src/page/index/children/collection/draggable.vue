@@ -101,12 +101,6 @@ export default {
                 position: relative;
                 padding: 16px 15px;
                 border-bottom: 1px solid #e9e9e9;
-                &.sortable-chosen{
-                    /*background: #f0f9eb;*/
-                }
-                &.sortable-ghost{
-                    background: #42b983;
-                }
                 p{
                     width: 100%;
                     margin: 0;

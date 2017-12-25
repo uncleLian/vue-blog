@@ -11,8 +11,9 @@ export default {
 <style lang='stylus'>
 #page {
     position: relative;
+    width: 100%;
     min-height: 100%;
     background: #fff;
-    overflow: inherit;
+    overflow-x: auto;
 }
 </style>

@@ -18,8 +18,9 @@ const progressbar = () => import('@/page/index/children/collection/progressbar')
 const editor = () => import('@/page/index/children/collection/editor')
 const draggable = () => import('@/page/index/children/collection/draggable')
 const clipboard = () => import('@/page/index/children/collection/clipboard')
-// demo
-const dragTable = () => import('@/page/index/children/demo/dragTable')
+// example
+const dragTable = () => import('@/page/index/children/example/dragTable')
+const upload = () => import('@/page/index/children/example/upload')
 
 Vue.use(Router)
 
@@ -118,15 +119,20 @@ export const routes = [
             },
             {
                 name: '综合实例',
-                path: 'demo',
+                path: 'example',
                 icon: 'el-icon-fa-file-text',
-                redirect: '/index/demo/dragTable',
+                redirect: '/index/example/dragTable',
                 component: view,
                 children: [
                     {
                         name: '拖拽表格',
                         path: 'dragTable',
                         component: dragTable
+                    },
+                    {
+                        name: '图片上传',
+                        path: 'upload',
+                        component: upload
                     }
                 ]
             }
