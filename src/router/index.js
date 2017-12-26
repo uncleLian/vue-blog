@@ -9,8 +9,8 @@ const index = () => import('@/page/index/index')
 // home
 const home = () => import('@/page/index/children/home')
 // componentsView
-const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
 const stickyView = () => import('@/page/index/children/componentsView/sticky_view')
+const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
 const backTopView = () => import('@/page/index/children/componentsView/backTop_view')
 const countToView = () => import('@/page/index/children/componentsView/countTo_view')
 // collection
@@ -20,7 +20,7 @@ const draggable = () => import('@/page/index/children/collection/draggable')
 const clipboard = () => import('@/page/index/children/collection/clipboard')
 // example
 const dragTable = () => import('@/page/index/children/example/dragTable')
-const upload = () => import('@/page/index/children/example/upload')
+const upload = () => import('@/page/index/children/example/upload/upload')
 
 Vue.use(Router)
 
@@ -53,20 +53,20 @@ export const routes = [
                 path: 'components',
                 icon: 'el-icon-menu',
                 open: true,
-                redirect: '/index/components/breadcrumb',
+                redirect: '/index/components/sticky',
                 component: view,
                 children: [
-                    {
-                        name: '面包屑',
-                        path: 'breadcrumb',
-                        icon: 'el-icon-arrow-right',
-                        component: breadcrumbView
-                    },
                     {
                         name: '图钉',
                         path: 'sticky',
                         icon: 'el-icon-fa-thumb-tack',
                         component: stickyView
+                    },
+                    {
+                        name: '面包屑',
+                        path: 'breadcrumb',
+                        icon: 'el-icon-arrow-right',
+                        component: breadcrumbView
                     },
                     {
                         name: '返回顶部',
@@ -87,6 +87,7 @@ export const routes = [
                 name: '集成',
                 path: 'collection',
                 icon: 'el-icon-fa-cube',
+                open: true,
                 redirect: '/index/collection/progressbar',
                 component: view,
                 children: [
@@ -121,6 +122,7 @@ export const routes = [
                 name: '综合实例',
                 path: 'example',
                 icon: 'el-icon-fa-file-text',
+                open: true,
                 redirect: '/index/example/dragTable',
                 component: view,
                 children: [

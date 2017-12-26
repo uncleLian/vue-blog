@@ -24,11 +24,9 @@ export default {
         handleRoutes(Arr) {
             const Routes = Arr.filter(route => {
                 if (route.name) {
-                    // 过滤默认打开的菜单
                     if (route.open) {
                         this.defaultOpeneds.push(route.name)
                     }
-                    // 递归
                     if (route.children) {
                         route.children = this.handleRoutes(route.children)
                     }

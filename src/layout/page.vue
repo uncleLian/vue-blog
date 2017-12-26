@@ -14,6 +14,6 @@ export default {
     width: 100%;
     min-height: 100%;
     background: #fff;
-    overflow-x: auto;
+    overflow: inherit;
 }
 </style>

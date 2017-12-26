@@ -1,0 +1,11 @@
+@keyframes slideDown {
+    6%{
+        height: 40px;
+    }
+    94% {
+        height: 40px;
+    }
+    100% {
+        height: 0;
+    }
+}

@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'quill/dist/quill.snow.css'
 import '@/assets/css/reset.css'
 import '@/assets/css/icon.less'
+import '@/assets/css/transition.css'
 import '@/assets/css/global.css'
 
 // mock数据
@@ -26,6 +27,7 @@ import breadcrumb from '@/components/breadcrumb'
 import sticky from '@/components/sticky'
 import backTop from '@/components/backTop'
 import countTo from '@/components/countTo'
+import loading from '@/components/loading'
 // 自定义指令
 import vueClipboard from '@/utils/clipboard.js'
 // 自定义过滤
@@ -49,6 +51,7 @@ Vue.component('my-breadcrumb', breadcrumb)
 Vue.component('my-sticky', sticky)
 Vue.component('my-backTop', backTop)
 Vue.component('my-countTo', countTo)
+Vue.component('my-loading', loading)
 // 自定义指令
 Vue.use(vueClipboard)
 // 自定义过滤

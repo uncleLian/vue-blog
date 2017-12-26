@@ -9,7 +9,7 @@ Vue.prototype.$http = axios             // 全局使用
 
 // 'http://blog.liansixin.win/api-dev'
 // 创建axios实例
-const instance = axios.create({
+export const instance = axios.create({
     baseURL: process.env.BASE_API,      // api的base_url
     timeout: 10 * 1000                  // 请求超时时间
 })
@@ -44,7 +44,7 @@ instance.interceptors.response.use(response => {
     return Promise.reject(error)
 })
 
-const fetch = async(url = '', type = 'GET', data = {}) => {
+export const fetch = async(url = '', type = 'GET', data = {}) => {
     let result
     type = type.toUpperCase()
 
@@ -61,5 +61,3 @@ const fetch = async(url = '', type = 'GET', data = {}) => {
     }
     return result
 }
-
-export default fetch
