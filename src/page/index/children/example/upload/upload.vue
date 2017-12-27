@@ -77,7 +77,8 @@
                 <div class="control edit-cell">
                     <el-button type='primary' size='large' @click.stop="verify('publish')">发表</el-button>
                     <el-button class="gray" type='primary' size='large' @click.stop="verify('draft')">存草稿</el-button>
-                    <el-button class="gray" type='primary' size='large' @click="$router.go(-1)">取消</el-button>
+                    <el-button class="gray" type='primary' size='large' @click.stop="openPreview">预览</el-button>
+                    <el-button class="gray" type='primary' size='large' @click.stop="$router.go(-1)">取消</el-button>
                 </div>
             </div>
         </div>
@@ -87,15 +88,19 @@
 
         <!-- 选择封面图 -->
         <select-picture v-if="selectPictureVisible" :json="contentImages"  @complete="inserCover" @close="selectPictureVisible = false"></select-picture>
+
+        <!-- 预览 -->
+        <preview-article v-if="previewVisible" :json="previewJson" @close="previewVisible = false"></preview-article>
     </div>
 </template>
 <script>
 import { get_local_cache, set_local_cache, remove_local_cache } from '@/utils/cache.js'
 import uploadPicture from './uploadPicture'
 import selectPicture from './selectPicture'
+import previewArticle from './preview'
 export default {
     name: 'upload',
-    components: { uploadPicture, selectPicture },
+    components: { uploadPicture, selectPicture, previewArticle },
     data() {
         return {
             editorOption: {
@@ -117,10 +122,12 @@ export default {
             content: '',                            // 正文
             uploadPictureVisible: false,            // 自定义图片上传dialog的toggle
             selectPictureVisible: false,            // 选择封面图dialog的toggle
+            previewVisible: false,                  // 预览文章dialog的tiggle
             cover_mode: 1,                          // 封面模式：单图 / 三图
             contentImages: [],                      // 正文里的图片
             clickIndex: '',                         // 选中的封面图片index
-            coverImages: []                         // 选择完成的封面图片
+            coverImages: [],                        // 选择完成的封面图片
+            previewJson: {}                         // 预览数据
         }
     },
     computed: {
@@ -134,7 +141,15 @@ export default {
     watch: {
         article(val) {
             this.isChange = true
+            if (this.draft) {
+                this.isChange = false
+            }
             this.handleDraft('set')
+        },
+        ischange(val) {
+            if (val) {
+                window.addEventListener('beforeunload', this.listenFreshClose)
+            }
         }
     },
     methods: {
@@ -165,6 +180,28 @@ export default {
                 this.title = this.content = ''
             }
         },
+        // 查找正文全部图片
+        openSelectPicture(index) {
+            let allImg = []
+            this.clickIndex = index
+            this.editor.container.querySelectorAll('img').forEach(item => {
+                allImg.push(item.src)
+            })
+            this.contentImages = allImg
+            this.selectPictureVisible = true
+        },
+        openPreview() {
+            if (this.onlyTitleRule()) {
+                this.previewJson = {
+                    title: this.title,
+                    content: this.content,
+                    cover_mode: this.cover_mode,
+                    coverImages: this.coverImages,
+                    createdTime: new Date()
+                }
+                this.previewVisible = true
+            }
+        },
         // 插入图片
         inserPicture(files) {
             this.editor.focus()
@@ -175,16 +212,6 @@ export default {
             })
             // 设置光标为末尾
             this.editor.setSelection(this.editor.getSelection().index + 1)
-        },
-        // 查找正文全部图片
-        openSelectPicture(index) {
-            let allImg = []
-            this.clickIndex = index
-            this.editor.container.querySelectorAll('img').forEach(item => {
-                allImg.push(item.src)
-            })
-            this.contentImages = allImg
-            this.selectPictureVisible = true
         },
         // 插入封面图
         inserCover(val) {
@@ -249,7 +276,9 @@ export default {
     },
     mounted() {
         this.handleDraft('get')
-        window.addEventListener('beforeunload', this.listenFreshClose)
+    },
+    beforeDestroy() {
+        window.removeEventListener('beforeunload', this.listenFreshClose)
     },
     // 离开路由钩子
     beforeRouteLeave (to, from, next) {

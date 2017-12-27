@@ -20,14 +20,8 @@
                     <span>{{scope.row.updated_at}}</span>
                 </template>
             </el-table-column>
-            <!-- 作者 -->
-            <el-table-column align="center" label="作者" min-width="100">
-                <template slot-scope="scope">
-                    <span>{{scope.row.sound.user.name}}</span>
-                </template>
-            </el-table-column>
             <!-- 标题 -->
-            <el-table-column label="标题" min-width="250">
+            <el-table-column label="标题" min-width="300">
                 <template slot-scope="scope">
                     <el-popover trigger="hover" placement="top">
                         <template v-if="scope.row.sound.song_info">
@@ -42,9 +36,15 @@
                 </template>
             </el-table-column>
             <!-- 频道 -->
-            <el-table-column align="center" label="频道" min-width="180">
+            <el-table-column align="center" label="频道" min-width="160">
                 <template slot-scope="scope">
                     <el-tag size="medium">{{scope.row.sound.channel.name}}</el-tag>
+                </template>
+            </el-table-column>
+            <!-- 作者 -->
+            <el-table-column align="center" label="作者" min-width="120">
+                <template slot-scope="scope">
+                    <span>{{scope.row.sound.user.name}}</span>
                 </template>
             </el-table-column>
             <!-- 热度 -->
@@ -57,7 +57,7 @@
                             <p v-if="scope.row.sound.share_count">分享：{{scope.row.sound.share_count | devide_10k}}</p>
                         </template>
                         <div slot="reference">
-                            <el-rate disabled :max="3" :value="Number(scope.row.type)"></el-rate>
+                            <el-rate disabled :max="3" :value="Number(scope.row.type)" :icon-classes="['el-icon-fa-fire', 'el-icon-fa-fire', 'el-icon-fa-fire']" :colors="['#99A9BF', '#F7BA2A', '#FF9900']"></el-rate>
                         </div>
                     </el-popover>
                 </template>

@@ -143,7 +143,8 @@ export const routes = [
 ]
 
 export default new Router({
-    // mode: 'history',
+    mode: 'history',
+    routes: routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             to.meta.position = savedPosition
@@ -151,6 +152,5 @@ export default new Router({
         } else {
             return { x: 0, y: 0 }
         }
-    },
-    routes: routes
+    }
 })

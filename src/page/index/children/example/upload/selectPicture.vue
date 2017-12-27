@@ -1,5 +1,9 @@
 <template>
     <el-dialog class="selectPicture" title="正文图片" :visible.sync="visible">
+        <div class="nothing" v-if="json && !(json.length > 0)">
+            <img src="~@/assets/img/picture.png">
+            <p>还没有图片~</p>
+        </div>
         <el-radio-group v-model="selected" class="img-list">
             <div class="img-item" v-for="(item,index) in json">
                 <el-radio-button :label="item"><img :src="item"></el-radio-button>
@@ -69,6 +73,19 @@ max_dialogBodyHeight=max_dialogHieght - marginBottom - 44px;
             width: 100%;
             bottom: 10px;
             text-align: center;
+        }
+    }
+    .nothing{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        z-index: 1;
+        text-align: center;
+        p{
+            font-size: 14px;
+            color: #999;
+            margin-top: 5px;
         }
     }
 }
