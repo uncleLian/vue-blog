@@ -376,7 +376,7 @@ export default {
                         }
                     }
                     .ql-container {
-                        height: 400px;
+                        height: 600px;
                         font-size: 16px;
                         color: #5D5D5D;
                         border: none;

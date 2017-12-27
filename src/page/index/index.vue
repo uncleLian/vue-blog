@@ -28,8 +28,8 @@ export default {
 #index {
     position: relative;
     width: 100%;
+    height: 100%;
     min-height: 100%;
-    overflow-x: hidden;
     .container{
         min-height: 100%;
     }

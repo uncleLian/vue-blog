@@ -52,7 +52,7 @@ export const routes = [
                 name: '组件',
                 path: 'components',
                 icon: 'el-icon-menu',
-                open: true,
+                // open: true,
                 redirect: '/index/components/sticky',
                 component: view,
                 children: [
@@ -87,7 +87,7 @@ export const routes = [
                 name: '集成',
                 path: 'collection',
                 icon: 'el-icon-fa-cube',
-                open: true,
+                // open: true,
                 redirect: '/index/collection/progressbar',
                 component: view,
                 children: [
@@ -122,7 +122,7 @@ export const routes = [
                 name: '综合实例',
                 path: 'example',
                 icon: 'el-icon-fa-file-text',
-                open: true,
+                // open: true,
                 redirect: '/index/example/dragTable',
                 component: view,
                 children: [
