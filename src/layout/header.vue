@@ -6,11 +6,11 @@
                 <span>vue2-blog</span>
             </router-link>
             <!-- tools -->
-            <div class="header-tools">
+            <div class="header-tools" v-if="$store.state.user">
                 <el-dropdown class="user-tools" @command="handleCommand" placement="top-end">
                     <div class="userInfo">
-                        <img src="http://wx.qlogo.cn/mmopen/vi_32/kAPpoX9tk40ZdeV9lyaJ9FjicsHJamL6MRsNicObcr1ejXkh00qtoG56NIiaWjLia5wd9lrGuWVlnXWxOu1icjkbHhQ/0">
-                        <span class="el-dropdown-link">思鑫</span>
+                        <img :src="$store.state.user.headimgurl">
+                        <span class="el-dropdown-link">{{$store.state.user.nickname}}</span>
                     </div>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item command="exit">退出</el-dropdown-item>
@@ -25,13 +25,11 @@
 <script>
 export default {
     name: 'header',
-    data() {
-        return {
-        }
-    },
     methods: {
         handleCommand(command) {
             if (command === 'exit') {
+                this.$store.commit('loginOut')
+                this.$router.push('/login')
             }
         },
         // 设置面包屑组件样式

@@ -77,7 +77,7 @@
     </div>
 </template>
 <script>
-import { get_list_data } from '@/api'
+import { getList } from '@/api'
 import Sortable from 'sortablejs'
 export default {
     name: 'dragTable',
@@ -90,8 +90,7 @@ export default {
     },
     methods: {
         get_list() {
-            get_list_data()
-            .then(res => {
+            getList().then(res => {
                 this.json = res.data
                 this.json.forEach((item, index) => {
                     this.oldList.push(index + 1)

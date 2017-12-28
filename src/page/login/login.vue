@@ -1,12 +1,296 @@
 <template>
     <div id="login">
+        <div class="login_logo">
+            <a class="shake-slow shake-constant shake-constant--hover" href="https://github.com/uncleLian/vue2-blog" target="_blank">vue2-blog</a>
+        </div>
+        <div class="login_wrap">
+            <div class="login_content">
+                <span class="register_btn">注册</span>
+                <span class="login_btn" @click.stop="dialogFormVisible = true">登录</span>
+            </div>
+        </div>
+        <!-- dialog -->
+        <el-dialog class='login_box' title="登录" :visible.sync="dialogFormVisible">
+            <!-- form -->
+            <el-form :model="form" @submit.native.prevent="verify">
+                <el-form-item>
+                    <el-input v-model="form.username" placeholder="账号" auto-complete='off' /></el-form-item>
+                <el-form-item>
+                    <el-input v-model="form.password" placeholder="密码" auto-complete='off' :type="pwdType" />
+                    <span class="pwdEye" @click="passwordToggle"><i :class="eyeType"></i></span>
+                </el-form-item>
+                <el-input class="login_btn" type="submit" value="登录" />
+            </el-form>
+            <!-- otherLogin -->
+            <div slot="footer" class="footer">
+                <ul class="otherLogin">
+                    <li class="wx"><span>微信</span></li>
+                    <li class="qq"><span>QQ</span></li>
+                </ul>
+            </div>
+        </el-dialog>
+
+        <!-- ripple -->
+        <div class="ripple left">
+            <i class="r1"></i>          
+            <i class="r2"></i>          
+            <i class="r3"></i>          
+            <i class="r4"></i>          
+            <i class="r5"></i>          
+        </div>
+        <div class="ripple right">
+            <i class="r1"></i>          
+            <i class="r2"></i>          
+            <i class="r3"></i>          
+            <i class="r4"></i>          
+            <i class="r5"></i>          
+        </div>
     </div>
 </template>
 <script>
 export default {
-    name: 'login'
+    name: 'login',
+    data() {
+        return {
+            pwdType: 'password',
+            eyeType: 'el-icon-fa-eye-slash',
+            dialogFormVisible: false,
+            form: {
+                username: 'uncleLian',
+                password: '123456'
+            }
+        }
+    },
+    methods: {
+        login() {
+            this.$store.dispatch('get_login_data', this.form)
+            .then(() => {
+                this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
+            })
+            .catch(() => {
+                this.$message.error('账号密码错误')
+            })
+        },
+        verify() {
+            if (this.form.username && this.form.password) {
+                this.login()
+            } else if (!this.form.username) {
+                this.$message.error('请输入账号')
+            } else if (!this.form.password) {
+                this.$message.error('请输入密码')
+            }
+        },
+        passwordToggle() {
+            if (this.pwdType === 'password') {
+                this.pwdType = ''
+                this.eyeType = 'el-icon-fa-eye'
+            } else {
+                this.pwdType = 'password'
+                this.eyeType = 'el-icon-fa-eye-slash'
+            }
+        }
+    }
 }
 </script>
 <style lang='stylus'>
-#login{}
+bgColor=#42b183
+bgColor2=#42b983 
+#login {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(bgColor, bgColor2);
+    color: #333;
+    overflow: hidden;
+    li:hover {
+        opacity: 0.8 !important;
+    }
+    .login_logo {
+        position: absolute;
+        top: 27%;
+        left: 50%;
+        transform: translate3d(-50%,-50%,0);
+        font-family: 'Dancing Script', cursive;
+        a{
+            position: relative;
+            font-size: 48px;
+            color: #fff;
+        }
+    }
+    .login_wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%,-50%,0);
+        border-radius: 4px;
+        text-align: center;
+        .login_content {
+            font-size: 0;
+            user-select: none;
+            text-align: center;
+            span {
+                display: inline-block;
+                width: 164px;
+                height: 62px;
+                color: #fff;
+                font-size: 22px;
+                border-radius: 4px;
+                text-align: center;
+                line-height: 62px;
+                border: 1px solid #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            span:hover {
+                opacity: 0.7;
+            }
+            .register_btn {
+                margin-right: 40px;
+            }
+            .login_btn {
+                color: bgColor;
+                background-color: #fff;
+                border: 1px solid bgColor;
+            }
+        }
+    }
+    .login_box {
+        a {
+            display: inline-block;
+            font-size: 12px;
+            color: bgColor;
+        }
+        .el-dialog {
+            width: 340px;
+            .el-dialog__title{
+                font-size: 16px;
+            }
+            .el-input input {
+                height: 42px;
+            }
+            .el-checkbox__label {
+                font-size: 12px !important;
+            }
+            .el-form-item {
+                margin-bottom: 18px;
+            }
+            .pwdEye {
+                position: absolute;
+                right: 10px;
+                top: 0;
+                font-size: 16px;
+                user-select: none;
+                cursor: pointer;
+            }
+            .login_btn {
+                width: 100%;
+                font-size: 18px;
+                &:hover {
+                    opacity: 0.8;
+                }
+                input {
+                    color: #fff;
+                    background: bgColor;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
+        }
+        .footer {
+            .otherLogin {
+                padding-bottom: 20px;
+                font-size: 0;
+                text-align: center;
+                li {
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 24px;
+                    cursor: pointer;
+                    span {
+                        position: absolute;
+                        left: 8px;
+                        bottom: -20px;
+                        font-size: 12px;
+                        width: 24px;
+                        line-height: 1;
+                        color: #505050;
+                    }
+                }
+            }
+        }
+    }
+}
+.ripple{
+    position: absolute;
+    & > i {
+        border: 1px solid #fff;
+        position: absolute;
+        border-bottom: 0;
+        border-radius: 50%;
+        opacity: 0;
+        animation: ripple 10s infinite ease-out;
+    }
+    &.left{
+        width: 800px;
+        height: 800px;
+        bottom: -750px;
+        left: 50px;
+        & > i {
+            width: 200px;
+            height: 200px;
+        }
+    }
+    &.right{
+        width: 100px;
+        height: 100px;
+        top: 25%;
+        right: -50px;
+        & > i {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .r2{
+        animation-delay: 2s;
+    }
+    .r3{
+        animation-delay: 4s;
+    }
+    .r4{
+        animation-delay: 6s;
+    }
+    .r5{
+        animation-delay: 8s;
+    }
+}
+@keyframes ripple{
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(4,4);
+    }
+}
+</style>
+<style>
+#login {
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#fe5d6c', endColorStr='#fd6155', gradientType='0');
+}
+#login:after {
+    content: "";
+    display: block;
+    height: 100%;
+    background: url(~@/assets/img/login_bg.png) repeat;
+}
+#login .otherLogin .wx {
+    background: url(~@/assets/img/icon_wx_pc.svg)no-repeat center center;
+}
+#login .otherLogin .qq {
+    background: url(~@/assets/img/icon_qq_pc.svg)no-repeat center center;
+}
 </style>

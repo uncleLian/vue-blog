@@ -5,6 +5,7 @@ import Router from 'vue-router'
 // view组件是用在多层嵌套但依然想渲染在主页面的page视图下的场景
 const view = () => import('@/layout/view')
 // 一级路由
+const login = () => import('@/page/login/login')
 const index = () => import('@/page/index/index')
 // home
 const home = () => import('@/page/index/children/home')
@@ -40,6 +41,7 @@ export const routes = [
         path: '/index',
         icon: 'el-icon-menu',
         redirect: '/index/home',
+        meta: { login: true },
         component: index,
         children: [
             {
@@ -139,11 +141,16 @@ export const routes = [
                 ]
             }
         ]
+    },
+    {
+        name: '登录',
+        path: '/login',
+        component: login
     }
 ]
 
 export default new Router({
-    mode: 'history',
+    // mode: 'history',
     routes: routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {

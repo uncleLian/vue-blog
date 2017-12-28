@@ -2,6 +2,16 @@
 var Mock = require('mockjs')
 
 // 线上测试数据
+// 登录
+Mock.mock('http://blog.liansixin.win/api-prod/login', {
+    'token': Mock.Random.string(20)
+})
+// 用户信息
+Mock.mock('http://blog.liansixin.win/api-prod/user', {
+    nickname: 'uncleLian',
+    headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4'
+})
+// 列表
 Mock.mock('http://blog.liansixin.win/api-prod/list', {
     'code': 0,
     'msg': '',
@@ -1058,7 +1068,18 @@ Mock.mock('http://blog.liansixin.win/api-prod/list', {
     ]
 })
 
+
 // 开发测试数据
+// 登录
+Mock.mock('http://blog.liansixin.win/api-dev/login', {
+    'token': Mock.Random.string(20)
+})
+// 用户信息
+Mock.mock('http://blog.liansixin.win/api-dev/user', {
+    nickname: '思鑫',
+    headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4'
+})
+// 列表
 Mock.mock('http://blog.liansixin.win/api-dev/list', {
     'code': 0,
     'msg': '',

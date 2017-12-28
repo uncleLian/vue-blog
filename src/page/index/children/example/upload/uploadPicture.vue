@@ -46,7 +46,7 @@
     </el-dialog>
 </template>
 <script>
-import { get_picture_data } from '@/api'
+import { getPicture } from '@/api'
 export default {
     name: 'uploadPicture',
     data() {
@@ -146,7 +146,7 @@ export default {
                 key: this.keyWord,
                 page: 1
             }
-            get_picture_data(params)
+            getPicture(params)
             .then(res => {
                 if (res.data) {
                     this.freePictureList = res.data
@@ -169,7 +169,7 @@ export default {
                 key: this.keyWord,
                 page: this.page
             }
-            get_picture_data(params)
+            getPicture(params)
             .then(res => {
                 if (res.data) {
                     this.freePictureList.push(...res.data)

@@ -1,11 +1,8 @@
-import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
 import store from '@/store'
 import { Message } from 'element-ui'
 import { getToken } from '@/utils/token.js'
-
-Vue.prototype.$http = axios             // 全局使用
 
 // 'http://blog.liansixin.win/api-dev'
 // 创建axios实例

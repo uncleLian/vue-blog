@@ -28,10 +28,14 @@ import sticky from '@/components/sticky'
 import backTop from '@/components/backTop'
 import countTo from '@/components/countTo'
 import loading from '@/components/loading'
+
 // 自定义指令
 import vueClipboard from '@/utils/clipboard.js'
+
 // 自定义过滤
 import filters from '@/utils/filters.js'
+
+import { getToken } from '@/utils/token.js'
 
 Vue.config.productionTip = false
 
@@ -52,11 +56,46 @@ Vue.component('my-sticky', sticky)
 Vue.component('my-backTop', backTop)
 Vue.component('my-countTo', countTo)
 Vue.component('my-loading', loading)
+
 // 自定义指令
 Vue.use(vueClipboard)
+
 // 自定义过滤
 Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
+    Vue.filter(key, filters[key])
+})
+
+// 全局路由登录验证
+router.beforeEach((to, from, next) => {
+    let token = getToken()
+    if (to.path === '/login' && token) {
+        next('/')
+    } else if (to.matched.some(record => record.meta.login)) {
+        if (token) {
+            if (store.getters.user) {
+                next()
+            } else {
+                store.dispatch('get_user_data')
+                .then(res => {
+                    next()
+                })
+                .catch(() => {
+                    window.alert('账号在别处登录，请重新登录')
+                    next({
+                        path: '/login',
+                        query: { redirect: to.fullPath }
+                    })
+                })
+            }
+        } else {
+            next({
+                path: '/login',
+                query: { redirect: to.fullPath }
+            })
+        }
+    } else {
+        next()
+    }
 })
 
 /* eslint-disable no-new */
