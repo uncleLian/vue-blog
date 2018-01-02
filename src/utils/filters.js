@@ -2,11 +2,11 @@ export default {
     devide_10k: function(num) {
         return num >= 10000 ? (num / 10000).toFixed(1) + '万' : num
     },
-    formatTime: function(time, cFormat) {
+    formatTime: function(time, formatType) {
         if (arguments.length === 0) {
             return null
         }
-        const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
+        const format = formatType || '{y}-{m}-{d} {h}:{i}:{s}'
         let date
         if (typeof time === 'object') {
             date = time

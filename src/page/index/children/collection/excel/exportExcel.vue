@@ -1,5 +1,6 @@
 <template>
-    <div id="dragTable">
+    <div id="exportExcel">
+        <el-button class="exportBtn" type="primary" @click="handleName" :loading="exportLoading">导出 Excel</el-button>
         <el-table :data="json" v-loading.body="loading" element-loading-text="拼命加载中..." style="width: 100%" border fit :header-cell-style="{'text-align': 'center'}">
             <!-- 序号 -->
             <el-table-column type="index" align="center" label="序号" width="65">
@@ -62,46 +63,28 @@
                     <span>{{scope.row.sound.user.name}}</span>
                 </template>
             </el-table-column>
-            <!-- 拖拽 -->
-            <el-table-column align="center" label="拖拽" width="65">
-                <template slot-scope="scope">
-                    <i class="el-icon-rank dragIcon"></i>
-                </template>
-            </el-table-column>
         </el-table>
-
-        <div style="marginTop: 30px;" v-if="json.length > 0">
-            <p>默认顺序：{{oldList}}</p>
-            <p>拖拽后的顺序：{{newList}}</p>
-        </div>
     </div>
 </template>
 <script>
 import { getList } from '@/api'
-import Sortable from 'sortablejs'
 export default {
-    name: 'dragTable',
+    name: 'exportExcel',
     data() {
         return {
+            filename: '',
             json: [],
-            oldList: [],
-            newList: [],
-            loading: false
+            loading: false,
+            exportLoading: false
         }
     },
     methods: {
         get_list() {
             this.loading = true
             getList().then(res => {
+                // console.log(res)
                 if (res) {
                     this.json = res.data
-                    this.json.forEach((item, index) => {
-                        this.oldList.push(index + 1)
-                    })
-                    this.newList = this.oldList.slice()
-                    this.$nextTick(() => {
-                        this.setSort()
-                    })
                 }
                 this.loading = false
             })
@@ -109,14 +92,52 @@ export default {
                 this.loading = false
             })
         },
-        setSort() {
-            const el = this.$el.querySelector('.el-table__body-wrapper > table > tbody')
-            this.sortable = Sortable.create(el, {
-                onEnd: evt => {
-                    const tempIndex = this.newList.splice(evt.oldIndex, 1)[0]
-                    this.newList.splice(evt.newIndex, 0, tempIndex)
-                }
+        handleName() {
+            this.$prompt('请输入文件名字（默认为：example）', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消'
             })
+            .then(({ value }) => {
+               this.filename = value
+               this.handleExport()
+            })
+            .catch(() => {
+            })
+        },
+        handleExport() {
+            this.exportLoading = true
+            require.ensure([], () => {
+                const { export_json_to_excel } = require('@/utils/Export2Excel')
+                const filterJson = this.filterJson(this.json)
+                const filterVal = ['order', 'id', 'time', 'title', 'channel', 'hot', 'author']
+                const tHeader = ['序号', 'ID', '时间', '标题', '频道', '热度', '作者']
+                const data = this.formatJson(filterJson, filterVal)
+                export_json_to_excel(tHeader, data, this.filename)
+                this.exportLoading = false
+            })
+        },
+        // 过滤要导出的数据
+        filterJson(json) {
+            let res = []
+            json.forEach((item, index) => {
+                let obj = {}
+                obj.order = index
+                obj.id = item.sound.id
+                obj.time = item.updated_at
+                obj.title = item.sound.name
+                obj.channel = item.sound.channel.name
+                obj.hot = item.type
+                obj.author = item.sound.user.name
+                res.push(obj)
+            })
+            return res
+        },
+        // 格式化数据
+        formatJson(json, filterVal) {
+            let data = json.map(item => filterVal.map(key => {
+                return item[key]
+            }))
+            return data
         }
     },
     mounted() {
@@ -125,11 +146,9 @@ export default {
 }
 </script>
 <style lang='stylus'>
-#dragTable {
-    width: 100%;
-    .dragIcon{
-        font-size: 18px;
-        cursor: pointer;
+#exportExcel {
+    .exportBtn {
+        margin-bottom: 30px;
     }
 }
 </style>

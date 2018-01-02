@@ -9,10 +9,8 @@
 </template>
 <script>
 import { routes } from '@/router'
-import myMenuItem from './menuItem'
 export default {
     name: 'menu',
-    components: { myMenuItem },
     data() {
         return {
             filterRoutes: [],       // 过滤后的路由

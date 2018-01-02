@@ -1,7 +1,7 @@
 <template>
     <div id="login">
         <div class="login_logo">
-            <a class="shake-slow shake-constant shake-constant--hover" href="https://github.com/uncleLian/vue2-blog" target="_blank">vue2-blog</a>
+            <a class="shake-slow shake-constant--hover" href="https://github.com/uncleLian/vue2-blog" target="_blank">vue2-blog</a>
         </div>
         <div class="login_wrap">
             <div class="login_content">
@@ -120,7 +120,7 @@ bgColor2=#42b983
     }
     .login_wrap {
         position: absolute;
-        top: 50%;
+        top: 56%;
         left: 50%;
         transform: translate3d(-50%,-50%,0);
         border-radius: 4px;

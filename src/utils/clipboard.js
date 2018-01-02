@@ -76,6 +76,7 @@ let cutText = (target) => {
  * :success  function      成功回调
  * :error    function      失败回调
  */
+
 let directiveClipboard = {
     bind: function(el, binding, vnode) {
         let vm = vnode.context

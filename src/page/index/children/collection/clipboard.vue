@@ -20,6 +20,10 @@
                 <el-button slot="append" v-clipboard:cut="cut2" v-clipboard:success="onCutSuccess" v-clipboard:error="onCutError">剪切</el-button>
             </el-input>
         </div>
+
+        <div class="moreLink">
+            <p>更多内容：<a href="https://github.com/zenorocha/clipboard.js" target="_blank">clipboard.js</a></p>
+        </div>
     </div>
 </template>
 <script>

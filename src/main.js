@@ -28,6 +28,7 @@ import sticky from '@/components/sticky'
 import backTop from '@/components/backTop'
 import countTo from '@/components/countTo'
 import loading from '@/components/loading'
+import menuItem from '@/layout/menuItem'
 
 // 自定义指令
 import vueClipboard from '@/utils/clipboard.js'
@@ -56,6 +57,7 @@ Vue.component('my-sticky', sticky)
 Vue.component('my-backTop', backTop)
 Vue.component('my-countTo', countTo)
 Vue.component('my-loading', loading)
+Vue.component('my-menu-item', menuItem)
 
 // 自定义指令
 Vue.use(vueClipboard)

@@ -19,6 +19,9 @@ const progressbar = () => import('@/page/index/children/collection/progressbar')
 const editor = () => import('@/page/index/children/collection/editor')
 const draggable = () => import('@/page/index/children/collection/draggable')
 const clipboard = () => import('@/page/index/children/collection/clipboard')
+const exportExcel = () => import('@/page/index/children/collection/excel/exportExcel')
+const exportSelected = () => import('@/page/index/children/collection/excel/exportSelected')
+const importExcel = () => import('@/page/index/children/collection/excel/importExcel')
 // example
 const dragTable = () => import('@/page/index/children/example/dragTable')
 const upload = () => import('@/page/index/children/example/upload/upload')
@@ -117,6 +120,30 @@ export const routes = [
                         path: 'clipboard',
                         icon: 'el-icon-fa-clipboard',
                         component: clipboard
+                    },
+                    {
+                        name: 'Excel',
+                        path: 'Excel',
+                        icon: 'el-icon-fa-clipboard',
+                        redirect: '/index/collection/Excel/exportExcel',
+                        component: view,
+                        children: [
+                            {
+                                name: 'exportExcel',
+                                path: 'exportExcel',
+                                component: exportExcel
+                            },
+                            {
+                                name: 'exportSelected',
+                                path: 'exportSelected',
+                                component: exportSelected
+                            },
+                            {
+                                name: 'importExcel',
+                                path: 'importExcel',
+                                component: importExcel
+                            }
+                        ]
                     }
                 ]
             },
