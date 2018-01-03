@@ -1,6 +1,9 @@
 <template>
     <div id="exportExcel">
-        <el-button class="exportBtn" type="primary" @click="handleName" :loading="exportLoading">导出 Excel</el-button>
+        <div class="fileName">
+            <el-input v-model="filename" placeholder="请输入文件名（默认：example）" prefix-icon="el-icon-document" style='width:260px;' ></el-input>
+            <el-button type="primary" @click="handleExport" :loading="exportLoading">导出 excel</el-button>
+        </div>
         <el-table :data="json" v-loading.body="loading" element-loading-text="拼命加载中..." style="width: 100%" border fit :header-cell-style="{'text-align': 'center'}">
             <!-- 序号 -->
             <el-table-column type="index" align="center" label="序号" width="65">
@@ -147,8 +150,8 @@ export default {
 </script>
 <style lang='stylus'>
 #exportExcel {
-    .exportBtn {
-        margin-bottom: 30px;
+    .fileName {
+        margin-bottom: 20px;
     }
 }
 </style>

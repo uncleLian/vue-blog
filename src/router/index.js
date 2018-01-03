@@ -14,6 +14,7 @@ const stickyView = () => import('@/page/index/children/componentsView/sticky_vie
 const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
 const backTopView = () => import('@/page/index/children/componentsView/backTop_view')
 const countToView = () => import('@/page/index/children/componentsView/countTo_view')
+const loadingView = () => import('@/page/index/children/componentsView/loading_view')
 // collection
 const progressbar = () => import('@/page/index/children/collection/progressbar')
 const editor = () => import('@/page/index/children/collection/editor')
@@ -32,6 +33,7 @@ Vue.use(Router)
 * @params
 * icon: ''             菜单图标（可以用element-ui 的icon 或者 项目已经配置好的awesome icons）
 * open: false          是否展开菜单
+* login: false         是否需要登录
 */
 
 export const routes = [
@@ -82,9 +84,16 @@ export const routes = [
                     {
 
                         name: '动态数值',
-                        path: 'countToView',
+                        path: 'countTo',
                         icon: 'el-icon-fa-calculator',
                         component: countToView
+                    },
+                    {
+
+                        name: '加载提示',
+                        path: 'loading',
+                        icon: 'el-icon-fa-spinner',
+                        component: loadingView
                     }
                 ]
             },
@@ -124,7 +133,7 @@ export const routes = [
                     {
                         name: 'Excel',
                         path: 'Excel',
-                        icon: 'el-icon-fa-clipboard',
+                        icon: 'el-icon-fa-file-excel-o',
                         redirect: '/index/collection/Excel/exportExcel',
                         component: view,
                         children: [

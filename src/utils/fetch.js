@@ -4,7 +4,6 @@ import store from '@/store'
 import { Message } from 'element-ui'
 import { getToken } from '@/utils/token.js'
 
-// 'http://blog.liansixin.win/api-dev'
 // 创建axios实例
 export const instance = axios.create({
     baseURL: process.env.BASE_API,      // api的base_url
