@@ -6,7 +6,9 @@
             <el-button type="warning" @click="handleLoading('nothing')">nothing 状态</el-button>
             <el-button type="danger" @click="handleLoading('error')">error 状态</el-button>
         </div>
+        <div style="font-size: 18px;margin-left: 2px;">loading：{{loading}}</div>
         <my-loading :visible="loading" :reload="getData"></my-loading>
+
     </div>
 </template>
 <script>
@@ -22,7 +24,7 @@ export default {
         getData() {
             this.loading = true
             getList().then(res => {
-                console.log(res)
+                // console.log(res)
                 this.$message.success('请求成功')
                 if (res) {
                     this.loading = false

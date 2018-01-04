@@ -7,6 +7,7 @@ const view = () => import('@/layout/view')
 // 一级路由
 const login = () => import('@/page/login/login')
 const index = () => import('@/page/index/index')
+const page404 = () => import('@/page/other/page404')
 // home
 const home = () => import('@/page/index/children/home')
 // componentsView
@@ -26,6 +27,8 @@ const importExcel = () => import('@/page/index/children/collection/excel/importE
 // example
 const dragTable = () => import('@/page/index/children/example/dragTable')
 const upload = () => import('@/page/index/children/example/upload/upload')
+// more
+const view_404 = () => import('@/page/index/children/more/view_404')
 
 Vue.use(Router)
 
@@ -159,8 +162,7 @@ export const routes = [
             {
                 name: '综合实例',
                 path: 'example',
-                icon: 'el-icon-fa-file-text',
-                // open: true,
+                icon: 'el-icon-document',
                 redirect: '/index/example/dragTable',
                 component: view,
                 children: [
@@ -175,6 +177,20 @@ export const routes = [
                         component: upload
                     }
                 ]
+            },
+            {
+                name: '更多',
+                path: 'more',
+                icon: 'el-icon-caret-bottom',
+                redirect: '/index/more/404',
+                component: view,
+                children: [
+                    {
+                        name: '404',
+                        path: '404',
+                        component: view_404
+                    }
+                ]
             }
         ]
     },
@@ -182,6 +198,10 @@ export const routes = [
         name: '登录',
         path: '/login',
         component: login
+    },
+    {
+        path: '*',
+        component: page404
     }
 ]
 

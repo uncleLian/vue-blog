@@ -61,7 +61,7 @@
                         </div>
                         <!-- 单图 -->
                         <div class="cover-images"> 
-                            <template v-for="(item,index) in cover_mode">
+                            <template v-for="({index}) in cover_mode">
                                 <div class="cover-img" v-if="coverImages[index]" @click="openSelectPicture(index)">
                                     <img :src="coverImages[index]">
                                 </div>
