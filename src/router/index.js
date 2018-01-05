@@ -24,6 +24,9 @@ const clipboard = () => import('@/page/index/children/collection/clipboard')
 const exportExcel = () => import('@/page/index/children/collection/excel/exportExcel')
 const exportSelected = () => import('@/page/index/children/collection/excel/exportSelected')
 const importExcel = () => import('@/page/index/children/collection/excel/importExcel')
+const pie = () => import('@/page/index/children/collection/charts/pie')
+const radar = () => import('@/page/index/children/collection/charts/radar')
+const scatter = () => import('@/page/index/children/collection/charts/scatter')
 // example
 const dragTable = () => import('@/page/index/children/example/dragTable')
 const upload = () => import('@/page/index/children/example/upload/upload')
@@ -154,6 +157,30 @@ export const routes = [
                                 name: 'importExcel',
                                 path: 'importExcel',
                                 component: importExcel
+                            }
+                        ]
+                    },
+                    {
+                        name: '图表',
+                        path: 'charts',
+                        icon: 'el-icon-fa-bar-chart',
+                        redirect: '/index/collection/charts/pie',
+                        component: view,
+                        children: [
+                            {
+                                name: '饼图',
+                                path: 'pie',
+                                component: pie
+                            },
+                            {
+                                name: '雷达图',
+                                path: 'radar',
+                                component: radar
+                            },
+                            {
+                                name: '散点图',
+                                path: 'scatter',
+                                component: scatter
                             }
                         ]
                     }

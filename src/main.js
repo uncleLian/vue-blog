@@ -21,6 +21,7 @@ import ElementUI from 'element-ui'
 import VueProgressBar from 'vue-progressbar'
 import VueQuillEditor from 'vue-quill-editor'
 import draggable from 'vuedraggable'
+import echarts from 'echarts'
 
 // 自定义组件
 import breadcrumb from '@/components/breadcrumb'
@@ -50,6 +51,7 @@ Vue.use(VueProgressBar, {
 })
 Vue.use(VueQuillEditor)
 Vue.component('my-draggable', draggable)
+Vue.prototype.$echarts = echarts
 
 // 自定义组件
 Vue.component('my-breadcrumb', breadcrumb)

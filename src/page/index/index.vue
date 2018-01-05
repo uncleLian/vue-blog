@@ -1,10 +1,10 @@
 <template>
     <div id="index">
-        <el-container class="container" direction="vertical">
+        <el-container id="verContainer" direction="vertical">
             <!-- 头部 -->
             <my-header></my-header>
             <!-- 容器 -->
-            <el-container direction="horizontal">
+            <el-container id="horContainer" direction="horizontal">
                 <!-- 菜单栏 -->
                 <my-menu></my-menu>
                 <!-- 页面 -->
@@ -29,9 +29,11 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 100%;
-    .container{
-        min-height: 100%;
+    #verContainer{
+        height: 100%;
+        #horContainer{
+            height: 100%;
+        }
     }
 }
 </style>

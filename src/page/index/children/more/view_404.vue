@@ -7,26 +7,16 @@
 import myErrorPage from '@/page/other/page404'
 export default {
     name: 'view_404',
-    components: { myErrorPage },
-    data() {
-        return {
-
-        }
-    },
-    computed: {
-
-    },
-    methods: {
-
-    },
-    mounted() {
-
-    }
+    components: { myErrorPage }
 }
 </script>
 <style lang='stylus'>
 #view_404 {
-    width: 100%;
-    height: 100%;
+    margin: 20px;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 0;
+    left: 0
 }
 </style>

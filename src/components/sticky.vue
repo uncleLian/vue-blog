@@ -80,8 +80,7 @@ export default {
             if ((elOffset.top - this.offsetTop) <= scrollTop && this.offsetType === 'top' && !sticky) {
                 this.sticky = true
                 this.wrapperStyles = {
-                    width: `${elOffset.width}px`,
-                    height: `${elOffset.height}px`
+                    width: `${elOffset.width}px`
                 }
                 this.stickyStyles = {
                     top: `${this.offsetTop}px`,
@@ -100,8 +99,7 @@ export default {
                 if ((elOffset.top + this.offsetBottom + elHeight) > (scrollTop + windowHeight) && this.offsetType === 'bottom' && !sticky) {
                 this.sticky = true
                 this.wrapperStyles = {
-                    width: `${elOffset.width}px`,
-                    height: `${elOffset.height}px`
+                    width: `${elOffset.width}px`
                 }
                 this.stickyStyles = {
                     bottom: `${this.offsetBottom}px`,
