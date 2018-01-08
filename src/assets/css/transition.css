@@ -9,3 +9,13 @@
         height: 0;
     }
 }
+@keyframes slideUp{
+    0% {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

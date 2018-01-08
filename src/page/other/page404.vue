@@ -13,21 +13,7 @@
 </template>
 <script>
 export default {
-    name: 'page404',
-    data() {
-        return {
-
-        }
-    },
-    computed: {
-
-    },
-    methods: {
-
-    },
-    mounted() {
-
-    }
+    name: 'page404'
 }
 </script>
 <style lang='stylus'>
@@ -86,16 +72,6 @@ export default {
             font-weight: bold;
             animation-delay: 0.3s;
         }
-    }
-}
-@keyframes slideUp{
-    0% {
-        transform: translateY(60px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
     }
 }
 </style>

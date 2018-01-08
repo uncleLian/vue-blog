@@ -22,6 +22,8 @@
     "js-cookie": "^2.2.0",
     "mockjs": "^1.0.1-beta3",
     "qs": "^6.5.1",
+    "showdown": "^1.8.6",
+    "simplemde": "^1.11.2",
     "sortablejs": "^1.7.0",
     "vue": "^2.5.9",
     "vue-progressbar": "^0.7.3",

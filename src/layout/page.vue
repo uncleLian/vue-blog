@@ -1,10 +1,8 @@
 <template>
 	<el-main id="page">
-        <div class="box">
-            <transition name="el-fade-in-linear" mode="out-in">
-                <router-view></router-view>
-            </transition>
-        </div>
+        <transition name="el-fade-in-linear" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </el-main>
 </template>
 <script>
@@ -16,15 +14,9 @@ export default {
 #page {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    min-height: 100%;
     background: #fff;
     overflow: inherit;
-    padding: 0;
-    .box{
-        position: relative;
-        min-height: 100% !important;
-        padding: 20px;
-        background: #fff;
-    }
 }
 </style>

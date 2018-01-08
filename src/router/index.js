@@ -19,6 +19,7 @@ const loadingView = () => import('@/page/index/children/componentsView/loading_v
 // collection
 const progressbar = () => import('@/page/index/children/collection/progressbar')
 const editor = () => import('@/page/index/children/collection/editor')
+const markdown = () => import('@/page/index/children/collection/markdown')
 const draggable = () => import('@/page/index/children/collection/draggable')
 const clipboard = () => import('@/page/index/children/collection/clipboard')
 const exportExcel = () => import('@/page/index/children/collection/excel/exportExcel')
@@ -123,6 +124,12 @@ export const routes = [
                         path: 'editor',
                         icon: 'el-icon-fa-pencil',
                         component: editor
+                    },
+                    {
+                        name: 'Markdown编辑器',
+                        path: 'markdown',
+                        icon: 'el-icon-edit-outline',
+                        component: markdown
                     },
                     {
                         name: '拖拽列表',

@@ -48,7 +48,8 @@ export default {
                         ['clean'],
                         ['link', 'image', 'video']
                     ]
-                }
+                },
+                placeholder: ' '
             }
         }
     }

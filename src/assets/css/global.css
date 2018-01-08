@@ -14,11 +14,14 @@ body {
      font-weight: 400;
      font-size: 14px;
      color: #595959;
+     overflow-x: hidden;
+     overflow-y: auto;
 }
 a {
      text-decoration: none;
      color: #42b983;
      font-size: 600;
+     outline: none;
 }
 
 .moreLink {

@@ -1,6 +1,6 @@
 <template>
     <div id="radar">
-        <div id="myCharts" style="width: 100%; height: 100%;"></div>
+        <div id="myCharts"></div>
         <div class="moreLink">
             <p>更多内容：<a href="http://echarts.baidu.com/" target="_blank">echarts</a></p>
         </div>
@@ -251,6 +251,9 @@ export default {
 <style lang='stylus'>
 #radar {
     width: 100%;
-    height: 80%;
+    #myCharts{
+        width: 100%;
+        height: 100vh;
+    }
 }
 </style>
