@@ -10,7 +10,7 @@
 <script>
 import { routes } from '@/router'
 export default {
-    name: 'menu',
+    name: 'my-menu',
     data() {
         return {
             filterRoutes: [],       // 过滤后的路由

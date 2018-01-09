@@ -6,18 +6,26 @@ import { setToken, removeToken } from '@/utils/token.js'
 Vue.use(Vuex)
 
 const state = {
-    user: ''
+    user: '',
+    logs: []
 }
 
 const getters = {
     user: state => {
         return state.user
+    },
+    logs: state => {
+        return state.logs
     }
 }
 
 const mutations = {
     set_user(state, val) {
         state.user = val
+    },
+    set_logs(state, val) {
+        state.logs.push(val)
+        console.log(val)
     },
     loginOut(state) {
         state.user = ''
@@ -30,7 +38,7 @@ const actions = {
     async get_login_data({ commit }, params) {
         return new Promise((resolve, reject) => {
             getLogin(params).then(res => {
-                console.log('token', res)
+                // console.log('token', res)
                 if (res && res.token) {
                     setToken(res.token)
                     resolve()

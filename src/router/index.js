@@ -33,6 +33,7 @@ const dragTable = () => import('@/page/index/children/example/dragTable')
 const upload = () => import('@/page/index/children/example/upload/upload')
 // more
 const view_404 = () => import('@/page/index/children/more/view_404')
+const errorLog = () => import('@/page/index/children/more/errorLog/errorLog')
 
 Vue.use(Router)
 
@@ -40,7 +41,9 @@ Vue.use(Router)
 * @params
 * icon: ''             菜单图标（可以用element-ui 的icon 或者 项目已经配置好的awesome icons）
 * open: false          是否展开菜单
+* @meta
 * login: false         是否需要登录
+* keep: false          是否需要缓存
 */
 
 export const routes = [
@@ -222,7 +225,16 @@ export const routes = [
                     {
                         name: '404',
                         path: '404',
+                        icon: 'el-icon-fa-exclamation-triangle',
+                        meta: { keep: true },
                         component: view_404
+                    },
+                    {
+                        name: '错误日志',
+                        path: 'errorLog',
+                        icon: 'el-icon-fa-bug',
+                        meta: { keep: true },
+                        component: errorLog
                     }
                 ]
             }

@@ -5,36 +5,59 @@
             <router-link class="header-logo" to="/">
                 <span>vue2-blog</span>
             </router-link>
-            <!-- tools -->
-            <div class="header-tools" v-if="$store.state.user">
-                <el-dropdown class="user-tools" @command="handleCommand" placement="top-end">
-                    <div class="userInfo">
-                        <img :src="$store.state.user.headimgurl">
-                        <span class="el-dropdown-link">{{$store.state.user.nickname}}</span>
+
+            <div class="header-right">
+                <!-- bug -->
+                <div class="right-item" v-if="logs.length > 0">
+                    <el-badge is-dot @click.native="bugDialog = true">
+                        <i class="el-icon-fa-bug bug" type="danger" size="small" @click="$refs.errorDialog.toggle"></i>
+                    </el-badge>
+                </div>
+                <!-- user -->
+                <div class="right-item">
+                    <div class="user" v-if="user">
+                        <el-dropdown @command="handleCommand" placement="top-end">
+                            <div class="user-info">
+                                <img :src="user.headimgurl">
+                                <span class="el-dropdown-link">{{user.nickname}}</span>
+                            </div>
+                            <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item command="exit">退出</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
                     </div>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item command="exit">退出</el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
+                </div>
             </div>
         </div>
         <!-- 面包屑组件 -->
         <my-breadcrumb class="header-breadcrumb"></my-breadcrumb>
+
+        <!-- 错误日志Dialog -->
+        <error-dialog ref="errorDialog"></error-dialog>
     </el-header>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import errorDialog from '@/page/index/children/more/errorlog/errorDialog'
 export default {
-    name: 'header',
+    name: 'my-header',
+    components: { errorDialog },
+    computed: {
+        ...mapGetters([
+            'user',
+            'logs'
+        ])
+    },
     methods: {
+        // 设置面包屑组件样式
+        setBreadcrumbStyle() {
+            this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
+        },
         handleCommand(command) {
             if (command === 'exit') {
                 this.$store.commit('loginOut')
                 this.$router.push('/login')
             }
-        },
-        // 设置面包屑组件样式
-        setBreadcrumbStyle() {
-            this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
         }
     },
     mounted() {
@@ -65,13 +88,24 @@ export default {
                 vertical-align: middle;
             }
         }
-        .header-tools{
+        .header-right{
             height: 100%;
             float: right;
             display: flex;
             align-items: center;
-            .user-tools{
-                .userInfo{
+            .right-item{
+                margin: 0 12px;
+            }
+            .bug{
+                color: #fff;
+                font-size: 20px;
+                padding: 2px 4px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+            .user{
+                .user-info{
                     img{
                         width: 40px;
                         height: 40px;

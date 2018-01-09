@@ -5,7 +5,7 @@
 ![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/element--ui-2.0.7-blue.svg)
 
-#### 还在开发，敬请期待！
+#### 还在开发，敬请期待！ （已完成70%）
 > 你的 "star" 是我最大的动力！🌹
 
 
@@ -42,6 +42,7 @@
 ##### 5、统一的API请求、拦截以及错误处理（完成）
 ##### 6、自动匹配开发环境和生产环境的请求链接（完成）
 ##### 7、没有相匹配的路由将跳转至404页面（完成）
+##### 8、全局捕捉错误信息（完成）
 
 ## 自定义组件
 ##### 1、面包屑：breadcrumb.vue（完成）
@@ -68,6 +69,7 @@
 
 ## 更多
 ##### 1、404 页面（完成）
+##### 2、错误日志（完成）
 
 ## 第三方依赖
 ##### 1、[element-ui](https://github.com/ElemeFE/element)（UI组件库）
@@ -84,6 +86,8 @@
 ##### 12、[stylus](https://github.com/stylus/stylus) stylus-loader（css预处理器）
 ##### 13、less less-loader（css预处理器）
 ##### 14、[js-xlsx](https://github.com/SheetJS/js-xlsx)（电子表格处理库）
+##### 15、[simplemde](https://github.com/sparksuite/simplemde-markdown-editor)（Markdown编辑器）
+##### 16、[showdown](https://github.com/showdownjs/showdown)（Markdown转换成HTML的库）
 
 ## 安装运行
 
