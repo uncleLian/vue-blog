@@ -20,6 +20,6 @@ export function getList() {
 
 // 图片
 export async function getPicture(data) {
-    let res = await instance.get('http://api.toutiaojk.com/e/extend/jkh/picsearch', {params: data})
+    let res = await instance.get('http://api.toutiaojk.com/e/extend/jkh/picsearch', { params: data })
     return res.data
 }

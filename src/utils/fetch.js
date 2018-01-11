@@ -19,7 +19,6 @@ instance.interceptors.request.use(config => {
     return config
 }, error => {
     // Do something with request error
-    console.log('requestError', error) // for debug
     Promise.reject(error)
 })
 
@@ -31,7 +30,6 @@ instance.interceptors.response.use(response => {
     }
     return response
 }, error => {
-    console.log('responseError', error) // for debug
     Message({
         message: error.message,
         type: 'error',

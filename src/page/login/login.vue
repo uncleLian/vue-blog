@@ -5,7 +5,7 @@
         </div>
         <div class="login_wrap">
             <div class="login_content">
-                <span class="register_btn">注册</span>
+                <span class="register_btn" @click="register">注册</span>
                 <span class="login_btn" @click.stop="dialogFormVisible = true">登录</span>
             </div>
         </div>
@@ -88,6 +88,9 @@ export default {
                 this.pwdType = 'password'
                 this.eyeType = 'el-icon-fa-eye-slash'
             }
+        },
+        register() {
+            this.$message.warning('这个按钮只是为了好看~')
         }
     }
 }

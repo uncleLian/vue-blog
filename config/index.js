@@ -6,11 +6,18 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/baidu': {
+            target: 'https://api.baidu.com/json/tongji/v1/ReportService',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/baidu': '/'
+            }
+        }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
