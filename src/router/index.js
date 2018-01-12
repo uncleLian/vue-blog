@@ -9,7 +9,7 @@ const login = () => import('@/page/login/login')
 const index = () => import('@/page/index/index')
 const page404 = () => import('@/page/other/page404')
 // home
-const home = () => import('@/page/index/children/home')
+const home = () => import('@/page/index/children/home/home')
 // componentsView
 const stickyView = () => import('@/page/index/children/componentsView/sticky_view')
 const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
