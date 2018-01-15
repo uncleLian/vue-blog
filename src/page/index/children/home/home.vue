@@ -49,8 +49,9 @@ export default {
 GithubSize = 80px
 iconSize = GithubSize / 2
 #home {
-    padding-right: 30px;
+    padding-top: 10px;
     padding-bottom: 20px;
+    padding-right: 30px;
     background-color: #fff;
     .github{
         position: absolute;

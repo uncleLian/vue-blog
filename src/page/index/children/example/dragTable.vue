@@ -36,7 +36,7 @@
                 </template>
             </el-table-column>
             <!-- 频道 -->
-            <el-table-column align="center" label="频道" min-width="160">
+            <el-table-column align="center" label="频道" min-width="180">
                 <template slot-scope="scope">
                     <el-tag size="medium">{{scope.row.sound.channel.name}}</el-tag>
                 </template>

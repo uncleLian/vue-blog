@@ -2,8 +2,8 @@
     <div id="todo">
         <el-card>
             <div class="todo-card-header" slot="header">
-                <i class="el-icon-arrow-down allCheckedIcon" :class="{'active': allChecked}" @click="handleCheckAll"></i>
-                <el-input class="titleInput" v-model="titileInput" placeholder="TodoList" size="small" :maxlength="20" clearable></el-input>
+                <i class="el-icon-arrow-down allCheckedIcon" :class="{'active': allChecked}" @click="allChecked = !allChecked"></i>
+                <el-input class="titleInput" v-model="titileInput" placeholder="Todo List" size="small" :maxlength="20" clearable></el-input>
                 <div class="newTag">
                     <el-input class="input-new-tag" v-if="inputVisible" v-model="inputValue" :maxlength="15" ref="saveTagInput" size="small" @keyup.enter.native="addItem" @blur="addItem">
                     </el-input>
@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="todo-card-body">
-                <el-checkbox-group v-model="checked" @change="hancleCheckChange">
+                <el-checkbox-group v-model="checked">
                     <transition-group name="el-zoom-in-top" class="list" tag="div">
                         <div class="list-item" v-for="(item,index) in list" :key="index">
                             <el-checkbox class="list-item-checkbox" :label="item" :title="item"></el-checkbox>
@@ -19,9 +19,11 @@
                         </div>
                     </transition-group>
                 </el-checkbox-group>
-                <div class="todo-card-footer">
-                    <span>{{list.length - checked.length}} items left</span>
-                </div>
+                <p class="completed" v-if="!(list.length > 0)">没有要做的事情^_^</p>
+            </div>
+            <div class="todo-card-footer">
+                <span :class="{'selected': !allChecked}">{{list.length - checked.length}} items left</span>
+                <span :class="{'selected': allChecked}">Completed</span>
             </div>
         </el-card>
     </div>
@@ -33,7 +35,7 @@ export default {
         return {
             list: ['star this repository', 'fork this repository', 'follow author', 'vue', 'element-ui', 'axios', 'webpack'],
             checked: ['vue', 'element-ui', 'axios', 'webpack'],
-            titileInput: 'TodoList',
+            titileInput: 'Todo List',
             inputVisible: false,
             inputValue: ''
         }
@@ -56,22 +58,38 @@ export default {
         list() {
             let Arr = []
             this.checked.forEach(check => {
-                this.list.forEach(list => {
-                   if (check === list) {
-                        Arr.push(list)
+                this.list.forEach(item => {
+                   if (check === item) {
+                        Arr.push(item)
                     }
                 })
             })
             this.checked = Arr
+        },
+        checked(newVal, oldVal) {
+            if (newVal.length - oldVal.length === 1) {
+                let lastVal = newVal[newVal.length - 1]
+                let isIncludes = ['star this repository', 'fork this repository', 'follow author'].includes(lastVal)
+                if (isIncludes) {
+                    this.$notify.success('Thank for ' + lastVal)
+                }
+            } else if (newVal.length - oldVal.length > 1) {
+                let count = 0
+                newVal.forEach(item => {
+                    let isIncludes = ['star this repository', 'fork this repository', 'follow author'].includes(item)
+                    if (isIncludes) {
+                        this.$notify({
+                            type: 'success',
+                            message: 'Thank for ' + item,
+                            offset: 60 * count
+                        })
+                        count++
+                    }
+                })
+            }
         }
     },
     methods: {
-        handleCheckAll() {
-            this.allChecked = !this.allChecked
-        },
-        hancleCheckChange(val) {
-            this.checked = val
-        },
         deleteItem(index) {
             this.list.splice(index, 1)
         },
@@ -138,6 +156,16 @@ export default {
         .el-card__body {
             padding: 0;
             .todo-card-body {
+                position: relative;
+                min-height: 225px;
+                .completed{
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #999;
+                    text-align: center;
+                }
                 .list {
                     .list-item {
                         position: relative;
@@ -198,24 +226,34 @@ export default {
                         }
                     }
                 }
-                .todo-card-footer {
-                    position: relative;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    color: #777;
-                    padding: 10px 18px;
-                    font-size: 12px;
-                    border-top: 1px solid #ededed;
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
-                        left: 0;
-                        height: 50px;
-                        overflow: hidden;
-                        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+            }
+            .todo-card-footer {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #777;
+                padding: 10px 18px;
+                font-size: 12px;
+                border-top: 1px solid #ededed;
+                user-select: none;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 100%;
+                    overflow: hidden;
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+                }
+                span{
+                    padding: 3px 7px;
+                    text-decoration: none;
+                    border: 1px solid transparent;
+                    border-radius: 3px;
+                    &.selected{
+                        border-color: rgba(175, 47, 47, 0.2);
                     }
                 }
             }
