@@ -1,0 +1,33 @@
+export default {
+    routes: {
+        index: 'index',
+        home: 'home',
+        components: 'components',
+        sticky: 'sticky',
+        breadcrumb: 'breadcrumb',
+        backTop: 'backTop',
+        countTo: 'countTo',
+        loading: 'loading',
+        collection: 'collection',
+        progressbar: 'progressbar',
+        editor: 'editor',
+        markdown: 'Markdown',
+        draggable: 'draggable',
+        clipboard: 'clipboard',
+        Excel: 'Excel',
+        exportExcel: 'exportExcel',
+        exportSelected: 'exportSelected',
+        importExcel: 'importExcel',
+        charts: 'charts',
+        pie: 'pie',
+        radar: 'radar',
+        scatter: 'scatter',
+        example: 'example',
+        dragTable: 'dragTable',
+        upload: 'upload',
+        more: 'more',
+        page404: 'page404',
+        errorLog: 'errorLog',
+        login: 'login'
+    }
+}

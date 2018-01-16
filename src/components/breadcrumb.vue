@@ -42,8 +42,8 @@ export default {
             let matched = this.$route.matched.filter(item => item.name)
             const first = matched[0]
             // 如果顶层路由name不等于首页，并且path不等于空，则添加首页路由为顶层路由
-            if (first && first.name !== '首页' && first.path !== '') {
-                matched = [{ name: '首页', path: '/index' }].concat(matched)
+            if (first && first.name !== 'index' && first.path !== '') {
+                matched = [{ name: 'index', path: '/index' }].concat(matched)
             }
             this.json = matched
         }

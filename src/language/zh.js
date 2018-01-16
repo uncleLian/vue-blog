@@ -1,0 +1,33 @@
+export default {
+    routes: {
+        index: '首页',
+        home: '主页',
+        components: '组件',
+        sticky: '图钉',
+        breadcrumb: '面包屑',
+        backTop: '返回顶部',
+        countTo: '动态数值',
+        loading: '加载提示',
+        collection: '集成',
+        progressbar: '进度条',
+        editor: '富文本编辑器',
+        markdown: 'Markdown编辑器',
+        draggable: '拖拽列表',
+        clipboard: '剪切板',
+        Excel: 'Excel',
+        exportExcel: '导出Excel',
+        exportSelected: '导出Selected',
+        importExcel: '导入Excel',
+        charts: '图表',
+        pie: '饼图',
+        radar: '雷达图',
+        scatter: '散点图',
+        example: '综合实例',
+        dragTable: '拖拽表格',
+        upload: '图片上传',
+        more: '更多',
+        page404: '404页面',
+        errorLog: '错误日志',
+        login: '登录'
+    }
+}

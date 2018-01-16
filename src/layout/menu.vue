@@ -39,7 +39,7 @@ export default {
         handleIndexRoutes() {
             let filterRoutes = this.handleRoutes(routes)
             let indexRoutes = filterRoutes[0]
-            if (indexRoutes.name === '首页' && indexRoutes.children) {
+            if (indexRoutes.name === 'index' && indexRoutes.children) {
                 this.filterRoutes = indexRoutes.children
             }
         }

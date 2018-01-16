@@ -18,10 +18,12 @@ import '@/mock'
 // 第三方
 import axios from 'axios'
 import ElementUI from 'element-ui'
+import i18n from './language'
 import VueProgressBar from 'vue-progressbar'
 import VueQuillEditor from 'vue-quill-editor'
 import draggable from 'vuedraggable'
 import echarts from 'echarts'
+import vueClipboard from 'vue-clipboard-pack'
 
 // 自定义组件
 import breadcrumb from '@/components/breadcrumb'
@@ -31,11 +33,8 @@ import countTo from '@/components/countTo'
 import loading from '@/components/loading'
 import menuItem from '@/layout/menuItem'
 
-// 自定义指令
-import vueClipboard from '@/utils/clipboard.js'
-
 // 自定义过滤
-import filters from '@/utils/filters.js'
+import filters from '@/filters'
 
 import { getToken } from '@/utils/token.js'
 
@@ -43,7 +42,9 @@ Vue.config.productionTip = false
 
 // 第三方
 Vue.prototype.$http = axios
-Vue.use(ElementUI)
+Vue.use(ElementUI, {
+   i18n: (key, value) => i18n.t(key, value)
+})
 Vue.use(VueProgressBar, {
     color: '#29F',
     failedColor: 'red',
@@ -52,6 +53,7 @@ Vue.use(VueProgressBar, {
 Vue.use(VueQuillEditor)
 Vue.component('my-draggable', draggable)
 Vue.prototype.$echarts = echarts
+Vue.use(vueClipboard)
 
 // 自定义组件
 Vue.component('my-breadcrumb', breadcrumb)
@@ -62,7 +64,9 @@ Vue.component('my-loading', loading)
 Vue.component('my-menu-item', menuItem)
 
 // 自定义指令
-Vue.use(vueClipboard)
+// Object.keys(directives).forEach(key => {
+//     Vue.use(directives[key])
+// })
 
 // 自定义过滤
 Object.keys(filters).forEach(key => {
@@ -121,6 +125,7 @@ new Vue({
     el: '#app',
     router,
     store,
+    i18n,
     template: '<App/>',
     components: { App }
 })

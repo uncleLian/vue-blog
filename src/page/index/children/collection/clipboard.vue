@@ -42,7 +42,6 @@ export default {
             // 复制功能需要：绑定变量的值
             this.$copyText(val)
             .then(res => {
-                console.log('copy', res)
                 this.$message.success('直接调用：复制成功')
             })
             .catch(err => {
@@ -54,7 +53,6 @@ export default {
             // 剪切功能需要：剪切元素（只适用于input 和 textarea）
             this.$cutText(this.$el.querySelector('.cut1 input'))
             .then(res => {
-                console.log('cut', res)
                 this.$message.success('直接调用：剪切成功')
             })
             .catch(err => {
@@ -63,19 +61,15 @@ export default {
             })
         },
         onCopySuccess(e) {
-            console.log('指令调用：复制成功', e)
             this.$message.success('指令调用：复制成功')
         },
         onCopyError(e) {
-            console.log('指令调用：复制失败', e)
             this.$message.error('指令调用：复制失败')
         },
         onCutSuccess(e) {
-            console.log('指令调用：剪切成功', e)
             this.$message.success('指令调用：剪切成功')
         },
         onCutError(e) {
-            console.log('指令调用：剪切失败', e)
             this.$message.error('指令调用：剪切失败')
         }
     }

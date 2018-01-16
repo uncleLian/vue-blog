@@ -94,7 +94,7 @@
     </div>
 </template>
 <script>
-import { get_local_cache, set_local_cache, remove_local_cache } from '@/utils/cache.js'
+import cache from '@/utils/cache.js'
 import uploadPicture from './uploadPicture'
 import selectPicture from './selectPicture'
 import previewArticle from './preview'
@@ -156,7 +156,7 @@ export default {
         // 处理草稿
         handleDraft(type) {
             if (type === 'get') {
-                let draft = JSON.parse(get_local_cache('draft'))
+                let draft = JSON.parse(cache.getLocal('draft'))
                 if (draft && (draft.title || draft.content)) {
                     this.draft = true
                     this.title = draft.title
@@ -168,14 +168,14 @@ export default {
                     title: this.title,
                     content: this.content
                 }
-                set_local_cache('draft', data)
+                cache.setLocal('draft', data)
                 this.isSave = true
                 let timer = setTimeout(() => {
                     this.isSave = false
                     clearTimeout(timer)
                 }, 1500)
             } else if (type === 'remove') {
-                remove_local_cache('draft')
+                cache.removeLocal('draft')
                 this.draft = false
                 this.title = this.content = ''
             }

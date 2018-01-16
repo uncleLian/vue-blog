@@ -52,7 +52,7 @@ export const routes = [
         redirect: '/index'
     },
     {
-        name: '首页',
+        name: 'index',
         path: '/index',
         icon: 'el-icon-menu',
         redirect: '/index/home',
@@ -60,13 +60,13 @@ export const routes = [
         component: index,
         children: [
             {
-                name: '主页',
+                name: 'home',
                 path: 'home',
                 icon: 'el-icon-fa-home',
                 component: home
             },
             {
-                name: '组件',
+                name: 'components',
                 path: 'components',
                 icon: 'el-icon-menu',
                 // open: true,
@@ -74,33 +74,33 @@ export const routes = [
                 component: view,
                 children: [
                     {
-                        name: '图钉',
+                        name: 'sticky',
                         path: 'sticky',
                         icon: 'el-icon-fa-thumb-tack',
                         component: stickyView
                     },
                     {
-                        name: '面包屑',
+                        name: 'breadcrumb',
                         path: 'breadcrumb',
                         icon: 'el-icon-arrow-right',
                         component: breadcrumbView
                     },
                     {
-                        name: '返回顶部',
+                        name: 'backTop',
                         path: 'backTop',
                         icon: 'el-icon-arrow-up',
                         component: backTopView
                     },
                     {
 
-                        name: '动态数值',
+                        name: 'countTo',
                         path: 'countTo',
                         icon: 'el-icon-fa-calculator',
                         component: countToView
                     },
                     {
 
-                        name: '加载提示',
+                        name: 'loading',
                         path: 'loading',
                         icon: 'el-icon-fa-spinner',
                         component: loadingView
@@ -108,7 +108,7 @@ export const routes = [
                 ]
             },
             {
-                name: '集成',
+                name: 'collection',
                 path: 'collection',
                 icon: 'el-icon-fa-cube',
                 // open: true,
@@ -117,31 +117,31 @@ export const routes = [
                 children: [
                     {
 
-                        name: '进度条',
+                        name: 'progressbar',
                         path: 'progressbar',
                         icon: 'el-icon-fa-minus',
                         component: progressbar
                     },
                     {
-                        name: '富文本编辑器',
+                        name: 'editor',
                         path: 'editor',
                         icon: 'el-icon-fa-pencil',
                         component: editor
                     },
                     {
-                        name: 'Markdown编辑器',
+                        name: 'markdown',
                         path: 'markdown',
                         icon: 'el-icon-edit-outline',
                         component: markdown
                     },
                     {
-                        name: '拖拽列表',
+                        name: 'draggable',
                         path: 'draggable',
                         icon: 'el-icon-fa-arrows',
                         component: draggable
                     },
                     {
-                        name: '剪贴板',
+                        name: 'clipboard',
                         path: 'clipboard',
                         icon: 'el-icon-fa-clipboard',
                         component: clipboard
@@ -171,24 +171,24 @@ export const routes = [
                         ]
                     },
                     {
-                        name: '图表',
+                        name: 'charts',
                         path: 'charts',
                         icon: 'el-icon-fa-bar-chart',
                         redirect: '/index/collection/charts/pie',
                         component: view,
                         children: [
                             {
-                                name: '饼图',
+                                name: 'pie',
                                 path: 'pie',
                                 component: pie
                             },
                             {
-                                name: '雷达图',
+                                name: 'radar',
                                 path: 'radar',
                                 component: radar
                             },
                             {
-                                name: '散点图',
+                                name: 'scatter',
                                 path: 'scatter',
                                 component: scatter
                             }
@@ -197,40 +197,40 @@ export const routes = [
                 ]
             },
             {
-                name: '综合实例',
+                name: 'example',
                 path: 'example',
                 icon: 'el-icon-document',
                 redirect: '/index/example/dragTable',
                 component: view,
                 children: [
                     {
-                        name: '拖拽表格',
+                        name: 'dragTable',
                         path: 'dragTable',
                         component: dragTable
                     },
                     {
-                        name: '图片上传',
+                        name: 'upload',
                         path: 'upload',
                         component: upload
                     }
                 ]
             },
             {
-                name: '更多',
+                name: 'more',
                 path: 'more',
                 icon: 'el-icon-caret-bottom',
-                redirect: '/index/more/404',
+                redirect: '/index/more/page404',
                 component: view,
                 children: [
                     {
-                        name: '404',
-                        path: '404',
+                        name: 'page404',
+                        path: 'page404',
                         icon: 'el-icon-fa-exclamation-triangle',
                         meta: { keep: true },
                         component: view_404
                     },
                     {
-                        name: '错误日志',
+                        name: 'errorLog',
                         path: 'errorLog',
                         icon: 'el-icon-fa-bug',
                         meta: { keep: true },
@@ -241,7 +241,7 @@ export const routes = [
         ]
     },
     {
-        name: '登录',
+        name: 'login',
         path: '/login',
         component: login
     },

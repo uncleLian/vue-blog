@@ -57,7 +57,7 @@ iconSize = GithubSize / 2
         position: absolute;
         right: 0;
         top: 0;
-        z-index: 9999;
+        z-index: 99;
         width: GithubSize;
         height: GithubSize;
         &:hover .bg{
