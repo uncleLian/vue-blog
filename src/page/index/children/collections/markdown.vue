@@ -68,7 +68,7 @@ export default {
 #markdown {
     width: 80%;
     .myREADME{
-        margin: 30px 0;
+        margin-bottom: 20px;
     }
     .CodeMirror {
         height: 200px;

@@ -16,21 +16,23 @@ const breadcrumbView = () => import('@/page/index/children/componentsView/breadc
 const backTopView = () => import('@/page/index/children/componentsView/backTop_view')
 const countToView = () => import('@/page/index/children/componentsView/countTo_view')
 const loadingView = () => import('@/page/index/children/componentsView/loading_view')
-// collection
-const progressbar = () => import('@/page/index/children/collection/progressbar')
-const editor = () => import('@/page/index/children/collection/editor')
-const markdown = () => import('@/page/index/children/collection/markdown')
-const draggable = () => import('@/page/index/children/collection/draggable')
-const clipboard = () => import('@/page/index/children/collection/clipboard')
-const exportExcel = () => import('@/page/index/children/collection/excel/exportExcel')
-const exportSelected = () => import('@/page/index/children/collection/excel/exportSelected')
-const importExcel = () => import('@/page/index/children/collection/excel/importExcel')
-const pie = () => import('@/page/index/children/collection/charts/pie')
-const radar = () => import('@/page/index/children/collection/charts/radar')
-const scatter = () => import('@/page/index/children/collection/charts/scatter')
+// collections
+const progressbar = () => import('@/page/index/children/collections/progressbar')
+const clipboard = () => import('@/page/index/children/collections/clipboard')
+const editor = () => import('@/page/index/children/collections/editor')
+const markdown = () => import('@/page/index/children/collections/markdown')
 // example
+const dragList = () => import('@/page/index/children/example/dragList')
 const dragTable = () => import('@/page/index/children/example/dragTable')
 const upload = () => import('@/page/index/children/example/upload/upload')
+// charts
+const pie = () => import('@/page/index/children/charts/pie')
+const radar = () => import('@/page/index/children/charts/radar')
+const scatter = () => import('@/page/index/children/charts/scatter')
+// Excel
+const exportExcel = () => import('@/page/index/children/excel/exportExcel')
+const exportSelected = () => import('@/page/index/children/excel/exportSelected')
+const importExcel = () => import('@/page/index/children/excel/importExcel')
 // more
 const view_404 = () => import('@/page/index/children/more/view_404')
 const errorLog = () => import('@/page/index/children/more/errorLog/errorLog')
@@ -108,11 +110,10 @@ export const routes = [
                 ]
             },
             {
-                name: 'collection',
-                path: 'collection',
+                name: 'collections',
+                path: 'collections',
                 icon: 'el-icon-fa-cube',
-                // open: true,
-                redirect: '/index/collection/progressbar',
+                redirect: '/index/collections/progressbar',
                 component: view,
                 children: [
                     {
@@ -121,6 +122,12 @@ export const routes = [
                         path: 'progressbar',
                         icon: 'el-icon-fa-minus',
                         component: progressbar
+                    },
+                    {
+                        name: 'clipboard',
+                        path: 'clipboard',
+                        icon: 'el-icon-fa-clipboard',
+                        component: clipboard
                     },
                     {
                         name: 'editor',
@@ -133,76 +140,21 @@ export const routes = [
                         path: 'markdown',
                         icon: 'el-icon-edit-outline',
                         component: markdown
-                    },
-                    {
-                        name: 'draggable',
-                        path: 'draggable',
-                        icon: 'el-icon-fa-arrows',
-                        component: draggable
-                    },
-                    {
-                        name: 'clipboard',
-                        path: 'clipboard',
-                        icon: 'el-icon-fa-clipboard',
-                        component: clipboard
-                    },
-                    {
-                        name: 'Excel',
-                        path: 'Excel',
-                        icon: 'el-icon-fa-file-excel-o',
-                        redirect: '/index/collection/Excel/exportExcel',
-                        component: view,
-                        children: [
-                            {
-                                name: 'exportExcel',
-                                path: 'exportExcel',
-                                component: exportExcel
-                            },
-                            {
-                                name: 'exportSelected',
-                                path: 'exportSelected',
-                                component: exportSelected
-                            },
-                            {
-                                name: 'importExcel',
-                                path: 'importExcel',
-                                component: importExcel
-                            }
-                        ]
-                    },
-                    {
-                        name: 'charts',
-                        path: 'charts',
-                        icon: 'el-icon-fa-bar-chart',
-                        redirect: '/index/collection/charts/pie',
-                        component: view,
-                        children: [
-                            {
-                                name: 'pie',
-                                path: 'pie',
-                                component: pie
-                            },
-                            {
-                                name: 'radar',
-                                path: 'radar',
-                                component: radar
-                            },
-                            {
-                                name: 'scatter',
-                                path: 'scatter',
-                                component: scatter
-                            }
-                        ]
                     }
                 ]
             },
             {
                 name: 'example',
                 path: 'example',
-                icon: 'el-icon-document',
-                redirect: '/index/example/dragTable',
+                icon: 'el-icon-fa-ravelry',
+                redirect: '/index/example/dragList',
                 component: view,
                 children: [
+                    {
+                        name: 'dragList',
+                        path: 'dragList',
+                        component: dragList
+                    },
                     {
                         name: 'dragTable',
                         path: 'dragTable',
@@ -212,6 +164,54 @@ export const routes = [
                         name: 'upload',
                         path: 'upload',
                         component: upload
+                    }
+                ]
+            },
+            {
+                name: 'charts',
+                path: 'charts',
+                icon: 'el-icon-fa-bar-chart',
+                redirect: '/index/charts/pie',
+                component: view,
+                children: [
+                    {
+                        name: 'pie',
+                        path: 'pie',
+                        component: pie
+                    },
+                    {
+                        name: 'radar',
+                        path: 'radar',
+                        component: radar
+                    },
+                    {
+                        name: 'scatter',
+                        path: 'scatter',
+                        component: scatter
+                    }
+                ]
+            },
+            {
+                name: 'Excel',
+                path: 'Excel',
+                icon: 'el-icon-fa-file-excel-o',
+                redirect: '/index/Excel/exportExcel',
+                component: view,
+                children: [
+                    {
+                        name: 'exportExcel',
+                        path: 'exportExcel',
+                        component: exportExcel
+                    },
+                    {
+                        name: 'exportSelected',
+                        path: 'exportSelected',
+                        component: exportSelected
+                    },
+                    {
+                        name: 'importExcel',
+                        path: 'importExcel',
+                        component: importExcel
                     }
                 ]
             },

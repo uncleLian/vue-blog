@@ -2,12 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { getLogin, getUser } from '@/api'
 import { setToken, removeToken } from '@/utils/token.js'
+import cache from '@/utils/cache.js'
 
 Vue.use(Vuex)
 
 const state = {
     user: '',
-    logs: []
+    logs: [],
+    language: 'zh'
 }
 
 const getters = {
@@ -16,6 +18,9 @@ const getters = {
     },
     logs: state => {
         return state.logs
+    },
+    language: state => {
+        return state.language
     }
 }
 
@@ -23,13 +28,16 @@ const mutations = {
     set_user(state, val) {
         state.user = val
     },
-    set_logs(state, val) {
-        state.logs.push(val)
-        console.log(val)
-    },
     loginOut(state) {
         state.user = ''
         removeToken()
+    },
+    set_logs(state, val) {
+        state.logs.push(val)
+    },
+    set_language(state, val) {
+        state.language = val
+        cache.setSession('language', val)
     }
 }
 

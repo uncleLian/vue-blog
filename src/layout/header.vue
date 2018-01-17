@@ -13,10 +13,23 @@
                         <i class="el-icon-fa-bug bug" type="danger" size="small" @click="$refs.errorDialog.toggle"></i>
                     </el-badge>
                 </div>
+                <!-- i18n -->
+                <div class="right-item">
+                    <el-dropdown @command="onLanguageSelected" placement="top-end">
+                        <div class="i18n">
+                            <span>{{$t('translations')}}</span>
+                            <i class="el-icon-caret-bottom"></i>
+                        </div>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item command="zh" :disabled="language === 'zh'">中文</el-dropdown-item>
+                            <el-dropdown-item command="en" :disabled="language === 'en'">English</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                </div>
                 <!-- user -->
                 <div class="right-item">
                     <div class="user" v-if="user">
-                        <el-dropdown @command="handleCommand" placement="top-end">
+                        <el-dropdown @command="onUserSelected" placement="top-end">
                             <div class="user-info">
                                 <img :src="user.headimgurl">
                                 <span class="el-dropdown-link">{{user.nickname}}</span>
@@ -45,19 +58,29 @@ export default {
     computed: {
         ...mapGetters([
             'user',
-            'logs'
+            'logs',
+            'language'
         ])
     },
     methods: {
-        // 设置面包屑组件样式
-        setBreadcrumbStyle() {
-            this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
+        onLanguageSelected(val) {
+            this.$i18n.locale = val
+            this.$store.commit('set_language', val)
+            if (val === 'zh') {
+                this.$message.success('语言切换成功')
+            } else {
+                this.$message.success('switch language success')
+            }
         },
-        handleCommand(command) {
-            if (command === 'exit') {
+        onUserSelected(val) {
+            if (val === 'exit') {
                 this.$store.commit('loginOut')
                 this.$router.push('/login')
             }
+        },
+        // 设置面包屑组件样式
+        setBreadcrumbStyle() {
+            this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
         }
     },
     mounted() {
@@ -93,16 +116,24 @@ export default {
             float: right;
             display: flex;
             align-items: center;
+            color: #fff;
+            font-size: 20px;
             .right-item{
                 margin: 0 12px;
+                cursor: pointer;
             }
             .bug{
-                color: #fff;
+                color: inherit;
                 font-size: 20px;
                 padding: 2px 4px;
                 border: none;
                 outline: none;
-                cursor: pointer;
+            }
+            .i18n{
+                font-size: 15px;
+                span,i{
+                    color: #fff;
+                }
             }
             .user{
                 .user-info{

@@ -1,5 +1,5 @@
 <template>
-    <div id="draggable">
+    <div id="dragList">
         <div class="demo">
             <div>
                 <h3>拖拽列表一</h3>
@@ -41,7 +41,7 @@
 </template>
 <script>
 export default {
-    name: 'draggable',
+    name: 'dragList',
     data() {
         return {
             options: {
@@ -84,7 +84,7 @@ export default {
 }
 </script>
 <style lang='stylus'>
-#draggable {
+#dragList {
     .demo{
         & > div{
             display: inline-block;

@@ -55,6 +55,10 @@
  }
  /*修改element-ui一些样式*/
 
+[class^=el-icon-] {
+   vertical-align: middle;
+}
+
  .el-tabs {
    user-select: none;
  }

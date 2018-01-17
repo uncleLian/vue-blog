@@ -25,7 +25,7 @@
     "simplemde": "^1.11.2",
     "sortablejs": "^1.7.0",
     "vue": "^2.5.13",
-    "vue-clipboard-pack": "^1.0.0",
+    "vue-clipboard-pack": "^1.0.4",
     "vue-i18n": "^7.4.0",
     "vue-progressbar": "^0.7.3",
     "vue-quill-editor": "^3.0.4",

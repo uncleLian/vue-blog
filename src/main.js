@@ -3,6 +3,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import { getToken } from '@/utils/token.js'
 
 // css
 import 'element-ui/lib/theme-chalk/index.css'
@@ -36,8 +37,6 @@ import menuItem from '@/layout/menuItem'
 // 自定义过滤
 import filters from '@/filters'
 
-import { getToken } from '@/utils/token.js'
-
 Vue.config.productionTip = false
 
 // 第三方
@@ -62,11 +61,6 @@ Vue.component('my-backTop', backTop)
 Vue.component('my-countTo', countTo)
 Vue.component('my-loading', loading)
 Vue.component('my-menu-item', menuItem)
-
-// 自定义指令
-// Object.keys(directives).forEach(key => {
-//     Vue.use(directives[key])
-// })
 
 // 自定义过滤
 Object.keys(filters).forEach(key => {
@@ -108,7 +102,7 @@ router.beforeEach((to, from, next) => {
 
 // 全局错误处理
 // you can set only in production env show the error-log
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
     Vue.config.errorHandler = function (error, vm, info) {
         store.commit('set_logs', {
             error,
@@ -118,7 +112,7 @@ if (process.env.NODE_ENV === 'production') {
             time: new Date()
         })
     }
-}
+// }
 
 /* eslint-disable no-new */
 new Vue({

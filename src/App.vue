@@ -9,6 +9,7 @@
     </div>
 </template>
 <script>
+import cache from '@/utils/cache'
 export default {
     name: 'app',
     methods: {
@@ -21,11 +22,18 @@ export default {
             this.$router.afterEach((to, from) => {
                 this.$Progress.finish()
             })
+        },
+        init_language() {
+            let lang = cache.getSession('language')
+            if (lang) {
+                this.$store.commit('set_language', lang)
+            }
         }
     },
     created() {
         this.$Progress.start()
         this.init_Progress()
+        this.init_language()
     },
     mounted() {
         this.$Progress.finish()
