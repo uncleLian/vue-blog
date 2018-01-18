@@ -15,7 +15,7 @@
                 </div>
                 <!-- i18n -->
                 <div class="right-item">
-                    <el-dropdown @command="onLanguageSelected" placement="top-end">
+                    <el-dropdown placement="top-end" @command="onLanguageSelected">
                         <div class="i18n">
                             <span>{{$t('translations')}}</span>
                             <i class="el-icon-caret-bottom"></i>
@@ -29,7 +29,7 @@
                 <!-- user -->
                 <div class="right-item">
                     <div class="user" v-if="user">
-                        <el-dropdown @command="onUserSelected" placement="top-end">
+                        <el-dropdown placement="top-end" @command="onUserSelected">
                             <div class="user-info">
                                 <img :src="user.headimgurl">
                                 <span class="el-dropdown-link">{{user.nickname}}</span>
@@ -64,7 +64,6 @@ export default {
     },
     methods: {
         onLanguageSelected(val) {
-            this.$i18n.locale = val
             this.$store.commit('set_language', val)
             if (val === 'zh') {
                 this.$message.success('语言切换成功')

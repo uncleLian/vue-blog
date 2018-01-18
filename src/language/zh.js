@@ -28,7 +28,8 @@ export default {
         more: '更多',
         page404: '404页面',
         errorLog: '错误日志',
-        login: '登录'
+        login: '登录',
+        i18nView: '国际化'
     },
     translations: '多语言'
 }

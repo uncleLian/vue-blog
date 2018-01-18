@@ -3,7 +3,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import { getToken } from '@/utils/token.js'
+
+import cache from '@/utils/cache'
 
 // css
 import 'element-ui/lib/theme-chalk/index.css'
@@ -19,7 +20,7 @@ import '@/mock'
 // 第三方
 import axios from 'axios'
 import ElementUI from 'element-ui'
-import i18n from './language'
+import i18n from '@/language'
 import VueProgressBar from 'vue-progressbar'
 import VueQuillEditor from 'vue-quill-editor'
 import draggable from 'vuedraggable'
@@ -69,7 +70,7 @@ Object.keys(filters).forEach(key => {
 
 // 全局路由登录验证
 router.beforeEach((to, from, next) => {
-    let token = getToken()
+    let token = cache.getToken()
     if (to.path === '/login' && token) {
         next('/')
     } else if (to.matched.some(record => record.meta.login)) {

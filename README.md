@@ -5,7 +5,7 @@
 ![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/element--ui-2.0.7-blue.svg)
 
-#### 还在开发，敬请期待！ （已完成70%）
+#### 还在开发，敬请期待！ （已完成80%）
 > 你的 "star" 是我最大的动力！🌹
 
 
@@ -15,9 +15,9 @@
 
 
 ## 说明
-> 如果对您有帮助，您可以点右上角 "star"一下， 您的支持是我最大的动力！非常感谢！^_^ 🌹
+> 如果对您有帮助，您可以点右上角 "star"一下！非常感谢！^_^ 🌹
 
-> 或者您可以 "follow（关注）" 一下，我会不断开源更多实用的项目。
+> 或者您可以 "follow（关注）" 作者，我会不断开源更多实用的项目。
 
 > 如有问题可以直接在 Issues 中提，或者加入我们下方的vue群更进一步地交流。
 
@@ -43,6 +43,7 @@
 ##### 6、自动匹配开发环境和生产环境的请求链接（完成）
 ##### 7、没有相匹配的路由将跳转至404页面（完成）
 ##### 8、全局捕捉错误信息（完成）
+##### 9、面包屑、图钉、返回顶部（完成）
 
 ## 自定义组件
 ##### 1、面包屑：breadcrumb.vue（完成）
@@ -53,19 +54,19 @@
 
 ## 集成功能
 ##### 1、进度条（完成）
-##### 2、拖拽列表（完成）
-##### 3、剪贴板（完成）
-##### 4、导入导出 excel 文件（完成）
-##### 5、图表echarts（完成）
-##### 6、富文本编辑器（完成）
-##### 7、Markdown（完成）
-##### 8、国际化（完成）
-##### 9、换肤
-##### 10、第三方登录
+##### 2、剪贴板（完成）
+##### 3、导入导出 excel 文件（完成）
+##### 4、图表echarts（完成）
+##### 5、富文本编辑器（完成）
+##### 6、Markdown（完成）
+##### 7、国际化（完成）
+##### 8、换肤
+##### 9、第三方登录
 
 ## 综合实例
-##### 1、拖拽表格（完成）
-##### 2、自定义图片上传、草稿、预览等（完成）
+##### 1、拖拽列表（完成）
+##### 2、拖拽表格（完成）
+##### 3、自定义图片上传、草稿、预览等（完成）
 
 ## 更多
 ##### 1、404 页面（完成）
@@ -78,7 +79,7 @@
 ##### 4、[vue-quill-editor](https://github.com/surmon-china/vue-quill-editor)（富文本编辑器）
 ##### 5、[vuedraggable](https://github.com/SortableJS/Vue.Draggable)（基于sortablejs的vue的拖拽库）
 ##### 6、[sortablejs](https://github.com/RubaXa/Sortable)（拖拽库）
-##### 7、[clipboard](https://github.com/zenorocha/clipboard.js)（剪切板）
+##### 7、[vue-clipboard-pack](https://github.com/uncleLian/vue-clipboard-pack)（本人基于clipboard.js封装的剪贴板）
 ##### 8、[mockjs](https://github.com/nuysoft/Mock/tree/refactoring)（数据模拟）
 ##### 9、[font-awesome](http://fontawesome.io/icons/)（字体库）
 ##### 10、babel-polyfill（JS语法库，修复IE不支持语法问题）
@@ -88,6 +89,7 @@
 ##### 14、[js-xlsx](https://github.com/SheetJS/js-xlsx)（电子表格处理库）
 ##### 15、[simplemde](https://github.com/sparksuite/simplemde-markdown-editor)（Markdown编辑器）
 ##### 16、[showdown](https://github.com/showdownjs/showdown)（Markdown转换成HTML的库）
+##### 17、[vue-i18n](https://github.com/showdownjs/showdown)（实现多语言的库）
 
 ## 安装运行
 

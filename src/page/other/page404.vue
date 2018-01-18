@@ -7,7 +7,7 @@
             <div class="text-404 sideUp">404</div>
             <div class="text-notFound sideUp">The page you are looking for is no longer here.</div>
             <div class="text-apologize sideUp">We sincerely apologize</div>
-            <p><el-button class="goHome sideUp"  round @click="$router.push({name: '首页'})">Go home</el-button></p>
+            <p><el-button class="goHome sideUp"  round @click="$router.push('/')">Go home</el-button></p>
         </div>
     </div>
 </template>

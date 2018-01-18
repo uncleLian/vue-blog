@@ -28,7 +28,8 @@ export default {
         more: 'More',
         page404: 'page404',
         errorLog: 'errorLog',
-        login: 'login'
+        login: 'login',
+        i18nView: 'I18n'
     },
     translations: 'Translations'
 }

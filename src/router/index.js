@@ -36,6 +36,8 @@ const importExcel = () => import('@/page/index/children/excel/importExcel')
 // more
 const view_404 = () => import('@/page/index/children/more/view_404')
 const errorLog = () => import('@/page/index/children/more/errorLog/errorLog')
+// i18nView
+const i18nView = () => import('@/page/index/children/i18n/i18n_view')
 
 Vue.use(Router)
 
@@ -237,6 +239,12 @@ export const routes = [
                         component: errorLog
                     }
                 ]
+            },
+            {
+                name: 'i18nView',
+                path: 'i18nView',
+                icon: 'el-icon-fa-globe',
+                component: i18nView
             }
         ]
     },

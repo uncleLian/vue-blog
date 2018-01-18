@@ -22,7 +22,7 @@
         </div>
 
         <div class="moreLink">
-            <p>更多内容：<a href="https://github.com/uncleLian/vue-clipboard-pack" target="_blank">vue-clipboard.pack</a></p>
+            <p>更多内容：<a href="https://github.com/uncleLian/vue-clipboard-pack" target="_blank">vue-clipboard-pack</a></p>
         </div>
     </div>
 </template>

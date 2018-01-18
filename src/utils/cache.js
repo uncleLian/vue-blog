@@ -1,4 +1,17 @@
+import Cookies from 'js-cookie'
+
+const TokenKey = 'Admin-Token'
+
 export default {
+    getToken: function() {
+        return Cookies.get(TokenKey)
+    },
+    setToken: function(token) {
+        return Cookies.set(TokenKey, token, { expires: 7 })
+    },
+    removeToken: function() {
+        return Cookies.remove(TokenKey)
+    },
     getSession: function(name) {
         if (!name) return
         return window.sessionStorage.getItem(name)

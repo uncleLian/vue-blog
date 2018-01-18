@@ -17,7 +17,7 @@
             </div>
 
             <div class="moreLink">
-                <p>自定义图片上传、草稿等功能：<router-link :to="{name: '图片上传'}">请参考综合实例里的upload组件</router-link></p>
+                <p>自定义图片上传、草稿等功能：<router-link :to="{name: 'upload'}">请参考综合实例里的upload组件</router-link></p>
                 <p>更多内容：<a href="https://github.com/surmon-china/vue-quill-editor" target="_blank">vue-quill-editor</a></p>
             </div>
         </div>

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { getLogin, getUser } from '@/api'
-import { setToken, removeToken } from '@/utils/token.js'
-import cache from '@/utils/cache.js'
+import cache from '@/utils/cache'
+import i18n from '@/language'
 
 Vue.use(Vuex)
 
@@ -30,12 +30,13 @@ const mutations = {
     },
     loginOut(state) {
         state.user = ''
-        removeToken()
+        cache.removeToken()
     },
     set_logs(state, val) {
         state.logs.push(val)
     },
     set_language(state, val) {
+        i18n.locale = val
         state.language = val
         cache.setSession('language', val)
     }
@@ -48,7 +49,7 @@ const actions = {
             getLogin(params).then(res => {
                 // console.log('token', res)
                 if (res && res.token) {
-                    setToken(res.token)
+                    cache.setToken(res.token)
                     resolve()
                 } else {
                     reject(new Error('nothing data'))

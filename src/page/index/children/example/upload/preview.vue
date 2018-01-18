@@ -14,8 +14,16 @@
             <!-- 封面 -->
             <h1>封面：</h1>
             <div class="cover">
+                <!-- 无图 -->
+                <div class="text" v-if="!(json.coverImages.length > 0)">
+                    <h2 class="title">{{json.title}}</h2>
+                     <div class="info">
+                        <span>0 阅读</span> 
+                        <span>{{json.createdTime | formatTime('{y}-{m}-{d}')}}</span>
+                    </div>
+                </div>
                 <!-- 单图 -->
-                <div class="single" v-if="json.cover_mode === 1">
+                <div class="single" v-if="json.cover_mode === 1 && json.coverImages.length === 1">
                     <h2 class="title">{{json.title}}</h2>
                     <div class="img">
                         <ul><li><img :src="json.coverImages"></li></ul>
@@ -26,7 +34,7 @@
                     </div>
                 </div>
                 <!-- 三图 -->
-                <div class="more" v-if="json.cover_mode === 3">
+                <div class="more" v-if="json.cover_mode === 3 && json.coverImages.length > 1">
                     <h2 class="title">{{json.title}}</h2>
                     <div class="img">
                         <ul><li v-for="(item,index) in json.coverImages"><img :src="item"></li></ul>

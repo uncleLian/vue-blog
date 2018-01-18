@@ -9,7 +9,7 @@
                 <div class="text">贴近彼此，感受生活</div>
                 <div class="info">
                     <div><i class="el-icon-location-outline"></i><span>Guangzhou</span></div>
-                    <div><i class="el-icon-message"></i><a href="mailto:771674109@qq.com">771674109@qq</a></div>
+                    <div><i class="el-icon-message"></i><a href="mailto:771674109@qq.com">771674109@qq.com</a></div>
                     <div><i class="el-icon-fa-link"></i><a href="http://liansixin.win" target="_blank">http://liansixin.win</a></div>
                 </div>
             </div>

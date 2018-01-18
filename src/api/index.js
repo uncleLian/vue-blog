@@ -1,20 +1,20 @@
-import { fetch, instance } from '@/utils/fetch.js'
+import { request, instance } from '@/utils/request'
 
 // 登录
 export function getLogin(form) {
-    let res = fetch('/login', 'POST', form)
+    let res = request('/login', 'POST', form)
     return res
 }
 
 // 用户信息
 export function getUser(token) {
-    let res = fetch('/user', 'GET', token)
+    let res = request('/user', 'GET', token)
     return res
 }
 
 // 列表
 export function getList() {
-    let res = fetch('/list', 'GET')
+    let res = request('/list', 'GET')
     return res
 }
 
