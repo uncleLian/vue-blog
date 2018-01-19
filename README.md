@@ -5,7 +5,7 @@
 ![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/element--ui-2.0.7-blue.svg)
 
-#### 还在开发，敬请期待！ （已完成80%）
+#### 还在开发，敬请期待！ （已完成85%）
 > 你的 "star" 是我最大的动力！🌹
 
 
@@ -60,7 +60,7 @@
 ##### 5、富文本编辑器（完成）
 ##### 6、Markdown（完成）
 ##### 7、国际化（完成）
-##### 8、换肤
+##### 8、换肤（完成）
 ##### 9、第三方登录
 
 ## 综合实例

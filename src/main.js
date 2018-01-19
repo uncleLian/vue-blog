@@ -27,7 +27,7 @@ import draggable from 'vuedraggable'
 import echarts from 'echarts'
 import vueClipboard from 'vue-clipboard-pack'
 
-// 自定义组件
+// 自定义公共组件
 import breadcrumb from '@/components/breadcrumb'
 import sticky from '@/components/sticky'
 import backTop from '@/components/backTop'
@@ -103,7 +103,7 @@ router.beforeEach((to, from, next) => {
 
 // 全局错误处理
 // you can set only in production env show the error-log
-// if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     Vue.config.errorHandler = function (error, vm, info) {
         store.commit('set_logs', {
             error,
@@ -113,7 +113,7 @@ router.beforeEach((to, from, next) => {
             time: new Date()
         })
     }
-// }
+}
 
 /* eslint-disable no-new */
 new Vue({

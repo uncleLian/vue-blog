@@ -91,7 +91,7 @@ export default {
             }
         }
         .languageOption{
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
     }
     .i18n-content {

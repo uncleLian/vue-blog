@@ -26,6 +26,9 @@
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>
+                <div class="right-item">
+                    <theme-picker></theme-picker>
+                </div>
                 <!-- user -->
                 <div class="right-item">
                     <div class="user" v-if="user">
@@ -52,9 +55,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import errorDialog from '@/page/index/children/more/errorlog/errorDialog'
+import themePicker from '@/components/themePicker'
 export default {
     name: 'my-header',
-    components: { errorDialog },
+    components: { errorDialog, themePicker },
     computed: {
         ...mapGetters([
             'user',
@@ -118,7 +122,8 @@ export default {
             color: #fff;
             font-size: 20px;
             .right-item{
-                margin: 0 12px;
+                font-size: 0;
+                margin: 0 10px;
                 cursor: pointer;
             }
             .bug{
@@ -129,9 +134,12 @@ export default {
                 outline: none;
             }
             .i18n{
+                display: flex;
+                align-items: center;
                 font-size: 15px;
-                span,i{
-                    color: #fff;
+                color: #fff;
+                i{
+                    margin-left: 4px;
                 }
             }
             .user{

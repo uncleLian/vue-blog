@@ -588,7 +588,8 @@ export default {
 }
 </style>
 <style type="text/css" media="screen">
-.img-list .img-item label.is-active:before, .img-list .img-item label.is-checked:before{
+.img-list .img-item label.is-active:before,
+.img-list .img-item label.is-checked:before{
     background-image: url(~@/assets/img/checked.png);
 } 
 </style>

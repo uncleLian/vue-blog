@@ -6,6 +6,8 @@
         </transition>
         <!-- 进度条 -->
         <vue-progress-bar></vue-progress-bar>
+        <!-- backTop组件 -->
+        <my-backTop></my-backTop>
     </div>
 </template>
 <script>

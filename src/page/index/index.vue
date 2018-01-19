@@ -11,8 +11,6 @@
                 <my-page></my-page>
             </el-container>
         </el-container>
-        <!-- backTop组件 -->
-        <my-backTop></my-backTop>
     </div>
 </template>
 <script>
