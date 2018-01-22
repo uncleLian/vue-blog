@@ -113,9 +113,9 @@ export default {
         display: block;
     }
     &-inner{
-        background-color: rgba(66,185,131,.9);
         border-radius: 2px;
-        box-shadow: 0 1px 3px rgba(66,185,131,.2);
+        box-shadow: 0 1px 3px rgba(appColorRGB,.2);
+        background-color: rgba(appColorRGB,.9);
         transition: all .2s ease-in-out;
         i{
             color: #fff;

@@ -53,13 +53,17 @@ exports.cssLoaders = function (options) {
   }
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
+  var cssDir = path.resolve(__dirname, '../src/assets/css')
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
-    stylus: generateLoaders('stylus'),
+    // 全局引用了自定义的styl文件
+    stylus: generateLoaders('stylus', {
+      import: [cssDir+'/*.styl']
+    }),
     styl: generateLoaders('stylus')
   }
 }

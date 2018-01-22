@@ -22,7 +22,7 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #42b983;
+    background-color: appColor;
     .people{
         position: absolute;
         left: 15%;

@@ -38,7 +38,8 @@
                                 <span class="el-dropdown-link">{{user.nickname}}</span>
                             </div>
                             <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item command="exit">退出</el-dropdown-item>
+                                <el-dropdown-item command="exit">{{$t('logOut')}}</el-dropdown-item>
+                                <el-dropdown-item divided>v1.0.0</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
                     </div>
@@ -95,7 +96,7 @@ export default {
 #header {
     position: relative;
     width: 100%;
-    background-color: #42B983;
+    background-color: appColor;
     padding: 0 50px 0 40px;
     .container{
         position: relative;

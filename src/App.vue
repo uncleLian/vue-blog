@@ -25,6 +25,7 @@ export default {
                 this.$Progress.finish()
             })
         },
+        // 语言
         init_language() {
             let lang = cache.getSession('language')
             if (lang) {
@@ -46,5 +47,37 @@ export default {
 #app {
     position: relative;
     height: 100%;
+    a {
+        color: appColor;
+        text-decoration: none;
+        outline: none;
+    }
+    .app-primary-color {
+        color: appColor;
+    }
+    .app-primary-bgColor {
+        background-color: appColor;
+    }
+    .app-primary-borderColor {
+        border: 1px solid appColor;
+    }
+    .login_bgColor{
+        background: linear-gradient(#55c08f, appColor);
+    }
+    .login_inputColor{
+        input{
+            background-color: appColor;
+            border: 1px solid appColor;
+        }
+    }
+    .moreLink {
+        margin-top: 50px;
+    }
+    .sortable-chosen {
+        background-color: #f0f9eb;
+    }
+    .sortable-ghost {
+        background-color: appColor;
+    }
 }
 </style>

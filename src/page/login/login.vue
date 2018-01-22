@@ -1,34 +1,14 @@
 <template>
-    <div id="login">
+    <div id="login" class="login_bgColor">
         <div class="login_logo">
             <a class="shake-slow shake-constant--hover" href="https://github.com/uncleLian/vue2-blog" target="_blank">vue2-blog</a>
         </div>
         <div class="login_wrap">
             <div class="login_content">
-                <span class="register_btn" @click="register">注册</span>
-                <span class="login_btn" @click.stop="dialogFormVisible = true">登录</span>
+                <span class="register_btn" @click="dialogLangVisible = true">{{$t('translations')}}</span>
+                <span class="login_btn app-primary-color app-primary-borderColor" @click="dialogFormVisible = true">{{$t('login.login')}}</span>
             </div>
         </div>
-        <!-- dialog -->
-        <el-dialog class='login_box' title="登录" :visible.sync="dialogFormVisible">
-            <!-- form -->
-            <el-form :model="form" @submit.native.prevent="verify">
-                <el-form-item>
-                    <el-input v-model="form.username" placeholder="账号" auto-complete='off' /></el-form-item>
-                <el-form-item>
-                    <el-input v-model="form.password" placeholder="密码" auto-complete='off' :type="pwdType" />
-                    <span class="pwdEye" @click="passwordToggle"><i :class="eyeType"></i></span>
-                </el-form-item>
-                <el-input class="login_btn" type="submit" value="登录" />
-            </el-form>
-            <!-- otherLogin -->
-            <div slot="footer" class="footer">
-                <ul class="otherLogin">
-                    <li class="wx"><span>微信</span></li>
-                    <li class="qq"><span>QQ</span></li>
-                </ul>
-            </div>
-        </el-dialog>
 
         <!-- ripple -->
         <div class="ripple left">
@@ -45,6 +25,35 @@
             <i class="r4"></i>          
             <i class="r5"></i>          
         </div>
+
+        <!-- translations dialog -->
+        <el-dialog class='login_box' :title="$t('translations')" :visible.sync="dialogLangVisible">
+            <el-radio-group v-model="lang">
+                <el-radio border size="small" label="zh">中文</el-radio>
+                <el-radio border size="small" label="en">English</el-radio>
+            </el-radio-group>
+        </el-dialog>
+
+        <!-- login dialog -->
+        <el-dialog class='login_box' :title="$t('login.login')" :visible.sync="dialogFormVisible">
+            <!-- form -->
+            <el-form :model="form" @submit.native.prevent="verify">
+                <el-form-item>
+                    <el-input v-model="form.username" :placeholder="$t('login.username')" auto-complete='off' /></el-form-item>
+                <el-form-item>
+                    <el-input v-model="form.password" :placeholder="$t('login.password')" auto-complete='off' :type="pwdType" />
+                    <span class="pwdEye" @click="passwordToggle"><i :class="eyeType"></i></span>
+                </el-form-item>
+                <el-input class="login_btn login_inputColor" type="submit" :value="$t('login.login')" />
+            </el-form>
+            <!-- otherLogin -->
+            <div slot="footer" class="footer">
+                <ul class="otherLogin">
+                    <li class="wx"><span>{{$t('login.weChat')}}</span></li>
+                    <li class="qq"><span>{{$t('login.qq')}}</span></li>
+                </ul>
+            </div>
+        </el-dialog>
     </div>
 </template>
 <script>
@@ -54,10 +63,21 @@ export default {
         return {
             pwdType: 'password',
             eyeType: 'el-icon-fa-eye-slash',
+            dialogLangVisible: false,
             dialogFormVisible: false,
             form: {
                 username: 'uncleLian',
                 password: '123456'
+            }
+        }
+    },
+    computed: {
+        lang: {
+            get() {
+                return this.$store.state.language
+            },
+            set(val) {
+                this.$store.commit('set_language', val)
             }
         }
     },
@@ -96,14 +116,11 @@ export default {
 }
 </script>
 <style lang='stylus'>
-bgColor=#42b183
-bgColor2=#42b983 
 #login {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: linear-gradient(bgColor, bgColor2);
     color: #333;
     overflow: hidden;
     li:hover {
@@ -136,7 +153,6 @@ bgColor2=#42b983
                 display: inline-block;
                 width: 164px;
                 height: 62px;
-                color: #fff;
                 font-size: 22px;
                 border-radius: 4px;
                 text-align: center;
@@ -150,11 +166,10 @@ bgColor2=#42b983
             }
             .register_btn {
                 margin-right: 40px;
+                color: #fff;
             }
             .login_btn {
-                color: bgColor;
                 background-color: #fff;
-                border: 1px solid bgColor;
             }
         }
     }
@@ -162,7 +177,6 @@ bgColor2=#42b983
         a {
             display: inline-block;
             font-size: 12px;
-            color: bgColor;
         }
         .el-dialog {
             width: 340px;
@@ -194,7 +208,6 @@ bgColor2=#42b983
                 }
                 input {
                     color: #fff;
-                    background: bgColor;
                     border: none;
                     outline: none;
                     cursor: pointer;
@@ -281,9 +294,6 @@ bgColor2=#42b983
 }
 </style>
 <style>
-#login {
-    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#fe5d6c', endColorStr='#fd6155', gradientType='0');
-}
 #login:after {
     content: "";
     display: block;

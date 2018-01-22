@@ -1,4 +1,6 @@
 export default {
+    translations: 'Translations',
+    logOut: 'logOut',
     routes: {
         index: 'Index',
         home: 'Home',
@@ -31,5 +33,11 @@ export default {
         login: 'login',
         i18nView: 'I18n'
     },
-    translations: 'Translations'
+    login: {
+        login: 'Login',
+        username: 'username',
+        password: 'password',
+        weChat: 'weChat',
+        qq: 'QQ'
+    }
 }

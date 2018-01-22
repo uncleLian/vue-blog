@@ -1,4 +1,6 @@
 export default {
+    translations: '多语言',
+    logOut: '退出',
     routes: {
         index: '首页',
         home: '主页',
@@ -31,5 +33,11 @@ export default {
         login: '登录',
         i18nView: '国际化'
     },
-    translations: '多语言'
+    login: {
+        login: '登录',
+        username: '账号',
+        password: '密码',
+        weChat: '微信',
+        qq: 'QQ'
+    }
 }
