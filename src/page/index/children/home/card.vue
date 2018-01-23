@@ -22,22 +22,22 @@ export default {
         return {
             list: [
                 {
-                    icon: 'el-icon-fa-paper-plane',
+                    icon: 'el-icon-paperplane',
                     title: 'Page View',
                     endVal: 182735
                 },
                 {
-                    icon: 'el-icon-fa-user-circle',
+                    icon: 'el-icon-users',
                     title: 'Unique Visitor',
                     endVal: 7428
                 },
                 {
-                    icon: 'el-icon-fa-commenting',
+                    icon: 'el-icon-news',
                     title: 'Message',
                     endVal: 2839
                 },
                 {
-                    icon: 'el-icon-fa-qq',
+                    icon: 'el-icon-qq',
                     title: 'QQ group',
                     endVal: 338241465
                 }

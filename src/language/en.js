@@ -30,6 +30,7 @@ export default {
         more: 'More',
         page404: 'page404',
         errorLog: 'errorLog',
+        icons: 'Icons',
         login: 'login',
         i18nView: 'I18n'
     },

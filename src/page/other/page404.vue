@@ -1,5 +1,5 @@
 <template>
-    <div id="page404">
+    <div id="page404" class="app-primary-bgColor">
         <div class="people">
             <img src="~@/assets/img/people.png">
         </div>
@@ -22,7 +22,6 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: appColor;
     .people{
         position: absolute;
         left: 15%;

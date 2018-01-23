@@ -3,7 +3,7 @@
         <!-- Github -->
         <a class="github" href="https://github.com/uncleLian/vue2-blog" target="_blank">
             <div class="bg"></div>
-            <i class="el-icon-fa-github"></i>
+            <i class="el-icon-github"></i>
         </a>
 
         <!-- banner -->

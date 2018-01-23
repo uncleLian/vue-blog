@@ -10,7 +10,7 @@ import cache from '@/utils/cache'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'quill/dist/quill.snow.css'
 import '@/assets/css/reset.css'
-import '@/assets/css/icon.less'
+import '@/assets/css/icon/iconfont.css'
 import '@/assets/css/transition.css'
 import '@/assets/css/global.css'
 

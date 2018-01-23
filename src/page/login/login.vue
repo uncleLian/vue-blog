@@ -228,10 +228,11 @@ export default {
                     cursor: pointer;
                     span {
                         position: absolute;
-                        left: 8px;
+                        left: 50%;
                         bottom: -20px;
+                        transform: translateX(-50%);
                         font-size: 12px;
-                        width: 24px;
+                        width: fit-content;
                         line-height: 1;
                         color: #505050;
                     }
@@ -281,15 +282,6 @@ export default {
     }
     .r5{
         animation-delay: 8s;
-    }
-}
-@keyframes ripple{
-    0% {
-        opacity: .4;
-    }
-    100% {
-        opacity: 0;
-        transform: scale(4,4);
     }
 }
 </style>

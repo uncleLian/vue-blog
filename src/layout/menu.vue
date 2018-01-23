@@ -1,7 +1,7 @@
 <template>
     <my-sticky sticky-class="sticky-class">
         <el-aside id="menu" width="240px">
-            <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds">
+            <el-menu class="el-menu-container" :default-active="$route.name" :default-openeds="defaultOpeneds">
                 <my-menu-item :json="filterRoutes"></my-menu-item>
             </el-menu>
         </el-aside>
@@ -56,11 +56,9 @@ export default {
 #menu {
     user-select: none;
     height: 100%;
-    .el-menu{
+    .el-menu-container{
         min-height: 100%;
-        .el-submenu [class^=el-icon-] {
-            font-size: 16px;
-        }
+        padding-bottom: 15px;
     }
 }
 </style>

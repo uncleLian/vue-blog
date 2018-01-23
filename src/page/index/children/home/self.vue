@@ -2,7 +2,7 @@
     <div id="self">
         <el-card>
             <a slot="header" class="box-card-header" href="https://github.com/uncleLian" target="_blank">
-                <img src='~@/assets/img/uncleLian.png'>
+                <img src='~@/assets/img/uncleLian.jpg'>
             </a>
             <div style="position:relative;">
                 <div class="name">uncleLian</div>
@@ -10,7 +10,7 @@
                 <div class="info">
                     <div><i class="el-icon-location-outline"></i><span>Guangzhou</span></div>
                     <div><i class="el-icon-message"></i><a href="mailto:771674109@qq.com">771674109@qq.com</a></div>
-                    <div><i class="el-icon-fa-link"></i><a href="http://liansixin.win" target="_blank">http://liansixin.win</a></div>
+                    <div><i class="el-icon-link"></i><a href="http://liansixin.win" target="_blank">http://liansixin.win</a></div>
                 </div>
             </div>
         </el-card>

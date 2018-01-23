@@ -39,7 +39,7 @@
                             </div>
                             <el-dropdown-menu slot="dropdown">
                                 <el-dropdown-item command="exit">{{$t('logOut')}}</el-dropdown-item>
-                                <el-dropdown-item divided>v1.0.0</el-dropdown-item>
+                                <el-dropdown-item divided :disabled="true">v1.0.0</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
                     </div>

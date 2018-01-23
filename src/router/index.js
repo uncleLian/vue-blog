@@ -36,6 +36,7 @@ const importExcel = () => import('@/page/index/children/excel/importExcel')
 // more
 const view_404 = () => import('@/page/index/children/more/view_404')
 const errorLog = () => import('@/page/index/children/more/errorLog/errorLog')
+const icons = () => import('@/page/index/children/more/icons')
 // i18nView
 const i18nView = () => import('@/page/index/children/i18n/i18n_view')
 
@@ -58,7 +59,6 @@ export const routes = [
     {
         name: 'index',
         path: '/index',
-        icon: 'el-icon-menu',
         redirect: '/index/home',
         meta: { login: true },
         component: index,
@@ -66,7 +66,7 @@ export const routes = [
             {
                 name: 'home',
                 path: 'home',
-                icon: 'el-icon-fa-home',
+                icon: 'el-icon-my-home',
                 component: home
             },
             {
@@ -80,7 +80,7 @@ export const routes = [
                     {
                         name: 'sticky',
                         path: 'sticky',
-                        icon: 'el-icon-fa-thumb-tack',
+                        icon: 'el-icon-my-thumbtack',
                         component: stickyView
                     },
                     {
@@ -99,14 +99,14 @@ export const routes = [
 
                         name: 'countTo',
                         path: 'countTo',
-                        icon: 'el-icon-fa-calculator',
+                        icon: 'el-icon-my-number',
                         component: countToView
                     },
                     {
 
                         name: 'loading',
                         path: 'loading',
-                        icon: 'el-icon-fa-spinner',
+                        icon: 'el-icon-my-spinner',
                         component: loadingView
                     }
                 ]
@@ -114,7 +114,7 @@ export const routes = [
             {
                 name: 'collections',
                 path: 'collections',
-                icon: 'el-icon-fa-cube',
+                icon: 'el-icon-my-cube',
                 redirect: '/index/collections/progressbar',
                 component: view,
                 children: [
@@ -122,25 +122,25 @@ export const routes = [
 
                         name: 'progressbar',
                         path: 'progressbar',
-                        icon: 'el-icon-fa-minus',
+                        icon: 'el-icon-my-progressbar',
                         component: progressbar
                     },
                     {
                         name: 'clipboard',
                         path: 'clipboard',
-                        icon: 'el-icon-fa-clipboard',
+                        icon: 'el-icon-my-clipboard',
                         component: clipboard
                     },
                     {
                         name: 'editor',
                         path: 'editor',
-                        icon: 'el-icon-fa-pencil',
+                        icon: 'el-icon-my-pencil',
                         component: editor
                     },
                     {
                         name: 'markdown',
                         path: 'markdown',
-                        icon: 'el-icon-edit-outline',
+                        icon: 'el-icon-my-markdown',
                         component: markdown
                     }
                 ]
@@ -148,7 +148,7 @@ export const routes = [
             {
                 name: 'example',
                 path: 'example',
-                icon: 'el-icon-fa-ravelry',
+                icon: 'el-icon-my-ravelry',
                 redirect: '/index/example/dragList',
                 component: view,
                 children: [
@@ -172,7 +172,7 @@ export const routes = [
             {
                 name: 'charts',
                 path: 'charts',
-                icon: 'el-icon-fa-bar-chart',
+                icon: 'el-icon-my-chart',
                 redirect: '/index/charts/pie',
                 component: view,
                 children: [
@@ -196,7 +196,7 @@ export const routes = [
             {
                 name: 'Excel',
                 path: 'Excel',
-                icon: 'el-icon-fa-file-excel-o',
+                icon: 'el-icon-my-excel',
                 redirect: '/index/Excel/exportExcel',
                 component: view,
                 children: [
@@ -220,30 +220,37 @@ export const routes = [
             {
                 name: 'more',
                 path: 'more',
-                icon: 'el-icon-caret-bottom',
+                icon: 'el-icon-my-more',
                 redirect: '/index/more/page404',
                 component: view,
                 children: [
                     {
                         name: 'page404',
                         path: 'page404',
-                        icon: 'el-icon-fa-exclamation-triangle',
+                        icon: 'el-icon-my-404',
                         meta: { keep: true },
                         component: view_404
                     },
                     {
                         name: 'errorLog',
                         path: 'errorLog',
-                        icon: 'el-icon-fa-bug',
+                        icon: 'el-icon-my-bug',
                         meta: { keep: true },
                         component: errorLog
+                    },
+                    {
+                        name: 'icons',
+                        path: 'icons',
+                        icon: 'el-icon-my-icons',
+                        meta: { keep: true },
+                        component: icons
                     }
                 ]
             },
             {
                 name: 'i18nView',
                 path: 'i18nView',
-                icon: 'el-icon-fa-globe',
+                icon: 'el-icon-my-i18n',
                 component: i18nView
             }
         ]

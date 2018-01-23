@@ -5,7 +5,7 @@
 ![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/element--ui-2.0.7-blue.svg)
 
-#### 还在开发，敬请期待！ （已完成85%）
+#### 还在开发，敬请期待！ （已完成90%）
 > 你的 "star" 是我最大的动力！🌹
 
 

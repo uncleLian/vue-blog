@@ -38,8 +38,8 @@
                                 <div class="ql-formats">
                                     <button class="ql-clean" title="清除格式"></button>
                                     <!-- 自定义撤销和重做 -->
-                                    <button class="undo" title="撤销" @click.stop="editor.history.undo()"><i class="el-icon-fa-undo"></i></button>
-                                    <button class="redo" title="重做" @click.stop="editor.history.redo()"><i class="el-icon-fa-repeat"></i></button>
+                                    <button class="undo" title="撤销" @click.stop="editor.history.undo()"><i class="el-icon-undo"></i></button>
+                                    <button class="redo" title="重做" @click.stop="editor.history.redo()"><i class="el-icon-redo"></i></button>
                                 </div>
                                 <!-- 自定义保存状态 -->
                                 <div class="draftSave" :class="{on : isSave}"></div>

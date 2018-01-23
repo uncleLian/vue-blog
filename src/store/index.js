@@ -9,7 +9,8 @@ Vue.use(Vuex)
 const state = {
     user: '',
     logs: [],
-    language: 'zh'
+    language: 'zh',
+    theme: '#42B983'
 }
 
 const getters = {
@@ -20,6 +21,9 @@ const getters = {
         return state.logs
     },
     language: state => {
+        return state.language
+    },
+    theme: state => {
         return state.language
     }
 }
@@ -39,6 +43,9 @@ const mutations = {
         i18n.locale = val
         state.language = val
         cache.setSession('language', val)
+    },
+    set_theme(state, val) {
+        state.theme = val
     }
 }
 

@@ -24,21 +24,7 @@
 </template>
 <script>
 export default {
-    name: 'banner',
-    data() {
-        return {
-
-        }
-    },
-    computed: {
-
-    },
-    methods: {
-
-    },
-    mounted() {
-
-    }
+    name: 'banner'
 }
 </script>
 <style lang='stylus'>
@@ -64,7 +50,7 @@ export default {
                     text-align: center;
                     background-color: rgba(0, 0, 0, 0.3);
                     &:hover {
-                        color: #6ed56c;
+                        color: appColor;
                     }
                 }
             }
