@@ -10,7 +10,7 @@
                 <!-- bug -->
                 <div class="right-item" v-if="logs.length > 0">
                     <el-badge is-dot @click.native="bugDialog = true">
-                        <i class="el-icon-fa-bug bug" type="danger" size="small" @click="$refs.errorDialog.toggle"></i>
+                        <i class="el-icon-my-bug bug" type="danger" size="small" @click="$refs.errorDialog.toggle"></i>
                     </el-badge>
                 </div>
                 <!-- i18n -->
