@@ -62,7 +62,7 @@ export default {
     data() {
         return {
             pwdType: 'password',
-            eyeType: 'el-icon-fa-eye-slash',
+            eyeType: 'el-icon-my-closeEye',
             dialogLangVisible: false,
             dialogFormVisible: false,
             form: {
@@ -103,10 +103,10 @@ export default {
         passwordToggle() {
             if (this.pwdType === 'password') {
                 this.pwdType = ''
-                this.eyeType = 'el-icon-fa-eye'
+                this.eyeType = 'el-icon-my-openEye'
             } else {
                 this.pwdType = 'password'
-                this.eyeType = 'el-icon-fa-eye-slash'
+                this.eyeType = 'el-icon-my-closeEye'
             }
         },
         register() {

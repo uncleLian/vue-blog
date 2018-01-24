@@ -19,6 +19,18 @@ export default {
         return {
             icons: [
                 {
+                    class: 'el-icon-my-hot',
+                    name: 'hot'
+                },
+                {
+                    class: 'el-icon-my-openEye',
+                    name: 'openEye'
+                },
+                {
+                    class: 'el-icon-my-closeEye',
+                    name: 'closeEye'
+                },
+                {
                     class: 'el-icon-my-icons',
                     name: 'icons'
                 },
