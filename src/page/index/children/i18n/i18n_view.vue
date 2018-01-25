@@ -65,7 +65,7 @@ export default {
             console.log(`current page: ${val}`)
         },
         initLocal() {
-            if (!this.$i18n.getLocaleMessage('en')[keyName]) {
+            if (!this.$te(keyName)) {
                 this.$i18n.mergeLocaleMessage('zh', i18nLocal.zh)
                 this.$i18n.mergeLocaleMessage('en', i18nLocal.en)
             }

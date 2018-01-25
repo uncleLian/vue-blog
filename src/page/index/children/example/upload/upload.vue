@@ -228,6 +228,7 @@ export default {
                         cancelButtonText: '取消',
                         type: 'warning'
                     }).then(() => {
+                        cache.removeLocal('draft')
                         this.$notify.success('发表成功')
                     }).catch(() => {
                         console.log('cancle')

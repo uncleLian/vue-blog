@@ -54,14 +54,14 @@
     </el-header>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import errorDialog from '@/page/index/children/more/errorlog/errorDialog'
 import themePicker from '@/components/themePicker'
 export default {
     name: 'my-header',
     components: { errorDialog, themePicker },
     computed: {
-        ...mapGetters([
+        ...mapState([
             'user',
             'logs',
             'language'

@@ -14,27 +14,15 @@ const state = {
 }
 
 const getters = {
-    user: state => {
-        return state.user
-    },
-    logs: state => {
-        return state.logs
-    },
-    language: state => {
-        return state.language
-    },
-    theme: state => {
-        return state.language
-    }
 }
 
 const mutations = {
-    set_user(state, val) {
-        state.user = val
-    },
     loginOut(state) {
         state.user = ''
         cache.removeToken()
+    },
+    set_user(state, val) {
+        state.user = val
     },
     set_logs(state, val) {
         state.logs.push(val)
