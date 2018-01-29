@@ -19,6 +19,10 @@ export default {
         return {
             icons: [
                 {
+                    class: 'el-icon-my-book',
+                    name: 'book'
+                },
+                {
                     class: 'el-icon-my-hot',
                     name: 'hot'
                 },

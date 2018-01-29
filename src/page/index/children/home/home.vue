@@ -1,37 +1,35 @@
 <template>
     <div id="home">
+        <!-- banner -->
+        <my-banner></my-banner>
+        <!-- card -->
+        <my-card></my-card>
+
+        <el-row :gutter="12">
+            <!-- table -->
+            <el-col :span="12"><my-table></my-table></el-col>
+            <!-- todo -->
+            <el-col :span="6"><my-todo></my-todo></el-col>
+            <!-- self -->
+            <el-col :span="6"><my-self></my-self></el-col>
+        </el-row>
+        
         <!-- Github -->
         <a class="github" href="https://github.com/uncleLian/vue2-blog" target="_blank">
             <div class="bg"></div>
             <i class="el-icon-my-github"></i>
         </a>
-
-        <!-- banner -->
-        <my-banner></my-banner>
-
-        <!-- card -->
-        <my-card></my-card>
-        
-        <el-row :gutter="10">
-            <el-col :span="6">
-            <!-- todo -->
-                <my-todo></my-todo>
-            </el-col>
-            <el-col :span="6">
-                <!-- self -->
-                <my-self></my-self>
-            </el-col>
-        </el-row>
     </div>
 </template>
 <script>
-import myBanner from './banner'
-import myCard from './card'
-import mySelf from './self'
-import myTodo from './todo'
+import myBanner from './components/banner'
+import myCard from './components/card'
+import mySelf from './components/self'
+import myTodo from './components/todo'
+import myTable from './components/homeTable'
 export default {
     name: 'home',
-    components: { myBanner, myCard, mySelf, myTodo },
+    components: { myBanner, myCard, mySelf, myTodo, myTable },
     data() {
         return {
         }

@@ -4,6 +4,7 @@ export default {
     routes: {
         index: 'Index',
         home: 'Home',
+        documents: 'Documents',
         components: 'Components',
         sticky: 'sticky',
         breadcrumb: 'breadcrumb',

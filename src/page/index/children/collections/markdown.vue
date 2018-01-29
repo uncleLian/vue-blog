@@ -4,10 +4,17 @@
         <textarea id="simplemde"></textarea>
         <div style="margin-top: 20px;">
             <el-button type="primary" @click="markdown2Html">转化为 HTML</el-button>
-            <div class="html" v-html="html"></div>
+            <div class="markdownHTML" v-html="html"></div>
         </div>
         <div class="moreLink">
-            <p>更多内容：<a href="https://github.com/sparksuite/simplemde-markdown-editor" target="_blank">simplemde-markdown-editor</a> 、<a href="https://github.com/showdownjs/showdown" target="_blank">showdown</a></p>
+            <p>更多内容：
+                <a href="https://github.com/sparksuite/simplemde-markdown-editor" target="_blank">simplemde-markdown-editor（markdown编辑器）</a>
+                <a href="https://github.com/showdownjs/showdown" target="_blank">showdown（markdown语法转HTML结构）</a>
+            </p>
+            <p>额外内容：
+                <a href="https://github.com/dfenstermaker/text-loader" target="_blank">text-loader（将.md内容转成String）</a>
+                <a href="https://github.com/peerigon/markdown-loader" target="_blank">markdown-loader（将.md输出为.html）</a>
+            </p>
         </div>
     </div>
 </template>
@@ -56,7 +63,6 @@ export default {
             } else {
                 this.$message.warning('没有内容')
             }
-
         }
     },
     mounted() {
@@ -94,10 +100,11 @@ export default {
             font-weight: bold;
         }
     }
+    /*编辑器下方状态栏*/
     /*.editor-statusbar {
       display: none;
     }*/
-    .html {
+    .markdownHTML {
         margin-top: 30px;
         width: 100%;
         padding: 30px 35px;
@@ -106,7 +113,7 @@ export default {
         border: 1px solid #ddd;
         border-radius: 3px;
     }
-    .html,
+    .markdownHTML,
     .editor-preview-side {
         h1, h2, h3, h4, h5, h6 {
             margin-top: 24px;

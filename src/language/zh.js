@@ -4,6 +4,7 @@ export default {
     routes: {
         index: '首页',
         home: '主页',
+        documents: '文档',
         components: '组件',
         sticky: '图钉',
         breadcrumb: '面包屑',

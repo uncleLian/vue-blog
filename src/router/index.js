@@ -10,6 +10,7 @@ const index = () => import('@/page/index/index')
 const page404 = () => import('@/page/other/page404')
 // home
 const home = () => import('@/page/index/children/home/home')
+const documents = () => import('@/page/index/children/documents/documents')
 // componentsView
 const stickyView = () => import('@/page/index/children/componentsView/sticky_view')
 const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
@@ -68,6 +69,12 @@ export const routes = [
                 path: 'home',
                 icon: 'el-icon-my-home',
                 component: home
+            },
+            {
+                name: 'documents',
+                path: 'documents',
+                icon: 'el-icon-my-book',
+                component: documents
             },
             {
                 name: 'components',
