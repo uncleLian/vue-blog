@@ -1,5 +1,6 @@
 /* eslint-disable */
 var Mock = require('mockjs')
+
 // 开发测试数据
 // 登录
 Mock.mock('http://blog.liansixin.win/api-dev/login', {
@@ -7,8 +8,13 @@ Mock.mock('http://blog.liansixin.win/api-dev/login', {
 })
 // 用户信息
 Mock.mock('http://blog.liansixin.win/api-dev/user', {
-    nickname: '思鑫',
-    headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4'
+    code: 200,
+    msg: 'success',
+    data: {
+        nickname: '思鑫',
+        headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4',
+        role: 'admin'
+    }
 })
 // 列表
 Mock.mock('http://blog.liansixin.win/api-dev/list', {
@@ -2199,7 +2205,8 @@ Mock.mock('http://blog.liansixin.win/api-prod/login', {
 // 用户信息
 Mock.mock('http://blog.liansixin.win/api-prod/user', {
     nickname: 'uncleLian',
-    headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4'
+    headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4',
+    role: 'admin'
 })
 // 列表
 Mock.mock('http://blog.liansixin.win/api-prod/list', {

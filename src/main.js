@@ -70,25 +70,26 @@ Object.keys(filters).forEach(key => {
 
 // 全局路由登录验证
 router.beforeEach((to, from, next) => {
-    let token = cache.getToken()
-    if (to.path === '/login' && token) {
-        next('/')
-    } else if (to.matched.some(record => record.meta.login)) {
-        if (token) {
-            if (store.getters.user) {
-                next()
+    if (to.matched.some(record => record.meta.login)) {
+        if (cache.getToken()) {
+            if (to.path === '/login') {
+                next('/')
             } else {
-                store.dispatch('get_user_data')
-                .then(res => {
+                if (store.getters.user) {
                     next()
-                })
-                .catch(() => {
-                    window.alert('账号在别处登录，请重新登录')
-                    next({
-                        path: '/login',
-                        query: { redirect: to.fullPath }
+                } else {
+                    store.dispatch('get_user_data').then(() => {
+                        next()
                     })
-                })
+                    .catch(() => {
+                        // 可根据错误信息，做相应需求，这里默认token值失效
+                        window.alert('登录已失效，请重新登录')
+                        next({
+                            path: '/login',
+                            query: { redirect: to.fullPath }
+                        })
+                    })
+                }
             }
         } else {
             next({

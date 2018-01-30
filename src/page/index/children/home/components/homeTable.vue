@@ -60,7 +60,7 @@ export default {
     mounted() {
         getList().then(res => {
             if (res) {
-                this.tableJson = res.data.slice(0, 6)
+                this.tableJson = res.data.slice(0, 7)
             }
         })
     }

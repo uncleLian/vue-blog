@@ -268,8 +268,14 @@ export const routes = [
         component: login
     },
     {
-        path: '*',
+        name: '404',
+        path: '/404',
+        meta: { login: true },
         component: page404
+    },
+    {
+        path: '*',
+        redirect: '/404'
     }
 ]
 

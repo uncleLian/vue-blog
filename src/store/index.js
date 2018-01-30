@@ -7,10 +7,10 @@ import i18n from '@/language'
 Vue.use(Vuex)
 
 const state = {
-    user: '',
-    logs: [],
-    language: 'zh',
-    theme: '#42B983'
+    user: '',               // 用户信息
+    logs: [],               // 错误日志
+    language: 'zh',         // 语言
+    theme: '#42B983'        // 主题颜色
 }
 
 const getters = {
@@ -42,12 +42,12 @@ const actions = {
     async get_login_data({ commit }, params) {
         return new Promise((resolve, reject) => {
             getLogin(params).then(res => {
-                // console.log('token', res)
+                // console.log('login', res)
                 if (res && res.token) {
                     cache.setToken(res.token)
                     resolve()
                 } else {
-                    reject(new Error('nothing data'))
+                    reject(new Error('nothing login data'))
                 }
             })
             .catch(err => {
@@ -59,9 +59,10 @@ const actions = {
     async get_user_data({ commit }, token) {
         return new Promise((resolve, reject) => {
             getUser(token).then(res => {
-                if (res) {
-                    commit('set_user', res)
-                    resolve()
+                // console.log('user', res)
+                if (res && res.code === 200 && res.data) {
+                    commit('set_user', res.data)
+                    resolve(res)
                 } else {
                     reject(new Error('nothing user data'))
                 }
