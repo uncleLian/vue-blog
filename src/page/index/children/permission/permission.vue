@@ -1,10 +1,10 @@
 <template>
     <div id="permission">
         <p>目前角色为：{{$store.state.user.role}}</p>
-        <p><el-switch v-model="permission" inactive-text="admin" active-text="visitor"></el-switch></p>
+        <p class="switchBtn"><el-switch v-model="permission" inactive-text="admin" active-text="visitor"></el-switch></p>
         <el-alert type="warning" :closable="false" title="注意：">
-            <p>当角色切换后，重新进入此页面将会进行权限验证。</p>
-            <p>如果你是visitor，你将无法进入这个页面，请刷新重新查看效果。</p>
+            <p>进入此页面的权限等级为：admin</p>
+            <p>如果你切换为visitor，重新进入此页面时你将无法进入，请刷新重新查看效果</p>
         </el-alert>
     </div>
 </template>
@@ -30,6 +30,9 @@ export default {
 </script>
 <style lang='stylus'>
 #permission {
+    .switchBtn{
+        margin: 30px 0;
+    }
     .el-alert{
         width: fit-content;
     }

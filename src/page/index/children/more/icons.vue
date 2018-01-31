@@ -19,6 +19,10 @@ export default {
         return {
             icons: [
                 {
+                    class: 'el-icon-my-lock',
+                    name: 'lock'
+                },
+                {
                     class: 'el-icon-my-book',
                     name: 'book'
                 },
@@ -69,6 +73,10 @@ export default {
                 {
                     class: 'el-icon-my-bug',
                     name: 'bug'
+                },
+                {
+                    class: 'el-icon-my-401',
+                    name: '401'
                 },
                 {
                     class: 'el-icon-my-404',

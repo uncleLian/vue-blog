@@ -11,7 +11,10 @@ const page401 = () => import('@/page/other/page401')
 const page404 = () => import('@/page/other/page404')
 // home
 const home = () => import('@/page/index/children/home/home')
+// documents
 const documents = () => import('@/page/index/children/documents/documents')
+// permission
+const permission = () => import('@/page/index/children/permission/permission')
 // componentsView
 const stickyView = () => import('@/page/index/children/componentsView/sticky_view')
 const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
@@ -43,8 +46,7 @@ const errorLog = () => import('@/page/index/children/more/errorLog/errorLog')
 const icons = () => import('@/page/index/children/more/icons')
 // i18nView
 const i18nView = () => import('@/page/index/children/i18n/i18n_view')
-// permission
-const permission = () => import('@/page/index/children/permission/permission')
+
 Vue.use(Router)
 
 /*
@@ -80,6 +82,13 @@ export const routes = [
                 path: 'documents',
                 icon: 'el-icon-my-book',
                 component: documents
+            },
+            {
+                name: 'permission',
+                path: 'permission',
+                icon: 'el-icon-my-lock',
+                meta: { role: 'admin' },
+                component: permission
             },
             {
                 name: 'components',
@@ -274,13 +283,6 @@ export const routes = [
                         component: icons
                     }
                 ]
-            },
-            {
-                name: 'permission',
-                path: 'permission',
-                icon: 'el-icon-my-lock',
-                meta: { role: ['admin'] },
-                component: permission
             },
             {
                 name: 'i18nView',
