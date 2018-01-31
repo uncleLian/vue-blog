@@ -2204,9 +2204,13 @@ Mock.mock('http://blog.liansixin.win/api-prod/login', {
 })
 // 用户信息
 Mock.mock('http://blog.liansixin.win/api-prod/user', {
-    nickname: 'uncleLian',
-    headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4',
-    role: 'admin'
+    code: 200,
+    msg: 'success',
+    data: {
+        nickname: 'uncleLian',
+        headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4',
+        role: 'admin'
+    }
 })
 // 列表
 Mock.mock('http://blog.liansixin.win/api-prod/list', {

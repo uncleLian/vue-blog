@@ -5,7 +5,7 @@
         </div>
         <div class="login_wrap">
             <div class="login_content">
-                <span class="register_btn" @click="dialogLangVisible = true">{{$t('translations')}}</span>
+                <span class="translations_btn" @click="dialogLangVisible = true">{{$t('translations')}}</span>
                 <span class="login_btn app-primary-color app-primary-borderColor" @click="dialogFormVisible = true">{{$t('login.login')}}</span>
             </div>
         </div>
@@ -84,7 +84,7 @@ export default {
     methods: {
         login() {
             this.$store.dispatch('get_login_data', this.form)
-            .then(() => {
+            .then((res) => {
                 this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
             })
             .catch(() => {
@@ -108,9 +108,6 @@ export default {
                 this.pwdType = 'password'
                 this.eyeType = 'el-icon-my-closeEye'
             }
-        },
-        register() {
-            this.$message.warning('这个按钮只是为了好看~')
         }
     }
 }
@@ -164,7 +161,7 @@ export default {
             span:hover {
                 opacity: 0.7;
             }
-            .register_btn {
+            .translations_btn {
                 margin-right: 40px;
                 color: #fff;
             }

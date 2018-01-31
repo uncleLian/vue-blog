@@ -24,6 +24,9 @@ const mutations = {
     set_user(state, val) {
         state.user = val
     },
+    set_role(state, val) {
+        state.user.role = val
+    },
     set_logs(state, val) {
         state.logs.push(val)
     },
@@ -45,7 +48,7 @@ const actions = {
                 // console.log('login', res)
                 if (res && res.token) {
                     cache.setToken(res.token)
-                    resolve()
+                    resolve(res)
                 } else {
                     reject(new Error('nothing login data'))
                 }
@@ -62,7 +65,7 @@ const actions = {
                 // console.log('user', res)
                 if (res && res.code === 200 && res.data) {
                     commit('set_user', res.data)
-                    resolve(res)
+                    resolve(res.data)
                 } else {
                     reject(new Error('nothing user data'))
                 }

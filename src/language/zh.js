@@ -28,12 +28,14 @@ export default {
         exportExcel: '导出Excel',
         exportSelected: '导出Selected',
         importExcel: '导入Excel',
+        errorPage: '错误页面',
+        page401: '401',
+        page404: '404',
         more: '更多',
-        page404: '404页面',
         errorLog: '错误日志',
         icons: '图标',
-        login: '登录',
-        i18nView: '国际化'
+        i18nView: '国际化',
+        permission: '权限测试'
     },
     login: {
         login: '登录',

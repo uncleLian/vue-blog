@@ -5,8 +5,9 @@ import Router from 'vue-router'
 // view组件是用在多层嵌套但依然想渲染在主页面的page视图下的场景
 const view = () => import('@/layout/view')
 // 一级路由
-const login = () => import('@/page/login/login')
 const index = () => import('@/page/index/index')
+const login = () => import('@/page/login/login')
+const page401 = () => import('@/page/other/page401')
 const page404 = () => import('@/page/other/page404')
 // home
 const home = () => import('@/page/index/children/home/home')
@@ -34,22 +35,26 @@ const scatter = () => import('@/page/index/children/charts/scatter')
 const exportExcel = () => import('@/page/index/children/excel/exportExcel')
 const exportSelected = () => import('@/page/index/children/excel/exportSelected')
 const importExcel = () => import('@/page/index/children/excel/importExcel')
+// errorPage
+const view_401 = () => import('@/page/index/children/errorPage/view_401')
+const view_404 = () => import('@/page/index/children/errorPage/view_404')
 // more
-const view_404 = () => import('@/page/index/children/more/view_404')
 const errorLog = () => import('@/page/index/children/more/errorLog/errorLog')
 const icons = () => import('@/page/index/children/more/icons')
 // i18nView
 const i18nView = () => import('@/page/index/children/i18n/i18n_view')
-
+// permission
+const permission = () => import('@/page/index/children/permission/permission')
 Vue.use(Router)
 
 /*
 * @params
-* icon: ''             菜单图标（可以用element-ui 的icon 或者 项目已经配置好的awesome icons）
-* open: false          是否展开菜单
+* icon: ''                      菜单图标（可以用element-ui的icon & iconfont）
+* open: false                   是否展开菜单
 * @meta
-* login: false         是否需要登录
-* keep: false          是否需要缓存
+* login: false                  是否需要登录
+* role: 'admin' || ['admin']    是否需要权限
+* keep: false                   是否需要缓存
 */
 
 export const routes = [
@@ -225,19 +230,35 @@ export const routes = [
                 ]
             },
             {
-                name: 'more',
-                path: 'more',
-                icon: 'el-icon-my-more',
-                redirect: '/index/more/page404',
+                name: 'errorPage',
+                path: 'errorPage',
+                icon: 'el-icon-my-404',
+                redirect: '/index/errorPage/page401',
                 component: view,
                 children: [
+                    {
+                        name: 'page401',
+                        path: 'page401',
+                        icon: 'el-icon-my-401',
+                        meta: { keep: true },
+                        component: view_401
+                    },
                     {
                         name: 'page404',
                         path: 'page404',
                         icon: 'el-icon-my-404',
                         meta: { keep: true },
                         component: view_404
-                    },
+                    }
+                ]
+            },
+            {
+                name: 'more',
+                path: 'more',
+                icon: 'el-icon-my-more',
+                redirect: '/index/more/page404',
+                component: view,
+                children: [
                     {
                         name: 'errorLog',
                         path: 'errorLog',
@@ -255,6 +276,13 @@ export const routes = [
                 ]
             },
             {
+                name: 'permission',
+                path: 'permission',
+                icon: 'el-icon-my-lock',
+                meta: { role: ['admin'] },
+                component: permission
+            },
+            {
                 name: 'i18nView',
                 path: 'i18nView',
                 icon: 'el-icon-my-i18n',
@@ -266,6 +294,12 @@ export const routes = [
         name: 'login',
         path: '/login',
         component: login
+    },
+    {
+        name: '401',
+        path: '/401',
+        meta: { login: true },
+        component: page401
     },
     {
         name: '404',

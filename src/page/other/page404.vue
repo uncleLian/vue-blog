@@ -1,13 +1,10 @@
 <template>
     <div id="page404" class="app-primary-bgColor">
-        <div class="people">
-            <img src="~@/assets/img/people.png">
-        </div>
-        <div class="text">
-            <div class="text-404 sideUp">404</div>
-            <div class="text-notFound sideUp">The page you are looking for is no longer here.</div>
-            <div class="text-apologize sideUp">We sincerely apologize</div>
-            <p><el-button class="goHome sideUp"  round @click="$router.push('/')">Go home</el-button></p>
+        <div class="wrapper">
+            <img class="logo" src="~@/assets/img/404.gif">
+            <p class="text">The page you are looking for is either stolen by aliens or never existed.</p>
+            <p><el-button class="goHome" round @click="$router.push('/')">Go Home</el-button></p>
+            <p class="issues"><a href="https://github.com/uncleLian/vue2-blog/issues" target="_blank">Issues me</a></p>
         </div>
     </div>
 </template>
@@ -22,54 +19,28 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    .people{
+    .wrapper{
         position: absolute;
-        left: 15%;
-        top: 50%;
-        transform: translateY(-50%);
+        max-width: 320px;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 999;
-        user-select: none;
-        img{
-            width: 50%;
-        }
-    }
-    .text {
-        position: absolute;
-        right: 20%;
-        top: 18%;
-        z-index: 999;
-        font-size: 16px;
-        font-family: "Roboto";
-        color: #fff;
         text-align: center;
-        .sideUp{
-            opacity: 0;
-            animation: slideUp 0.5s;
-            animation-fill-mode: forwards;
+        .logo{
+            width: 100%;
         }
-        .text-404{
-            font-size: 9em;
-            color: rgb(83, 62, 41);
-            margin-bottom: 20px;
-            user-select: none;
+        .text{
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            margin: 2em 0;
         }
-        .text-notFound{
-            font-size: 1em;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 30px;
-            animation-delay: 0.1s;
-        }
-        .text-apologize{
-            font-size: 2em;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 25px;
-            animation-delay: 0.2s;
-        }
-        .goHome{
-            font-size: 20px;
-            color: rgb(83, 62, 41);
-            font-weight: bold;
-            animation-delay: 0.3s;
+        .issues{
+            margin-top: 10%;
+            a{
+                color: #fff;
+            }
         }
     }
 }
