@@ -8,7 +8,8 @@ export default {
         return {
             theme: this.$store.state.theme,
             newTheme: '',
-            oldTheme: ''
+            oldTheme: '',
+            chalk: ''
         }
     },
     watch: {
@@ -26,12 +27,35 @@ export default {
                     const text = style.innerText
                     return new RegExp(oldVal, 'i').test(text) || new RegExp(this.getTricolor(oldVal), 'i').test(text)
                 })
-
                 styles.forEach(style => {
                     const { innerText } = style
                     if (typeof innerText !== 'string') return
                     style.innerText = this.updateStyle(innerText, this.newTheme, this.oldTheme)
                 })
+
+                // 解决打包后css都压缩在app.css，导致无法动态换肤的问题
+                if (!this.chall) {
+                    const links = Array.from(document.querySelectorAll('link')).filter(link => {
+                        const url = link.href
+                        return new RegExp('css/app', 'i').test(url)
+                    })
+                    if (links.length > 0) {
+                        this.$http.get(links[0].href).then(res => {
+                            if (res.data) {
+                                this.chall = res.data
+                                let newStyle = document.createElement('style')
+                                newStyle.setAttribute('id', 'chalk-style')
+                                newStyle.type = 'text/css'
+                                newStyle.innerText = this.updateStyle(this.chall, this.newTheme, this.oldTheme)
+                                document.head.appendChild(newStyle)
+                            }
+                        })
+                    }
+                } else {
+                    let chalkStyle = document.querySelector('#chalk-style')
+                    this.chall = chalkStyle.innerText = this.updateStyle(this.chall, this.newTheme, this.oldTheme)
+                }
+
                 this.$store.commit('set_theme', newVal)
                 this.$message.success('换肤成功')
             }

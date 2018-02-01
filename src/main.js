@@ -63,21 +63,6 @@ Object.keys(filters).forEach(key => {
 
 // 全局路由登录验证，权限验证
 router.beforeEach((to, from, next) => {
-    function goLoginPage() {
-        next({ path: '/login', query: { redirect: to.fullPath } })
-    }
-    function assessPermission(userRole, pageRole) {
-        let pass = false
-        // 页面无需权限 || 用户是管理员
-        if (!pageRole || userRole.indexOf('admin') > -1) pass = true
-        // 符合页面的其中一种权限（支持String和Array写法）
-        if (typeof pageRole === 'string') {
-            if (userRole.indexOf(pageRole) > -1) pass = true
-        } else if (Array.isArray(pageRole)) {
-            if (pageRole.some(role => userRole.indexOf(role) > -1)) pass = true
-        }
-        pass ? next() : next('/401')
-    }
     if (to.matched.some(record => record.meta.login)) { // 是否需要登录
         if (cache.getToken()) {
             if (to.path === '/login') {
@@ -102,6 +87,21 @@ router.beforeEach((to, from, next) => {
         }
     } else {
         next()
+    }
+    function goLoginPage() {
+        next({ path: '/login', query: { redirect: to.fullPath } })
+    }
+    function assessPermission(userRole, pageRole) {
+        let pass = false
+        // 页面无需权限 || 用户是管理员
+        if (!pageRole || userRole.indexOf('admin') > -1) pass = true
+        // 符合页面的其中一种权限（支持String和Array写法）
+        if (typeof pageRole === 'string') {
+            if (userRole.indexOf(pageRole) > -1) pass = true
+        } else if (Array.isArray(pageRole)) {
+            if (pageRole.some(role => userRole.indexOf(role) > -1)) pass = true
+        }
+        pass ? next() : next('/401')
     }
 })
 
