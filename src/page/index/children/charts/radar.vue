@@ -7,11 +7,12 @@
     </div>
 </template>
 <script>
+import echarts from 'echarts'
 export default {
     name: 'radar',
     methods: {
         drawRadar() {
-            let myChart = this.$echarts.init(this.$el.querySelector('#myCharts'))
+            let myChart = echarts.init(this.$el.querySelector('#myCharts'))
             // Schema:
             // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
             var dataBJ = [

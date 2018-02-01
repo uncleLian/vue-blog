@@ -40,8 +40,12 @@
     </div>
 </template>
 <script>
+import draggable from 'vuedraggable'
 export default {
     name: 'dragList',
+    components: {
+        'my-draggable': draggable
+    },
     data() {
         return {
             options: {

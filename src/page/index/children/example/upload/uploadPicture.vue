@@ -77,10 +77,10 @@ export default {
         handleClick(val) {
             if (this.activeTab === 'select') {
                 this.$nextTick(() => {
-                    $('.imgWrapper').on('scroll', this.onScroll)
+                    this.$el.querySelector('.imgWrapper').addEventListener('scroll', this.onScroll)
                 })
             } else {
-                $('.imgWrapper').off('scroll', this.onScroll)
+                this.$el.querySelector('.imgWrapper').removeEventListener('scroll', this.onScroll)
             }
         },
         // 上传图片前检查格式、大小
@@ -187,23 +187,23 @@ export default {
             })
         },
         onScroll() {
-            let scrollEle = $('.imgWrapper')
-            let wrapperEle = $('.img-list')
+            let scrollEle = this.$el.querySelector('.imgWrapper')
+            let wrapperEle = this.$el.querySelector('.img-list')
             let timeoutRef
             if (timeoutRef) {
                 clearTimeout(timeoutRef)
             }
             timeoutRef = setTimeout(() => {
-                let scrollEleScrollTop = scrollEle.scrollTop()
-                let scrollEleHeight = scrollEle.height()
-                let wrapperEleHeight = wrapperEle.height()
+                let scrollEleScrollTop = scrollEle.scrollTop
+                let scrollEleHeight = scrollEle.offsetHeight
+                let wrapperEleHeight = wrapperEle.offsetHeight
                 let isBottom = scrollEleScrollTop + scrollEleHeight >= wrapperEleHeight
                 let isInit = this.freePictureList.length > 0 && !this.more_loading && this.page >= 2
                 if (isBottom && isInit && !this.lock) {
                     this.get_picture_more()
                     this.lock = true
                 }
-            }, 100)
+            }, 150)
         }
     }
 }

@@ -7,11 +7,12 @@
     </div>
 </template>
 <script>
+import echarts from 'echarts'
 export default {
     name: 'scatter',
     methods: {
         drawScatter() {
-            let myChart = this.$echarts.init(this.$el.querySelector('#myCharts'))
+            let myChart = echarts.init(this.$el.querySelector('#myCharts'))
             function getVirtulData(echarts, year) {
                 year = year || '2017'
                 var date = +echarts.number.parseDate(year + '-01-01')
@@ -26,7 +27,7 @@ export default {
                 }
                 return data
             }
-            var data = getVirtulData(this.$echarts, 2017)
+            var data = getVirtulData(echarts, 2017)
             myChart.setOption({
                 backgroundColor: '#404a59',
                 title: {

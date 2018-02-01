@@ -7,11 +7,12 @@
     </div>
 </template>
 <script>
+import echarts from 'echarts'
 export default {
     name: 'pie',
     methods: {
         drawPie() {
-            let myChart = this.$echarts.init(this.$el.querySelector('#myCharts'))
+            let myChart = echarts.init(this.$el.querySelector('#myCharts'))
             myChart.setOption({
                 title: {
                     text: '访问来源',

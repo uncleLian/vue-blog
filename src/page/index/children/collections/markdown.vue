@@ -21,7 +21,7 @@
 <script>
 import 'font-awesome/css/font-awesome.min.css'
 import 'simplemde/dist/simplemde.min.css'
-import SimpleMDE from 'simplemde'
+import SimpleMDE from 'simplemde/dist/simplemde.min.js'
 export default {
     name: 'markdown',
     data() {

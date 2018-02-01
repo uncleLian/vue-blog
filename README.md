@@ -46,11 +46,10 @@ vue2-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.
 - [x] ...
 
 ##### 待更新
-
+- [ ] 骨架模板
 - [ ] 文档
 
 ## 部分截图
-<img src="https://github.com/uncleLian/vue2-blog/raw/master/screenshots/login.jpg" width="900px" style="max-width: 100%;"/>
 <img src="https://github.com/uncleLian/vue2-blog/raw/master/screenshots/home.jpg" width="900px" style="max-width: 100%;"/>
 
 ## 安装运行
@@ -66,7 +65,7 @@ npm run dev
 npm run build（File in the docs folder）
 ```
 
-## 更新日志
+## 版本日志
 [发行说明](https://github.com/uncleLian/vue2-blog/releases)中记录了每个版本的详细更改。
 
 ## 传送门
@@ -79,7 +78,7 @@ npm run build（File in the docs folder）
 
 
 ## 捐赠
-如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹
+如果你觉得这个项目帮助到了你，你可以请我喝一杯果汁表示鼓励 🍹
 
 <img src="https://github.com/uncleLian/vue2-blog/raw/master/screenshots/donate.jpg" width="500px" style="max-width: 100%;"/>
 

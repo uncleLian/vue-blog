@@ -94,10 +94,14 @@
     </div>
 </template>
 <script>
+import Vue from 'vue'
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.snow.css'
 import cache from '@/utils/cache.js'
 import uploadPicture from './uploadPicture'
 import selectPicture from './selectPicture'
 import previewArticle from './preview'
+Vue.use(VueQuillEditor)
 export default {
     name: 'upload',
     components: { uploadPicture, selectPicture, previewArticle },

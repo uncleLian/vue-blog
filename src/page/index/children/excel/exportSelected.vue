@@ -22,7 +22,7 @@
             <el-table-column align="center" label="时间" width="180">
                 <template slot-scope="scope">
                     <i class="el-icon-time"></i>
-                    <span>{{scope.row.updated_at}}</span>
+                    <span>{{scope.row.sound.update_time | formatTime}}</span>
                 </template>
             </el-table-column>
             <!-- 标题 -->
@@ -56,7 +56,7 @@
                             <p v-if="scope.row.sound.share_count">分享：{{scope.row.sound.share_count | devide_10k}}</p>
                         </template>
                         <div slot="reference">
-                            <el-rate disabled :max="3" :value="Number(scope.row.type)" :icon-classes="['el-icon-fa-fire', 'el-icon-fa-fire', 'el-icon-fa-fire']" :colors="['#99A9BF', '#F7BA2A', '#FF9900']"></el-rate>
+                            <el-rate disabled :max="3" :value="Number(scope.row.sound.is_hot)" :icon-classes="['el-icon-my-hot', 'el-icon-my-hot', 'el-icon-my-hot']" :colors="['#99A9BF', '#F7BA2A', '#FF9900']"></el-rate>
                         </div>
                     </el-popover>
                 </template>

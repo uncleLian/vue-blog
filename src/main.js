@@ -8,7 +8,6 @@ import cache from '@/utils/cache'
 
 // css
 import 'element-ui/lib/theme-chalk/index.css'
-import 'quill/dist/quill.snow.css'
 import '@/assets/css/reset.css'
 import '@/assets/css/icon/iconfont.css'
 import '@/assets/css/transition.css'
@@ -22,9 +21,6 @@ import axios from 'axios'
 import ElementUI from 'element-ui'
 import i18n from '@/language'
 import VueProgressBar from 'vue-progressbar'
-import VueQuillEditor from 'vue-quill-editor'
-import draggable from 'vuedraggable'
-import echarts from 'echarts'
 import vueClipboard from 'vue-clipboard-pack'
 
 // 自定义公共组件
@@ -50,9 +46,6 @@ Vue.use(VueProgressBar, {
     failedColor: 'red',
     thickness: '2px'
 })
-Vue.use(VueQuillEditor)
-Vue.component('my-draggable', draggable)
-Vue.prototype.$echarts = echarts
 Vue.use(vueClipboard)
 
 // 自定义组件
@@ -94,7 +87,6 @@ router.beforeEach((to, from, next) => {
                     assessPermission(store.state.user.role, to.meta.role)
                 } else {
                     store.dispatch('get_user_data').then(res => {
-                        console.log(res)
                         assessPermission(res.role, to.meta.role)
                     })
                     .catch(err => {

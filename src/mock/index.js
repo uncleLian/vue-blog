@@ -1,5 +1,5 @@
 /* eslint-disable */
-var Mock = require('mockjs')
+var Mock = require('mockjs/dist/mock-min.js')
 
 // 开发测试数据
 // 登录
