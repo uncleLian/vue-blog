@@ -19,7 +19,7 @@ const permission = () => import('@/page/index/children/permission/permission')
 const stickyView = () => import('@/page/index/children/componentsView/sticky_view')
 const breadcrumbView = () => import('@/page/index/children/componentsView/breadcrumb_view')
 const backTopView = () => import('@/page/index/children/componentsView/backTop_view')
-const countToView = () => import('@/page/index/children/componentsView/countTo_view')
+const numToView = () => import('@/page/index/children/componentsView/numTo_view')
 const loadingView = () => import('@/page/index/children/componentsView/loading_view')
 // collections
 const progressbar = () => import('@/page/index/children/collections/progressbar')
@@ -81,6 +81,7 @@ export const routes = [
                 name: 'documents',
                 path: 'documents',
                 icon: 'el-icon-my-book',
+                meta: { keep: true },
                 component: documents
             },
             {
@@ -118,10 +119,10 @@ export const routes = [
                     },
                     {
 
-                        name: 'countTo',
-                        path: 'countTo',
+                        name: 'numTo',
+                        path: 'numTo',
                         icon: 'el-icon-my-number',
-                        component: countToView
+                        component: numToView
                     },
                     {
 

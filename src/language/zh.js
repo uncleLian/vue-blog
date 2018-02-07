@@ -9,7 +9,7 @@ export default {
         sticky: '图钉',
         breadcrumb: '面包屑',
         backTop: '返回顶部',
-        countTo: '动态数值',
+        numTo: '动态数值',
         loading: '加载提示',
         collections: '集成',
         progressbar: '进度条',

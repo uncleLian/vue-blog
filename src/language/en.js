@@ -9,7 +9,7 @@ export default {
         sticky: 'Sticky',
         breadcrumb: 'Breadcrumb',
         backTop: 'BackTop',
-        countTo: 'CountTo',
+        numTo: 'NumTo',
         loading: 'Loading',
         collections: 'Collections',
         progressbar: 'Progressbar',

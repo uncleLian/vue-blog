@@ -22,12 +22,12 @@ import ElementUI from 'element-ui'
 import i18n from '@/language'
 import VueProgressBar from 'vue-progressbar'
 import vueClipboard from 'vue-clipboard-pack'
+import vueNumTo from 'vue-num-to'
 
 // 自定义公共组件
 import breadcrumb from '@/components/breadcrumb'
 import sticky from '@/components/sticky'
 import backTop from '@/components/backTop'
-import countTo from '@/components/countTo'
 import loading from '@/components/loading'
 import menuItem from '@/layout/menuItem'
 
@@ -47,12 +47,12 @@ Vue.use(VueProgressBar, {
     thickness: '2px'
 })
 Vue.use(vueClipboard)
+Vue.use(vueNumTo)
 
 // 自定义组件
 Vue.component('my-breadcrumb', breadcrumb)
 Vue.component('my-sticky', sticky)
 Vue.component('my-backTop', backTop)
-Vue.component('my-countTo', countTo)
 Vue.component('my-loading', loading)
 Vue.component('my-menu-item', menuItem)
 

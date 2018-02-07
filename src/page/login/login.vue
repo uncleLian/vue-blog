@@ -47,12 +47,10 @@
                 <el-input class="login_btn login_inputColor" type="submit" :value="$t('login.login')" />
             </el-form>
             <!-- otherLogin -->
-            <div slot="footer" class="footer">
-                <ul class="otherLogin">
-                    <li class="wx"><span>{{$t('login.weChat')}}</span></li>
-                    <li class="qq"><span>{{$t('login.qq')}}</span></li>
-                </ul>
-            </div>
+            <ul slot="footer" class="otherLogin">
+                <li class="wx"><span>{{$t('login.weChat')}}</span></li>
+                <li class="qq"><span>{{$t('login.qq')}}</span></li>
+            </ul>
         </el-dialog>
     </div>
 </template>
@@ -211,28 +209,31 @@ export default {
                 }
             }
         }
-        .footer {
-            .otherLogin {
-                padding-bottom: 20px;
-                font-size: 0;
-                text-align: center;
-                li {
-                    position: relative;
-                    display: inline-block;
-                    width: 40px;
-                    height: 40px;
-                    margin-right: 24px;
-                    cursor: pointer;
-                    span {
-                        position: absolute;
-                        left: 50%;
-                        bottom: -20px;
-                        transform: translateX(-50%);
-                        font-size: 12px;
-                        width: fit-content;
-                        line-height: 1;
-                        color: #505050;
-                    }
+        .otherLogin {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            padding-bottom: 20px;
+            li {
+                position: relative;
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                margin: 0 12px;
+                cursor: pointer;
+                span {
+                    position: absolute;
+                    left: 50%;
+                    bottom: -20px;
+                    transform: translateX(-50%);
+                    font-size: 12px;
+                    width: fit-content;
+                    line-height: 1;
+                    color: #505050;
                 }
             }
         }

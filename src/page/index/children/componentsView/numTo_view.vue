@@ -1,12 +1,12 @@
 <template>
-    <div id="countTo_view">
+    <div id="numTo_view">
         <!-- 默认调用 -->
         <el-alert title="默认调用" type="success" :closable="false"></el-alert>
-        <div><my-countTo></my-countTo></div>
+        <div><vue-num-to></vue-num-to></div>
 
         <!-- 其他设置 -->
         <el-alert title="其他设置" type="warning" :closable="false"></el-alert>
-        <div><my-countTo ref="countTo" :startVal="startVal" :endVal="endVal" :duration="duration" :autoplay="autoplay" :prefix="prefix" :suffix="suffix" :decimals="decimals" :decimal="decimal" :ease="ease" @complete="handleComplete"></my-countTo></div>
+        <div><vue-num-to ref="numTo" :startVal="startVal" :endVal="endVal" :duration="duration" :autoplay="autoplay" :prefix="prefix" :suffix="suffix" :decimals="decimals" :decimal="decimal" :ease="ease" @complete="handleComplete"></vue-num-to></div>
         <!-- 设置值 -->
         <div class="demo">
             <el-input :clearable="true"  v-model.number.trim="startVal"><template slot="prepend">开始值</template></el-input>
@@ -31,7 +31,7 @@
 </template>
 <script>
 export default {
-    name: 'countTo_view',
+    name: 'numTo_view',
     data() {
         return {
             startVal: 0,
@@ -47,19 +47,19 @@ export default {
     },
     methods: {
         start() {
-            this.$refs.countTo.start()
+            this.$refs.numTo.start()
         },
         pause() {
-            this.$refs.countTo.pause()
+            this.$refs.numTo.pause()
         },
         resume() {
-            this.$refs.countTo.resume()
+            this.$refs.numTo.resume()
         },
         reset() {
-            this.$refs.countTo.reset()
+            this.$refs.numTo.reset()
         },
         pauseResume() {
-            this.$refs.countTo.pauseResume()
+            this.$refs.numTo.pauseResume()
         },
         handleComplete(val) {
             this.$message.success(`动画完成回调，参数为：${val}`)
@@ -68,7 +68,7 @@ export default {
 }
 </script>
 <style lang='stylus'>
-#countTo_view {
+#numTo_view {
     .demo{
         margin: 10px 0;
     }

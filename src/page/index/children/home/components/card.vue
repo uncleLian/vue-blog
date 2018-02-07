@@ -8,7 +8,7 @@
                     </div>
                     <div class="text">
                         <div class="title">{{item.title}}</div>
-                        <my-countTo class="number" :startVal="0" :endVal="item.endVal" :duration="5000"></my-countTo>
+                        <vue-num-to class="number" :startVal="0" :endVal="item.endVal" :duration="5000"></vue-num-to>
                     </div>
                 </div>
             </el-col>

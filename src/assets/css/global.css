@@ -34,7 +34,6 @@ body {
 [class^=el-icon-] {
     vertical-align: middle;
 }
-
 .el-tabs {
     user-select: none;
 }
@@ -66,4 +65,7 @@ body {
 }
 .el-dialog__headerbtn {
     font-size: 20px;
+}
+.el-tabs__nav-wrap::after{
+    height: 1px;
 }

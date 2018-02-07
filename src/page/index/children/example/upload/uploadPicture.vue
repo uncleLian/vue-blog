@@ -223,10 +223,6 @@ imgWrapperHeight=min_dialogBodyHeight - tabHeaderHeight - 80px;
         .el-dialog__header {
             padding: 0;
             .el-dialog__headerbtn {
-                float: none;
-                position: absolute;
-                top: 20px;
-                right: 20px;
                 z-index: 1;
             }
         }
@@ -239,7 +235,7 @@ imgWrapperHeight=min_dialogBodyHeight - tabHeaderHeight - 80px;
             .el-tabs {
                 min-height: min_dialogBodyHeight;
                 max-height: max_dialogBodyHeight;
-                .el-tabs__header {
+                .el-tabs__nav-wrap {
                     padding: 0 12px;
                     .el-tabs__item {
                         height: tabHeaderHeight;
