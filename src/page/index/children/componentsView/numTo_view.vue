@@ -35,13 +35,13 @@ export default {
     data() {
         return {
             startVal: 0,
-            endVal: 2017,
-            duration: 3000,
+            endVal: 2018,
+            duration: 5000,
             prefix: '￥',
             suffix: '',
             decimal: '.',
             decimals: 0,
-            autoplay: true,
+            autoplay: false,
             ease: true
         }
     },

@@ -1,6 +1,6 @@
 <template>
     <div id="permission">
-        <p>目前角色为：{{$store.state.user.role}}</p>
+        <p>你的权限为：{{$store.state.user.role}}</p>
         <p class="switchBtn"><el-switch v-model="permission" inactive-text="admin" active-text="visitor"></el-switch></p>
         <el-alert type="warning" :closable="false" title="注意：">
             <p>进入此页面的权限等级为：admin</p>
