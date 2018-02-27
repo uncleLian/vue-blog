@@ -22,13 +22,17 @@ export default {
         handleRoutes(Arr) {
             const Routes = Arr.filter(route => {
                 if (route.name) {
-                    if (route.open) {
-                        this.defaultOpeneds.push(route.name)
+                    if (route.hidden) {
+                        return false
+                    } else {
+                        if (route.open) {
+                            this.defaultOpeneds.push(route.name)
+                        }
+                        if (route.children) {
+                            route.children = this.handleRoutes(route.children)
+                        }
+                        return true
                     }
-                    if (route.children) {
-                        route.children = this.handleRoutes(route.children)
-                    }
-                    return true
                 } else {
                     return false
                 }

@@ -7,17 +7,17 @@
 
 ## 简介
 
-vue2-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了最新的前端技术栈。内置登录、权限验证、多级路由、I18n国际化等功能特性。目的是为了帮助开发人员快速搭建后台应用和vue学习者参考学习。
+vue2-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了最新的前端技术栈。内置登录、权限验证、多级路由、I18n国际化等功能特性。目的是为了帮助开发人员快速搭建后台应用。
 
 ## 说明
 > 如果对您有帮助，你可以点右上角 "star"支持一下，非常感谢！🌹
 
-> 或者你可以 "follow（关注）" 一下，我正在不断开源更多实用的项目。
+> 或者你可以 "follow（关注）" 一下作者，我正在不断开源更多实用的项目。
 
 > 如有问题可以直接在 Issues 中反馈，或者加入我们下方的Vue群更进一步地交流。
 
 ## 项目演示
-#### [演示地址](http://blog.liansixin.win)
+#### [演示地址请戳这里](http://blog.liansixin.win)
 
 ## 功能
 - [x] 登录/注销
@@ -29,10 +29,10 @@ vue2-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.
 - [x] 动态换肤（实现element-ui官网的换肤功能）
 - [x] 图钉
 - [x] 返回顶部
-- [x] 动态数值
+- [x] [动态数值](https://github.com/uncleLian/vue-num-to)
 - [x] 加载提示（3种状态：加载中，无数据，出现错误且支持点击重新请求）
 - [x] 进度条
-- [x] [剪贴板](https://github.com/uncleLian/vue-clipboard-pack)（另一个项目，打个广告~）
+- [x] [剪贴板](https://github.com/uncleLian/vue-clipboard-pack)
 - [x] 富文本编辑器（自定义图片上传、草稿、预览等）
 - [x] Markdown编辑器（搭配Markdown语法转HTML功能）
 - [x] 导入.md文件
@@ -69,16 +69,16 @@ npm run build（File in the docs folder）
 [发行说明](https://github.com/uncleLian/vue2-blog/releases)中记录了每个版本的详细更改。
 
 ## 传送门
-#### vue学习系列
-- 第一阶段：echo回声（移动端，难度：简单，入门项目） —— [仓库地址](https://github.com/uncleLian/vue2-echo) —— [演示地址](http://echo.liansixin.win)
+Vue学习系列
+- 第一阶段：[vue2-echo](https://github.com/uncleLian/vue2-echo) —— echo回声（ 移动端，难度：★★☆☆☆  入门项目）
+- 第二阶段：[vue2-news](https://github.com/uncleLian/vue2-news) —— 今日头条（ 移动端，难度：★★★☆☆ 过渡项目）
+- 第三阶段：[vue2-health](https://github.com/uncleLian/vue2-health) —— 头条号（ pc端，难度：★★★☆☆ 过渡项目）
+- 第四阶段：[vue2-native](https://github.com/uncleLian/vue2-native) —— 今日头条（ native端，难度：★★★★☆ 进阶项目）
 
-- 第二阶段：今日头条（移动端 & native，难度：困难，进阶项目） —— [仓库地址](https://github.com/uncleLian/vue2-news) —— [web演示地址](http://toutiao.liansixin.win)， [native端演示地址](http://native.liansixin.win)
-
-- 第三阶段：头条号（pc端，难度：中等，过渡项目） —— [仓库地址](https://github.com/uncleLian/vue2-health) —— [演示地址](http://health.liansixin.win)  （还在开发，敬请期待！已实现核心功能）
-
+##### 注：此系列只关注前端项目的实现，后端等知识不是此系列的范围，但会告知一二。
 
 ## 捐赠
-如果你觉得这个项目帮助到了你，你可以请我喝一杯果汁表示鼓励 🍹
+如果你觉得这个项目帮助到了你，你可以请我喝一杯饮料表示支持🍹
 
 <img src="https://github.com/uncleLian/vue2-blog/raw/master/screenshots/donate.jpg" width="500px" style="max-width: 100%;"/>
 

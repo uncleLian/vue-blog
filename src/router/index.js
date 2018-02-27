@@ -301,13 +301,11 @@ export const routes = [
     {
         name: '401',
         path: '/401',
-        meta: { login: true },
         component: page401
     },
     {
         name: '404',
         path: '/404',
-        meta: { login: true },
         component: page404
     },
     {

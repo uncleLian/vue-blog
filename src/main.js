@@ -86,7 +86,11 @@ router.beforeEach((to, from, next) => {
             goLoginPage()
         }
     } else {
-        next()
+        if (to.path === '/login' && cache.getToken()) {
+            next('/')
+        } else {
+            next()
+        }
     }
     function goLoginPage() {
         next({ path: '/login', query: { redirect: to.fullPath } })

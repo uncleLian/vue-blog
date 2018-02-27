@@ -10,13 +10,6 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/baidu': {
-            target: 'https://api.baidu.com/json/tongji/v1/ReportService',
-            changeOrigin: true,
-            pathRewrite: {
-              '^/baidu': '/'
-            }
-        }
     },
 
     // Various Dev Server settings
