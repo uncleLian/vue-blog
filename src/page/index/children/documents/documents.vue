@@ -2,7 +2,7 @@
     <div id="documents">
         <div>
             <el-switch v-model="switchVal" inactive-text="documents.md" active-text="README.md" ></el-switch>
-            <el-button class="githubRepertory" type="primary"><a href="https://github.com/uncleLian/vue2-blog" target="_blank">Github仓库</a></el-button>
+            <el-button class="githubRepertory" type="primary"><a href="https://github.com/uncleLian/vue-blog" target="_blank">Github仓库</a></el-button>
         </div>
         <div class="markdownHTML" v-html="html"></div>
     </div>

@@ -18,34 +18,36 @@ export default {
         }
     },
     methods: {
+        // 过滤出index路由
+        handleIndexRoutes() {
+            let filterRoutes = this.handleRoutes(routes)
+            let indexRoutes = filterRoutes.filter(route => route.name === 'index')[0]
+            if (indexRoutes.children) {
+                this.filterRoutes = indexRoutes.children
+            }
+        },
         // 过滤路由
         handleRoutes(Arr) {
             const Routes = Arr.filter(route => {
                 if (route.name) {
-                    if (route.hidden) {
-                        return false
-                    } else {
-                        if (route.open) {
-                            this.defaultOpeneds.push(route.name)
+                    if (route.meta) {
+                        if (route.meta.hidden) {
+                            return false
+                        } else {
+                            if (route.meta.open) {
+                                this.defaultOpeneds.push(route.name)
+                            }
+                            return true
                         }
-                        if (route.children) {
-                            route.children = this.handleRoutes(route.children)
-                        }
-                        return true
+                    }
+                    if (route.children) {
+                        route.children = this.handleRoutes(route.children)
                     }
                 } else {
                     return false
                 }
             })
             return Routes
-        },
-        // 过滤出index路由
-        handleIndexRoutes() {
-            let filterRoutes = this.handleRoutes(routes)
-            let indexRoutes = filterRoutes[0]
-            if (indexRoutes.name === 'index' && indexRoutes.children) {
-                this.filterRoutes = indexRoutes.children
-            }
         }
     },
     created() {

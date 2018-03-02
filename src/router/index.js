@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// layout
-// view组件是用在多层嵌套但依然想渲染在主页面的page视图下的场景
+// view组件是用在多层嵌套但依然想渲染在首页的page视图下的场景
 const view = () => import('@/layout/view')
 // 一级路由
 const index = () => import('@/page/index/index')
 const login = () => import('@/page/login/login')
 const page401 = () => import('@/page/other/page401')
 const page404 = () => import('@/page/other/page404')
+// 二级路由
 // home
 const home = () => import('@/page/index/children/home/home')
 // documents
@@ -52,11 +52,11 @@ Vue.use(Router)
 /*
 * @params
 * icon: ''                      菜单图标（可以用element-ui的icon & iconfont）
-* open: false                   是否展开菜单
 * @meta
 * login: false                  是否需要登录
 * role: 'admin' || ['admin']    是否需要权限
 * keep: false                   是否需要缓存
+* open: false                   是否展开菜单
 */
 
 export const routes = [
@@ -319,7 +319,7 @@ export default new Router({
     routes: routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
-            to.meta.position = savedPosition
+            // to.meta.position = savedPosition
             return savedPosition
         } else {
             return { x: 0, y: 0 }

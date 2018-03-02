@@ -15,7 +15,7 @@
         </el-row>
         
         <!-- Github -->
-        <a class="github" href="https://github.com/uncleLian/vue2-blog" target="_blank">
+        <a class="github" href="https://github.com/uncleLian/vue-blog" target="_blank">
             <div class="bg"></div>
             <i class="el-icon-my-github"></i>
         </a>

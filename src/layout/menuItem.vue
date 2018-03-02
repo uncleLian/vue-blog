@@ -5,7 +5,7 @@
             <el-submenu v-if="list.children" :index="list.name" :key="listIndex">
                 <template slot="title">
                     <i v-if="list.icon" :class="list.icon"></i>
-                    <span slot="title">{{translation(list.name, 'routes')}}</span>
+                    <span slot="title">{{ routeName(list) }}</span>
                 </template>
                 <template v-for="(item,itemIndex) in list.children" >
                     <!-- 子路由里还有子路由的 -->
@@ -14,7 +14,8 @@
                     <!-- 子路由里没有子路由的 -->
                     <router-link v-else :to="{name: item.name}">
                         <el-menu-item  :index="item.name" :key="itemIndex">
-                            <i v-if="item.icon" :class="item.icon"></i>{{translation(item.name, 'routes')}}
+                            <i v-if="item.icon" :class="item.icon"></i>
+                            <span slot="title">{{ routeName(item) }}</span>
                         </el-menu-item>
                     </router-link>
                 </template>
@@ -24,7 +25,7 @@
             <router-link v-else :to="{name: list.name}">
                 <el-menu-item :index="list.name" :key="listIndex">
                     <i v-if="list.icon" :class="list.icon"></i>
-                    <span slot="title">{{translation(list.name, 'routes')}}</span>
+                    <span slot="title">{{ routeName(list) }}</span>
                 </el-menu-item>
             </router-link>
         </template>
@@ -38,7 +39,14 @@ export default {
         json: Array
     },
     methods: {
-        translation
+        translation,
+        routeName(route) {
+            if (route.meta && route.meta.title) {
+                return this.translation(route.meta.title, 'routes')
+            } else {
+                return this.translation(route.name, 'routes')
+            }
+        }
     }
 }
 </script>

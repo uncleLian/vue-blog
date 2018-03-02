@@ -1,4 +1,4 @@
-# vue2-blog
+# vue-blog
 
 ![image](https://img.shields.io/badge/vue-2.5.13-blue.svg)
 ![image](https://img.shields.io/badge/vue--router-3.0.1-blue.svg)
@@ -7,7 +7,7 @@
 
 ## 简介
 
-vue2-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了最新的前端技术栈。内置登录、权限验证、多级路由、I18n国际化等功能特性。目的是为了帮助开发人员快速搭建后台应用。
+vue-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了最新的前端技术栈。内置登录、权限验证、多级路由、I18n国际化等功能特性。目的是为了帮助开发人员快速搭建后台应用。
 
 ## 说明
 > 如果对您有帮助，你可以点右上角 "star"支持一下，非常感谢！🌹

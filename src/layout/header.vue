@@ -3,7 +3,7 @@
         <div class="container">
             <!-- logo -->
             <router-link class="header-logo" to="/">
-                <span>vue2-blog</span>
+                <span>vue-blog</span>
             </router-link>
 
             <div class="header-right">
