@@ -42,12 +42,12 @@ export default {
     },
     data() {
         return {
-            backTop: false
+            visible: false
         }
     },
     computed: {
         classes () {
-            return [`${prefixCls}`, {[`${prefixCls}-show`]: this.backTop}]
+            return [`${prefixCls}`, {[`${prefixCls}-show`]: this.visible}]
         },
         styles() {
             return {
@@ -72,10 +72,8 @@ export default {
                     this.$emit('complete')
                     return
                 }
-                let d = (start + step > end) ? end : start + step
-                if (start > end) {
-                    d = (start - step < end) ? end : start - step
-                }
+                // 每经过requestAnimationFrame执行一次（16.666ms）剩下的距离
+                let d = (start - step < end) ? end : start - step
                 window.scrollTo(d, d)
                 requestAnimationFrame(() => scroll(d, end, step))
             }
@@ -84,7 +82,7 @@ export default {
         // 滚动回调方法
         handleScroll() {
             // 滚动的距离大于设置的高度时，则显示backTop组件
-            this.backTop = window.pageYOffset >= this.height
+            this.visible = window.pageYOffset >= this.height
         },
         // 点击backTop组件触发的方法
         back() {
