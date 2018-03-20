@@ -5,7 +5,7 @@
         <my-backTop></my-backTop>
 
         <!-- 占位 -->
-        <p v-for="(item,index) in 2">占位</p>
+        <p v-for="({index}) in 2" :key="index">占位</p>
 
         <el-alert :closable="false" title="改变样式、高度、位置：height: 200px，bottom: 100px，right: 30px、监听到达顶部回调" type="warning"></el-alert>
         <!-- 改变样式、高度、位置、监听完成回调 -->
@@ -14,12 +14,14 @@
         </my-backTop>
 
         <!-- 占位 -->
-        <p v-for="(item,index) in 50">占位</p>
+        <p v-for="({index}) in 50" :key="index">占位</p>
     </div>
 </template>
 <script>
+import backTop from '@/components/backTop'
 export default {
     name: 'backTop_view',
+    components: { 'my-backTop': backTop },
     methods: {
         handleComplete() {
             this.$message.success('滚动到达顶部')
@@ -29,7 +31,7 @@ export default {
 </script>
 <style lang='stylus'>
 #backTop_view {
-    .el-alert{
+    .el-alert {
         width: 50%;
     }
 }

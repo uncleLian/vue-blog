@@ -54,12 +54,13 @@
     </el-header>
 </template>
 <script>
-import { mapState } from 'vuex'
 import errorDialog from '@/page/index/children/more/errorlog/errorDialog'
 import themePicker from '@/components/themePicker'
+import breadcrumb from '@/components/breadcrumb'
+import { mapState } from 'vuex'
 export default {
     name: 'my-header',
-    components: { errorDialog, themePicker },
+    components: { errorDialog, themePicker, 'my-breadcrumb': breadcrumb },
     computed: {
         ...mapState([
             'user',
@@ -81,14 +82,11 @@ export default {
                 this.$store.commit('loginOut')
                 this.$router.push('/login')
             }
-        },
-        // 设置面包屑组件样式
-        setBreadcrumbStyle() {
-            this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
         }
     },
     mounted() {
-        this.setBreadcrumbStyle()
+        // 设置面包屑组件样式
+        this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
     }
 }
 </script>

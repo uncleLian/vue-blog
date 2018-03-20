@@ -1,22 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getLogin, getUser } from '@/api'
-import cache from '@/utils/cache'
 import i18n from '@/language'
+import cache from '@/utils/cache'
+import { getLogin, getUser } from '@/api'
 
 Vue.use(Vuex)
 
 const state = {
-    user: '',               // 用户信息
-    logs: [],               // 错误日志
     language: 'zh',         // 语言
-    theme: '#42B983'        // 主题颜色
+    theme: '#42B983',       // 主题颜色
+    logs: [],               // 错误日志
+    user: ''                // 用户信息
 }
 
 const getters = {
 }
 
 const mutations = {
+    set_language(state, lang) {
+        i18n.locale = lang
+        state.language = lang
+        cache.setSession('language', lang)
+    },
+    set_theme(state, color) {
+        state.theme = color
+    },
+    set_logs(state, error) {
+        state.logs.push(error)
+    },
     loginOut(state) {
         state.user = ''
         cache.removeToken()
@@ -24,19 +35,8 @@ const mutations = {
     set_user(state, val) {
         state.user = val
     },
-    set_role(state, val) {
-        state.user.role = val
-    },
-    set_logs(state, val) {
-        state.logs.push(val)
-    },
-    set_language(state, val) {
-        i18n.locale = val
-        state.language = val
-        cache.setSession('language', val)
-    },
-    set_theme(state, val) {
-        state.theme = val
+    set_role(state, role) {
+        state.user.role = role
     }
 }
 

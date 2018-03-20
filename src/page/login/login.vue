@@ -12,18 +12,18 @@
 
         <!-- ripple -->
         <div class="ripple left">
-            <i class="r1"></i>          
-            <i class="r2"></i>          
-            <i class="r3"></i>          
-            <i class="r4"></i>          
-            <i class="r5"></i>          
+            <i class="r1"></i>
+            <i class="r2"></i>
+            <i class="r3"></i>
+            <i class="r4"></i>
+            <i class="r5"></i>
         </div>
         <div class="ripple right">
-            <i class="r1"></i>          
-            <i class="r2"></i>          
-            <i class="r3"></i>          
-            <i class="r4"></i>          
-            <i class="r5"></i>          
+            <i class="r1"></i>
+            <i class="r2"></i>
+            <i class="r3"></i>
+            <i class="r4"></i>
+            <i class="r5"></i>
         </div>
 
         <!-- translations dialog -->
@@ -42,14 +42,20 @@
                     <el-input v-model="form.username" :placeholder="$t('login.username')" auto-complete='off' /></el-form-item>
                 <el-form-item>
                     <el-input v-model="form.password" :placeholder="$t('login.password')" auto-complete='off' :type="pwdType" />
-                    <span class="pwdEye" @click="passwordToggle"><i :class="eyeType"></i></span>
+                    <span class="pwdEye" @click="passwordToggle">
+                        <i :class="eyeType"></i>
+                    </span>
                 </el-form-item>
                 <el-input class="login_btn login_inputColor" type="submit" :value="$t('login.login')" />
             </el-form>
             <!-- otherLogin -->
             <ul slot="footer" class="otherLogin">
-                <li class="wx"><span>{{$t('login.weChat')}}</span></li>
-                <li class="qq"><span>{{$t('login.qq')}}</span></li>
+                <li class="wx">
+                    <span>{{$t('login.weChat')}}</span>
+                </li>
+                <li class="qq">
+                    <span>{{$t('login.qq')}}</span>
+                </li>
             </ul>
         </el-dialog>
     </div>
@@ -82,20 +88,20 @@ export default {
     methods: {
         login() {
             this.$store.dispatch('get_login_data', this.form)
-            .then((res) => {
-                this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
-            })
-            .catch(() => {
-                this.$message.error('账号密码错误')
-            })
+                .then((res) => {
+                    this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
+                })
+                .catch(() => {
+                    this.$message.error('账号密码错误')
+                })
         },
         verify() {
-            if (this.form.username && this.form.password) {
-                this.login()
-            } else if (!this.form.username) {
+            if (!this.form.username) {
                 this.$message.error('请输入账号')
             } else if (!this.form.password) {
                 this.$message.error('请输入密码')
+            } else {
+                this.login()
             }
         },
         passwordToggle() {
@@ -125,9 +131,9 @@ export default {
         position: absolute;
         top: 27%;
         left: 50%;
-        transform: translate3d(-50%,-50%,0);
+        transform: translate3d(-50%, -50%, 0);
         font-family: 'Dancing Script', cursive;
-        a{
+        a {
             position: relative;
             font-size: 48px;
             color: #fff;
@@ -137,7 +143,7 @@ export default {
         position: absolute;
         top: 56%;
         left: 50%;
-        transform: translate3d(-50%,-50%,0);
+        transform: translate3d(-50%, -50%, 0);
         border-radius: 4px;
         text-align: center;
         .login_content {
@@ -175,7 +181,7 @@ export default {
         }
         .el-dialog {
             width: 340px;
-            .el-dialog__title{
+            .el-dialog__title {
                 font-size: 16px;
             }
             .el-input input {
@@ -239,7 +245,7 @@ export default {
         }
     }
 }
-.ripple{
+.ripple {
     position: absolute;
     & > i {
         border: 1px solid #fff;
@@ -249,7 +255,7 @@ export default {
         opacity: 0;
         animation: ripple 10s infinite ease-out;
     }
-    &.left{
+    &.left {
         width: 800px;
         height: 800px;
         bottom: -750px;
@@ -259,7 +265,7 @@ export default {
             height: 200px;
         }
     }
-    &.right{
+    &.right {
         width: 100px;
         height: 100px;
         top: 25%;
@@ -269,31 +275,31 @@ export default {
             height: 100px;
         }
     }
-    .r2{
+    .r2 {
         animation-delay: 2s;
     }
-    .r3{
+    .r3 {
         animation-delay: 4s;
     }
-    .r4{
+    .r4 {
         animation-delay: 6s;
     }
-    .r5{
+    .r5 {
         animation-delay: 8s;
     }
 }
 </style>
 <style>
 #login:after {
-    content: "";
-    display: block;
-    height: 100%;
-    background: url(~@/assets/img/login_bg.png) repeat;
+  content: "";
+  display: block;
+  height: 100%;
+  background: url(~@/assets/img/login_bg.png) repeat;
 }
 #login .otherLogin .wx {
-    background: url(~@/assets/img/icon_wx_pc.svg)no-repeat center center;
+  background: url(~@/assets/img/icon_wx_pc.svg)no-repeat center center;
 }
 #login .otherLogin .qq {
-    background: url(~@/assets/img/icon_qq_pc.svg)no-repeat center center;
+  background: url(~@/assets/img/icon_qq_pc.svg)no-repeat center center;
 }
 </style>

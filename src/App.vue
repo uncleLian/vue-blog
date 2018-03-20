@@ -11,9 +11,11 @@
     </div>
 </template>
 <script>
+import backTop from '@/components/backTop'
 import cache from '@/utils/cache'
 export default {
     name: 'app',
+    components: { 'my-backTop': backTop },
     methods: {
         // 进度条
         init_Progress() {

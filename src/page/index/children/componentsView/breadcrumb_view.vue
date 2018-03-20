@@ -20,8 +20,10 @@
     </div>
 </template>
 <script>
+import breadcrumb from '@/components/breadcrumb'
 export default {
-    name: 'breadcrumb_view'
+    name: 'breadcrumb_view',
+    components: { 'my-breadcrumb': breadcrumb }
 }
 </script>
 <style lang='stylus'>

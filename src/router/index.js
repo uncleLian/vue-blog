@@ -297,7 +297,11 @@ export const routes = [
         name: 'login',
         path: '/login',
         component: login
-    },
+    }
+]
+
+// 异步路由
+export const asyncRoutes = [
     {
         name: '401',
         path: '/401',
@@ -319,7 +323,6 @@ export default new Router({
     routes: routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
-            // to.meta.position = savedPosition
             return savedPosition
         } else {
             return { x: 0, y: 0 }
