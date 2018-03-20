@@ -15,8 +15,8 @@ router.beforeEach((to, from, next) => {
                     assessPermission(store.state.user.role, to.meta.role, next)
                 } else {
                     store.dispatch('get_user_data').then(res => {
-                        filterAsyncRoutes(asyncRoutes, res.role, next)
-                        // assessPermission(res.role, to.meta.role, next)
+                        // filterAsyncRoutes(asyncRoutes, res.role, next)
+                        assessPermission(res.role, to.meta.role, next)
                     })
                     .catch(err => {
                         console.log(err)
@@ -51,7 +51,7 @@ function assessPermission(userRole, pageRole, next) {
     pass ? next() : next('/401')
 }
 
-// 过滤异步路由
+// 异步路由
 function filterAsyncRoutes(AsyncRoutes, userRole, next) {
     let assessAsyncRoutes = AsyncRoutes.filter(route => {
         if (route.children) {

@@ -297,11 +297,7 @@ export const routes = [
         name: 'login',
         path: '/login',
         component: login
-    }
-]
-
-// 异步路由
-export const asyncRoutes = [
+    },
     {
         name: '401',
         path: '/401',
@@ -316,6 +312,11 @@ export const asyncRoutes = [
         path: '*',
         redirect: '/404'
     }
+]
+
+// 异步路由
+export const asyncRoutes = [
+    // ...
 ]
 
 export default new Router({
