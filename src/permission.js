@@ -1,4 +1,5 @@
-import router, { asyncRoutes} from '@/router'
+// import router, { asyncRoutes} from '@/router'
+import router from '@/router'
 import store from '@/store'
 import cache from '@/utils/cache'
 
@@ -52,27 +53,27 @@ function assessPermission(userRole, pageRole, next) {
 }
 
 // 异步路由
-function filterAsyncRoutes(AsyncRoutes, userRole, next) {
-    let assessAsyncRoutes = AsyncRoutes.filter(route => {
-        if (route.children) {
-            route.children = filterAsyncRoutes(route.children, userRole)
-        }
-        if (route.meta) {
-            let pass = false
-            let pageRole = route.meta.role
-            // 页面无需权限 || 用户是管理员
-            if (!pageRole || userRole.indexOf('admin') > -1) pass = true
-            // 符合页面的其中一种权限（支持String和Array写法）
-            if (typeof pageRole === 'string') {
-                if (userRole.indexOf(pageRole) > -1) pass = true
-            } else if (Array.isArray(pageRole)) {
-                if (pageRole.some(role => userRole.indexOf(role) > -1)) pass = true
-            }
-            return pass
-        } else {
-            return true
-        }
-    })
-    router.addRoutes(assessAsyncRoutes)
-    next()
-}
+// function filterAsyncRoutes(AsyncRoutes, userRole, next) {
+//     let assessAsyncRoutes = AsyncRoutes.filter(route => {
+//         if (route.children) {
+//             route.children = filterAsyncRoutes(route.children, userRole)
+//         }
+//         if (route.meta) {
+//             let pass = false
+//             let pageRole = route.meta.role
+//             // 页面无需权限 || 用户是管理员
+//             if (!pageRole || userRole.indexOf('admin') > -1) pass = true
+//             // 符合页面的其中一种权限（支持String和Array写法）
+//             if (typeof pageRole === 'string') {
+//                 if (userRole.indexOf(pageRole) > -1) pass = true
+//             } else if (Array.isArray(pageRole)) {
+//                 if (pageRole.some(role => userRole.indexOf(role) > -1)) pass = true
+//             }
+//             return pass
+//         } else {
+//             return true
+//         }
+//     })
+//     router.addRoutes(assessAsyncRoutes)
+//     next()
+// }
