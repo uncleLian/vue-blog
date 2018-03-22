@@ -30,7 +30,7 @@ export default {
         z-index: 999;
         user-select: none;
         img{
-            width: 40%;
+            width: 100%;
         }
     }
     .text {

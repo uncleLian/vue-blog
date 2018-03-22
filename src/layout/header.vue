@@ -34,7 +34,7 @@
                     <div class="user" v-if="user">
                         <el-dropdown placement="top-end" @command="onUserSelected">
                             <div class="user-info">
-                                <img :src="user.headimgurl">
+                                <img src="~@/assets/img/avatar.jpg">
                                 <span class="el-dropdown-link">{{user.nickname}}</span>
                             </div>
                             <el-dropdown-menu slot="dropdown">
