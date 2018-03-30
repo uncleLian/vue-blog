@@ -62,10 +62,10 @@
                         <!-- 单图 -->
                         <div class="cover-images"> 
                             <template v-for="({index}) in cover_mode">
-                                <div class="cover-img" v-if="coverImages[index]" @click="openSelectPicture(index)">
+                                <div class="cover-img" v-if="coverImages[index]" @click="openSelectPicture(index)"  :key="index">
                                     <img :src="coverImages[index]">
                                 </div>
-                                <div class="cover-add" v-else @click="openSelectPicture(index)">
+                                <div class="cover-add" v-else @click="openSelectPicture(index)" :key="index">
                                     <i class="el-icon-plus"></i>
                                 </div>
                             </template>
@@ -150,7 +150,7 @@ export default {
             }
             this.handleDraft('set')
         },
-        ischange(val) {
+        isChange(val) {
             if (val) {
                 window.addEventListener('beforeunload', this.listenFreshClose)
             }
@@ -159,6 +159,7 @@ export default {
     methods: {
         // 处理草稿
         handleDraft(type) {
+            // 多用户登录，保存草稿时应该按用户唯一标识来保存，这里只做简单处理
             if (type === 'get') {
                 let draft = JSON.parse(cache.getLocal('draft'))
                 if (draft && (draft.title || draft.content)) {
@@ -385,6 +386,9 @@ export default {
                         font-size: 16px;
                         color: #5D5D5D;
                         border: none;
+                        .ql-tooltip.ql-editing.ql-flip{
+                            z-index: 1000
+                        }
                     }
                     .ql-formats {
                         padding-right: 20px;

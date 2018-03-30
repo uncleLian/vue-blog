@@ -3,21 +3,39 @@
 ![image](https://img.shields.io/badge/vue-2.5.13-blue.svg)
 ![image](https://img.shields.io/badge/vue--router-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
-![image](https://img.shields.io/badge/element--ui-2.0.11-blue.svg)
+![image](https://img.shields.io/badge/element--ui-2.3.2-blue.svg)
 
 ## 简介
 
-vue-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了最新的前端技术栈。内置登录、权限验证、多级路由、I18n国际化等功能特性。目的是为了帮助开发人员快速搭建后台应用。
+`vue-blog` 是一个后台项目解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了目前主流的前端技术栈，并且扩展和集成了许多后台项目经常用到的功能。如：登录、权限验证、多级路由、富文本、I18n国际化等功能特性。相信不管你需求是什么，本项目都能帮助到你。
+
+- [在线访问](http://blog.liansixin.win)
+- [使用文档](http://liansixin.win/vue-blog-book)
+
+注意：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0+
+
+## 前序准备
+你的本地环境需要安装 [node](http://nodejs.cn/) 和 [git](https://git-scm.com/)，本项目技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[vue](https://cn.vuejs.org)、[vue-router](https://router.vuejs.org/zh-cn/)、[vuex](https://vuex.vuejs.org/zh-cn/) 和 [element-ui](http://element-cn.eleme.io/#/zh-CN/component/installation)，所有的请求数据都使用[Mock.js](http://mockjs.com/)模拟（图片数据除外），提前了解和学习这些知识会对使用本项目有很大的帮助。
+
+如果你是Vue初学者，这里有一些资源可以帮助到你
+
+- [新手向 Vue 2.0 的建议学习顺序](https://zhuanlan.zhihu.com/p/23134551?refer=evanyou)
+- [ES6入门 阮一峰](http://es6.ruanyifeng.com/)
+- [echo回声](https://github.com/uncleLian/vue2-echo)
+- [今日头条——移动端](https://github.com/uncleLian/vue2-news)
+- [今日头条——native端](https://github.com/uncleLian/vue2-native)
+- [头条号](https://github.com/uncleLian/vue2-health)
+- [webpack构建优化](https://zhuanlan.zhihu.com/p/26710831) （webpack < 4）
+
+<img src="https://github.com/uncleLian/vue2-blog/raw/master/screenshots/home.jpg" width="900px" style="max-width: 100%;"/>
 
 ## 说明
-> 如果对您有帮助，你可以点右上角 "star"支持一下，非常感谢！🌹
+> 如果对你有帮助，你可以点右上角 "star"支持一下，非常感谢！🌹
 
 > 或者你可以 "follow（关注）" 一下作者，我正在不断开源更多实用的项目。
 
 > 如有问题可以直接在 Issues 中反馈，或者加入我们下方的Vue群更进一步地交流。
 
-## 项目演示
-#### [演示地址请戳这里](http://blog.liansixin.win)
 
 ## 功能
 - [x] 登录/注销
@@ -47,35 +65,34 @@ vue-blog 是一个后台集成解决方案，它基于 [vue.js](https://github.c
 
 ##### 待更新
 - [ ] 骨架模板
-- [ ] 文档
 
-## 部分截图
-<img src="https://github.com/uncleLian/vue2-blog/raw/master/screenshots/home.jpg" width="900px" style="max-width: 100%;"/>
+## 开发
+```bash
+# 克隆项目
+git clone https://github.com/uncleLian/vue-blog.git
 
-## 安装运行
+# 安装依赖
+npm install
+   
+# 建议不要用cnpm安装，某些依赖可能无法安装， 可以通过如下操作解决 npm 下载速度慢的问题
+npm install --registry=https://registry.npm.taobao.org
+
+# 启动服务：localhost:8020
+npm run dev
+```
+## 发布
 
 ```
-# install dependencies
-npm install
+# 构建测试环境
+npm run build:sit
 
-# serve with hot reload at localhost:8020
-npm run dev
-
-# build for production with minification
-npm run build（File in the docs folder）
+# 构建生产环境
+npm run build:prod
 ```
 
 ## 版本日志
 [发行说明](https://github.com/uncleLian/vue2-blog/releases)中记录了每个版本的详细更改。
 
-## 传送门
-Vue学习系列
-- 第一阶段：[vue2-echo](https://github.com/uncleLian/vue2-echo) —— echo回声（ 移动端，难度：★★☆☆☆  入门项目）
-- 第二阶段：[vue2-news](https://github.com/uncleLian/vue2-news) —— 今日头条（ 移动端，难度：★★★☆☆ 过渡项目）
-- 第三阶段：[vue2-health](https://github.com/uncleLian/vue2-health) —— 头条号（ pc端，难度：★★★☆☆ 过渡项目）
-- 第四阶段：[vue2-native](https://github.com/uncleLian/vue2-native) —— 今日头条（ native端，难度：★★★★☆ 进阶项目）
-
-##### 注：此系列只关注前端项目的实现，后端等知识不是此系列的范围，但会告知一二。
 
 ## 捐赠
 如果你觉得这个项目帮助到了你，你可以请我喝一杯饮料表示支持🍹
@@ -90,4 +107,4 @@ Vue学习系列
 ## License
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2017-present，uncleLian
+Copyright (c) 2018-present，uncleLian

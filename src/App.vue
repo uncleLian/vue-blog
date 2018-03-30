@@ -46,6 +46,7 @@ export default {
 }
 </script>
 <style lang='stylus'>
+// 这里定义项目的颜色，主要为了解决动态换肤某些懒加载页面没有加载对应的css，导致换肤不成功
 #app {
     position: relative;
     height: 100%;

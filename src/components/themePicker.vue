@@ -34,7 +34,7 @@ export default {
                 })
 
                 // 解决打包后css都压缩在app.css，导致无法动态换肤的问题
-                if (!this.chall) {
+                if (!this.chalk) {
                     const links = Array.from(document.querySelectorAll('link')).filter(link => {
                         const url = link.href
                         return new RegExp('css/app', 'i').test(url)
@@ -42,33 +42,22 @@ export default {
                     if (links.length > 0) {
                         this.$http.get(links[0].href).then(res => {
                             if (res.data) {
-                                this.chall = res.data
+                                this.chalk = res.data
                                 let newStyle = document.createElement('style')
                                 newStyle.setAttribute('id', 'chalk-style')
                                 newStyle.type = 'text/css'
-                                newStyle.innerText = this.updateStyle(this.chall, this.newTheme, this.oldTheme)
+                                newStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
                                 document.head.appendChild(newStyle)
                             }
                         })
                     }
                 } else {
                     let chalkStyle = document.querySelector('#chalk-style')
-                    this.chall = chalkStyle.innerText = this.updateStyle(this.chall, this.newTheme, this.oldTheme)
+                    this.chalk = chalkStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
                 }
 
                 this.$store.commit('set_theme', newVal)
                 this.$message.success('换肤成功')
-            }
-        },
-        // 获取三原色
-        getTricolor(color) {
-            if (color[0] === '#') {
-                color = color.replace('#', '')
-            }
-            return {
-                red: parseInt(color.slice(0, 2), 16),
-                green: parseInt(color.slice(2, 4), 16),
-                blue: parseInt(color.slice(4, 6), 16)
             }
         },
         // 获取颜色集群
@@ -120,6 +109,17 @@ export default {
                 clusters.push(rgbObj.rgb_space)
             }
             return clusters
+        },
+        // 获取三原色
+        getTricolor(color) {
+            if (color[0] === '#') {
+                color = color.replace('#', '')
+            }
+            return {
+                red: parseInt(color.slice(0, 2), 16),
+                green: parseInt(color.slice(2, 4), 16),
+                blue: parseInt(color.slice(4, 6), 16)
+            }
         },
         updateStyle(style, newTheme, oldTheme) {
             let newStyle = style
