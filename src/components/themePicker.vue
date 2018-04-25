@@ -46,7 +46,7 @@ export default {
                                 let newStyle = document.createElement('style')
                                 newStyle.setAttribute('id', 'chalk-style')
                                 newStyle.type = 'text/css'
-                                newStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
+                                this.chalk = newStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
                                 document.head.appendChild(newStyle)
                             }
                         })
@@ -55,7 +55,6 @@ export default {
                     let chalkStyle = document.querySelector('#chalk-style')
                     this.chalk = chalkStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
                 }
-
                 this.$store.commit('set_theme', newVal)
                 this.$message.success('换肤成功')
             }
@@ -110,7 +109,7 @@ export default {
             }
             return clusters
         },
-        // 获取三原色
+        // 获取rgb
         getTricolor(color) {
             if (color[0] === '#') {
                 color = color.replace('#', '')
