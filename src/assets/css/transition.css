@@ -28,3 +28,11 @@
         transform: scale(4,4);
     }
 }
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}

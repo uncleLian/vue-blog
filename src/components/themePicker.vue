@@ -19,8 +19,6 @@ export default {
     },
     methods: {
         init_theme(newVal, oldVal) {
-            console.log('newVal', newVal)
-            console.log('oldVal', oldVal)
             if (newVal && oldVal && newVal !== oldVal) {
                 this.newTheme = this.getThemeCluster(newVal)
                 this.oldTheme = this.getThemeCluster(oldVal)
@@ -37,7 +35,6 @@ export default {
 
                 // 解决打包后css都压缩在app.css，导致无法动态换肤的问题
                 if (!this.chalk) {
-                    console.log('this.chalk', this.chalk)
                     const links = Array.from(document.querySelectorAll('link')).filter(link => {
                         const url = link.href
                         return new RegExp('css/app', 'i').test(url)
@@ -51,17 +48,12 @@ export default {
                                 newStyle.type = 'text/css'
                                 this.chalk = newStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
                                 document.head.appendChild(newStyle)
-                                console.log('第一次完成后的chalk', this.chalk)
                             }
                         })
                     }
                 } else {
                     let chalkStyle = document.querySelector('#chalk-style')
-                    console.log('已存在chalk', this.chalk)
-                    console.log('已存在newTheme', this.newTheme)
-                    console.log('已存在oldTheme', this.oldTheme)
                     this.chalk = chalkStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
-                    console.log('更新chalk', this.chalk)
                 }
                 this.$store.commit('set_theme', newVal)
                 this.$message.success('换肤成功')

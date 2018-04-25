@@ -1,29 +1,19 @@
 <template>
     <div id="login" class="login_bgColor">
-        <div class="login_logo">
-            <a class="shake-slow shake-constant--hover" href="https://github.com/uncleLian/vue2-blog" target="_blank">vue-blog</a>
-        </div>
-        <div class="login_wrap">
-            <div class="login_content">
-                <span class="translations_btn" @click="dialogLangVisible = true">{{$t('translations')}}</span>
-                <span class="login_btn app-primary-color app-primary-borderColor" @click="dialogFormVisible = true">{{$t('login.login')}}</span>
+        <div class="login-wrapper">
+            <!-- logo -->
+            <a class="login_logo" href="https://github.com/uncleLian/vue2-blog" target="_blank">vue-blog</a>
+            <!-- wrap -->
+            <div class="login_wrap">
+                <div class="login_content">
+                    <span class="translations_btn" @click="dialogLangVisible = true">{{$t('translations')}}</span>
+                    <span class="login_btn app-primary-color app-primary-borderColor" @click="dialogFormVisible = true">{{$t('login.login')}}</span>
+                </div>
             </div>
-        </div>
 
-        <!-- ripple -->
-        <div class="ripple left">
-            <i class="r1"></i>
-            <i class="r2"></i>
-            <i class="r3"></i>
-            <i class="r4"></i>
-            <i class="r5"></i>
-        </div>
-        <div class="ripple right">
-            <i class="r1"></i>
-            <i class="r2"></i>
-            <i class="r3"></i>
-            <i class="r4"></i>
-            <i class="r5"></i>
+            <!-- stars -->
+            <div class="stars"></div>
+            <div class="twinkling"></div>
         </div>
 
         <!-- translations dialog -->
@@ -61,6 +51,7 @@
     </div>
 </template>
 <script>
+import '@/utils/particleground.min'
 export default {
     name: 'login',
     data() {
@@ -112,7 +103,19 @@ export default {
                 this.pwdType = 'password'
                 this.eyeType = 'el-icon-my-closeEye'
             }
+        },
+        initAniCanvas() {
+            particleground(this.$el.querySelector('.login-wrapper'), {
+                dotColor: '#0e7085',
+                lineColor: '#0e7085',
+                parallaxMultiplier: 100,
+                lineWidth: 0.1,
+                particleRadius: 2
+            })
         }
+    },
+    mounted() {
+        this.initAniCanvas()
     }
 }
 </script>
@@ -121,31 +124,40 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     color: #333;
-    overflow: hidden;
+    .login-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
     li:hover {
         opacity: 0.8 !important;
     }
     .login_logo {
         position: absolute;
-        top: 27%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        font-family: 'Dancing Script', cursive;
-        a {
-            position: relative;
-            font-size: 48px;
-            color: #fff;
+        top: 20px;
+        left: 30px;
+        z-index: 10;
+        display: block;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 400;
+        color: #fff;
+        letter-spacing: 0.1em;
+        transition: all 0.3s;
+        &:hover {
+            color: appColor;
         }
     }
     .login_wrap {
         position: absolute;
-        top: 56%;
+        top: 50%;
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
         border-radius: 4px;
         text-align: center;
+        z-index: 10;
         .login_content {
             font-size: 0;
             user-select: none;
@@ -231,6 +243,12 @@ export default {
                 height: 40px;
                 margin: 0 12px;
                 cursor: pointer;
+                &.wx {
+                    background: url('~@/assets/img/icon_wx_pc.svg') no-repeat center center;
+                }
+                &.qq {
+                    background: url('~@/assets/img/icon_qq_pc.svg') no-repeat center center;
+                }
                 span {
                     position: absolute;
                     left: 50%;
@@ -245,61 +263,32 @@ export default {
         }
     }
 }
-.ripple {
-    position: absolute;
-    & > i {
-        border: 1px solid #fff;
+#login {
+    canvas {
         position: absolute;
-        border-bottom: 0;
-        border-radius: 50%;
-        opacity: 0;
-        animation: ripple 10s infinite ease-out;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
     }
-    &.left {
-        width: 800px;
-        height: 800px;
-        bottom: -750px;
-        left: 50px;
-        & > i {
-            width: 200px;
-            height: 200px;
-        }
+    .stars, .twinkling {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
     }
-    &.right {
-        width: 100px;
-        height: 100px;
-        top: 25%;
-        right: -50px;
-        & > i {
-            width: 100px;
-            height: 100px;
-        }
+    .stars {
+        background: #01092e url('~@/assets/img/stars.png') repeat top center;
+        z-index: 0;
     }
-    .r2 {
-        animation-delay: 2s;
+    .twinkling {
+        background: transparent url('~@/assets/img/twinkling_1.png') repeat top center;
+        animation: move-twink-back 200s linear infinite;
+        z-index: 1;
     }
-    .r3 {
-        animation-delay: 4s;
-    }
-    .r4 {
-        animation-delay: 6s;
-    }
-    .r5 {
-        animation-delay: 8s;
-    }
-}
-</style>
-<style>
-#login:after {
-  content: "";
-  display: block;
-  height: 100%;
-  background: url(~@/assets/img/login_bg.png) repeat;
-}
-#login .otherLogin .wx {
-  background: url(~@/assets/img/icon_wx_pc.svg)no-repeat center center;
-}
-#login .otherLogin .qq {
-  background: url(~@/assets/img/icon_qq_pc.svg)no-repeat center center;
 }
 </style>
