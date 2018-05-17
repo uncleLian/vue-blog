@@ -7,12 +7,16 @@
 
 ## 简介
 
-`vue-blog` 是一个后台项目解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了目前主流的前端技术栈，并且扩展和集成了许多后台项目经常用到的功能。如：登录、权限验证、多级路由、富文本、I18n国际化等功能特性。相信不管你需求是什么，本项目都能帮助到你。
+`vue-blog` 是一个后台管理项目解决方案，它基于 [vue.js](https://github.com/vuejs/vue) 和 [element-ui](https://github.com/ElemeFE/element)。使用了目前主流的前端技术栈，并且扩展和集成了许多后台项目经常用到的功能。如：登录、权限验证、多级路由、富文本、I18n国际化等功能特性。相信不管你需求是什么，本项目都能帮助到你。
 
 - [在线访问](http://blog.liansixin.win)
 - [使用文档](http://liansixin.win/vue-blog-book)
 
-注意：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0+
+##### vue-blog 是一个后台管理项目的集成解决方案，它不适合作为基础模板进行二次开发。
+
+- 基础模板建议使用：[vueBlog-template](https://github.com/uncleLian/vueBlog-template)
+
+##### 注意：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0+
 
 ## 前序准备
 你的本地环境需要安装 [node](http://nodejs.cn/) 和 [git](https://git-scm.com/)，本项目技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[vue](https://cn.vuejs.org)、[vue-router](https://router.vuejs.org/zh-cn/)、[vuex](https://vuex.vuejs.org/zh-cn/) 和 [element-ui](http://element-cn.eleme.io/#/zh-CN/component/installation)，所有的请求数据都使用[Mock.js](http://mockjs.com/)模拟（图片数据除外），提前了解和学习这些知识会对使用本项目有很大的帮助。
@@ -21,10 +25,7 @@
 
 - [新手向 Vue 2.0 的建议学习顺序](https://zhuanlan.zhihu.com/p/23134551?refer=evanyou)
 - [ES6入门 阮一峰](http://es6.ruanyifeng.com/)
-- [echo回声](https://github.com/uncleLian/vue2-echo)
-- [今日头条——移动端](https://github.com/uncleLian/vue2-news)
-- [今日头条——native端](https://github.com/uncleLian/vue2-native)
-- [头条号](https://github.com/uncleLian/vue2-health)
+- [Vue入门项目 —— echo回声](https://github.com/uncleLian/vue2-echo)
 - [webpack构建优化](https://zhuanlan.zhihu.com/p/26710831) （webpack < 4）
 
 <img src="https://github.com/uncleLian/vue2-blog/raw/master/screenshots/home.jpg" width="900px" style="max-width: 100%;"/>
@@ -62,9 +63,6 @@
 - [x] Iconfont图标
 - [x] 国际化多语言（中文、English）
 - [x] ...
-
-##### 待更新
-- [ ] 骨架模板
 
 ## 开发
 ```bash
