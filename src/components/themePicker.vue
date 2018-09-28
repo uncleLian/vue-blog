@@ -107,7 +107,6 @@ export default {
                 clusters.push(rgbObj.rgb)
                 clusters.push(rgbObj.rgb_space)
             }
-            console.log(clusters)
             return clusters
         },
         // 获取rgb
