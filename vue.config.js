@@ -1,14 +1,12 @@
-// 配置参数
-// https://cli.vuejs.org/zh/config/
 const path = require('path')
 function resolve(dir) {
     return path.join(__dirname, dir)
 }
-const isGzip = false // 是否开启Gzip压缩
+const name = require('./package.json').name
 
 module.exports = {
-    baseUrl: '/',
-    outputDir: 'docs',
+    publicPath: '/',
+    outputDir: 'dist',
     lintOnSave: true,
     productionSourceMap: false,
     css: {
@@ -16,24 +14,32 @@ module.exports = {
         modules: false,
         loaderOptions: {
             stylus: {
-                // 全局引入index.styl文件
                 import: [resolve('./src/assets/css/index.styl')]
             }
         }
     },
     devServer: {
         port: 8002,
+        open: true,
         // proxy: {
-        //     '/Api': {
+        //     '/api': {
         //         target: '',
         //         changeOrigin: true,
         //         pathRewrite: {
-        //             '^/Api': ''
+        //             '^/api': ''
         //         }
         //     }
         // }
     },
-    chainWebpack(config) {
+    configureWebpack: {
+        name: name,
+        resolve: {
+            alias: {
+                '@': resolve('src')
+            }
+        }
+    },
+    chainWebpack: config => {
         config.module
             .rule('svg')
             .exclude.add(resolve('src/assets/icons'))
@@ -49,21 +55,33 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
             .end()
-    },
-    configureWebpack: config => {
-        if (isGzip && process.env.NODE_ENV === 'production') {
-            const CompressionWebpackPlugin = require('compression-webpack-plugin')
-            const productionGzipExtensions = ['js', 'css']
-            config.plugins.push(
-                new CompressionWebpackPlugin({
-                    filename: '[path].gz[query]',
-                    algorithm: 'gzip',
-                    test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-                    threshold: 10240,
-                    minRatio: 0.8,
-                    deleteOriginalAssets: false
+        config.when(process.env.NODE_ENV !== 'development',
+            config => {
+                config.optimization.splitChunks({
+                    chunks: 'all',
+                    cacheGroups: {
+                        libs: {
+                            name: 'chunk-libs',
+                            test: /[\\/]node_modules[\\/]/,
+                            priority: 10,
+                            chunks: 'initial' // 只打包初始时依赖的第三方
+                        },
+                        elementUI: {
+                            name: 'chunk-elementUI', // 单独将 elementUI 拆包
+                            priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
+                            test: /[\\/]node_modules[\\/]element-ui[\\/]/
+                        },
+                        commons: {
+                            name: 'chunk-commons',
+                            test: resolve('src/components'), // 可自定义拓展你的规则
+                            minChunks: 3, // 最小公用次数
+                            priority: 5,
+                            reuseExistingChunk: true
+                        }
+                    }
                 })
-            )
-        }
+                config.optimization.runtimeChunk('single')
+            }
+        )
     }
 }

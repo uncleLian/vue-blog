@@ -58,7 +58,7 @@ export default {
                 return this.$store.state.language
             },
             set(val) {
-                this.$store.commit('SER_LANGUAGE', val)
+                this.$store.commit('SET_LANGUAGE', val)
             }
         }
     },

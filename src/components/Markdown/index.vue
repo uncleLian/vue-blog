@@ -7,7 +7,8 @@ import 'tui-editor/dist/tui-editor.css' // editor ui
 import 'tui-editor/dist/tui-editor-contents.css' // editor content
 import 'tui-color-picker/dist/tui-color-picker.css' // editor content
 import 'highlight.js/styles/github.css' // editor content
-import Editor from 'tui-editor/dist/tui-editor-Editor-all.js' // all
+// import Editor from 'tui-editor'
+import Editor from 'tui-editor/dist/tui-editor-Editor-all.js' // all （chart...）
 export default {
     props: {
         value: {

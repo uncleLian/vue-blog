@@ -11,7 +11,7 @@ Mock.mock(base_mock_url + '/api/user', {
     msg: 'success',
     data: {
         nickname: 'uncleLian',
-        headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4',
+        headimgurl: 'http://poci6sbqi.bkt.clouddn.com/avatar.jpg',
         role: 'admin'
     }
 })

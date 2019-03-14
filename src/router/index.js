@@ -17,8 +17,8 @@ const loading = () => import('@/pages/index/children/components-demo/loading')
 const sticky = () => import('@/pages/index/children/components-demo/sticky')
 const backTop = () => import('@/pages/index/children/components-demo/backTop')
 const numTo = () => import('@/pages/index/children/components-demo/numTo')
-const clipboard = () => import('@/pages/index/children/components-demo/clipboard')
 const progressbar = () => import('@/pages/index/children/components-demo/progressbar')
+const clipboard = () => import('@/pages/index/children/components-demo/clipboard')
 const editor = () => import('@/pages/index/children/components-demo/editor')
 const markdown = () => import('@/pages/index/children/components-demo/markdown')
 // excel
@@ -42,6 +42,7 @@ Vue.use(Router)
 /* sideRoutes config
 * @meta
 * icon: ''                      菜单图标（支持svg-icon、el-icon）
+* title: ''                     菜单标题
 * login: false                  是否需要登录
 * role: 'admin' || ['admin']    是否需要权限
 * keep: false                   是否需要缓存
@@ -136,20 +137,20 @@ export const sideRoutes = setRedirect([
             },
             {
 
-                name: 'clipboard',
-                path: 'clipboard',
-                component: clipboard,
-                meta: {
-                    icon: 'clipboard'
-                }
-            },
-            {
-
                 name: 'progressbar',
                 path: 'progressbar',
                 component: progressbar,
                 meta: {
                     icon: 'progressbar'
+                }
+            },
+            {
+
+                name: 'clipboard',
+                path: 'clipboard',
+                component: clipboard,
+                meta: {
+                    icon: 'clipboard'
                 }
             },
             {

@@ -140,7 +140,7 @@ $loginDark = rgba($loginPrimaryRGB, 0.5);
                         }
                         &:hover {
                             input {
-                                opacity: 0.9;
+                                opacity: 0.8;
                             }
                         }
                     }
