@@ -1,172 +1,83 @@
 <template>
-    <el-header id="header" height="80px">
+    <el-header class="app-header" height="50px">
         <div class="container">
-            <!-- logo -->
-            <router-link class="header-logo" to="/">
-                <span>vue-blog</span>
-            </router-link>
-
+            <div class="header-left">
+                <!-- 侧边栏伸缩按钮 -->
+                <Cola class="left-item ishover" />
+                <!-- 面包屑 -->
+                <breadcrumb class="left-item" />
+            </div>
             <div class="header-right">
-                <!-- bug -->
-                <div class="right-item" v-if="logs.length > 0">
-                    <el-badge is-dot @click.native="bugDialog = true">
-                        <i class="el-icon-my-bug bug" type="danger" size="small" @click="$refs.errorDialog.toggle"></i>
-                    </el-badge>
-                </div>
-                <!-- i18n -->
-                <div class="right-item">
-                    <el-dropdown placement="top-end" @command="onLanguageSelected">
-                        <div class="i18n">
-                            <span>{{$t('translations')}}</span>
-                            <i class="el-icon-caret-bottom"></i>
-                        </div>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item command="zh" :disabled="language === 'zh'">中文</el-dropdown-item>
-                            <el-dropdown-item command="en" :disabled="language === 'en'">English</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
-                </div>
-                <div class="right-item">
-                    <theme-picker></theme-picker>
-                </div>
-                <!-- user -->
-                <div class="right-item">
-                    <div class="user" v-if="user">
-                        <el-dropdown placement="top-end" @command="onUserSelected">
-                            <div class="user-info">
-                                <img src="~@/assets/img/avatar.jpg">
-                                <span class="el-dropdown-link">{{user.nickname}}</span>
-                            </div>
-                            <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item command="exit">{{$t('logOut')}}</el-dropdown-item>
-                                <el-dropdown-item divided :disabled="true">v1.0.0</el-dropdown-item>
-                            </el-dropdown-menu>
-                        </el-dropdown>
-                    </div>
-                </div>
+                <!-- 错误日志 -->
+                <error-log class="right-item ishover" />
+                <!-- 全屏 -->
+                <screenfull class="right-item ishover" />
+                <!-- 切换语言 -->
+                <language-select class="right-item ishover" />
+                <!-- 切换主题 -->
+                <theme-picker class="right-item ishover" />
+                <!-- 用户选项 -->
+                <user-select class="right-item ishover" />
             </div>
         </div>
-        <!-- 面包屑组件 -->
-        <my-breadcrumb class="header-breadcrumb"></my-breadcrumb>
-
-        <!-- 错误日志Dialog -->
-        <error-dialog ref="errorDialog"></error-dialog>
     </el-header>
 </template>
 <script>
-import errorDialog from '@/page/index/children/more/errorlog/errorDialog'
-import themePicker from '@/components/themePicker'
-import breadcrumb from '@/components/breadcrumb'
-import { mapState } from 'vuex'
+import Cola from '@/components/Cola'
+import Breadcrumb from '@/components/Breadcrumb'
+import UserSelect from '@/components/UserSelect'
+import ErrorLog from '@/components/ErrorLog'
+import LanguageSelect from '@/components/LanguageSelect'
+import ThemePicker from '@/components/ThemePicker'
+import Screenfull from '@/components/Screenfull'
 export default {
-    name: 'my-header',
-    components: { errorDialog, themePicker, 'my-breadcrumb': breadcrumb },
-    computed: {
-        ...mapState([
-            'user',
-            'logs',
-            'language'
-        ])
-    },
-    methods: {
-        onLanguageSelected(val) {
-            this.$store.commit('set_language', val)
-            if (val === 'zh') {
-                this.$message.success('语言切换成功')
-            } else {
-                this.$message.success('switch language success')
-            }
-        },
-        onUserSelected(val) {
-            if (val === 'exit') {
-                this.$store.commit('loginOut')
-                this.$router.push('/login')
-            }
-        }
-    },
-    mounted() {
-        // 设置面包屑组件样式
-        this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('menu').offsetWidth + 'px'
+    components: {
+        Cola,
+        Breadcrumb,
+        UserSelect,
+        ErrorLog,
+        LanguageSelect,
+        ThemePicker,
+        Screenfull
     }
 }
 </script>
-<style lang='stylus'>
-#header {
+<style lang='stylus' scoped>
+.app-header {
     position: relative;
     width: 100%;
-    background-color: appColor;
-    padding: 0 50px 0 40px;
-    .container{
+    background-color: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+    padding: 0;
+    z-index: 1;
+    .container {
         position: relative;
         width: 100%;
         height: 100%;
-        .header-logo{
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            span{
-                display: inline-block;
-                vertical-align: middle;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .left-item, .right-item {
+            flex-center();
+            height: 100%;
+            font-size: 18px;
+            padding: 0 10px;
+            cursor: pointer;
+            >>> .item-container {
+                flex-center();
+                height: 100%;
             }
         }
-        .header-right{
-            height: 100%;
-            float: right;
+        .header-left {
             display: flex;
             align-items: center;
-            color: #fff;
-            font-size: 20px;
-            .right-item{
-                font-size: 0;
-                margin: 0 10px;
-                cursor: pointer;
-            }
-            .bug{
-                color: inherit;
-                font-size: 20px;
-                padding: 2px 4px;
-                border: none;
-                outline: none;
-            }
-            .i18n{
-                display: flex;
-                align-items: center;
-                font-size: 15px;
-                color: #fff;
-                i{
-                    margin-left: 4px;
-                }
-            }
-            .user{
-                .user-info{
-                    img{
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 100%;
-                        vertical-align: middle;
-                        margin-right: 5px;
-                    }
-                    span{
-                        color: #fff;
-                    }
-                }
-            }
+            height: 100%;
         }
-    }
-    .header-breadcrumb{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 0 20px;
-        .el-breadcrumb__inner{
-            color: #fff;
-        }
-        .el-breadcrumb__separator{
-            color: #fff;
+        .header-right {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin-right: 30px;
         }
     }
 }

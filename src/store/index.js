@@ -1,48 +1,52 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import i18n from '@/language'
 import cache from '@/utils/cache'
 import { getLogin, getUser } from '@/api'
+import i18n from '@/language'
+import variables from '@/assets/css/index.styl'
 
 Vue.use(Vuex)
 
 const state = {
-    language: 'zh',         // 语言
-    theme: '#42B983',       // 主题颜色
-    logs: [],               // 错误日志
-    user: ''                // 用户信息
+    logs: [],
+    user: '',
+    sidebarStatus: cache.getCookie('sidebarStatus') !== 'false',
+    language: cache.getCookie('language') || 'zh',
+    theme: variables.appColor
 }
-
 const getters = {
 }
-
 const mutations = {
-    set_language(state, lang) {
-        i18n.locale = lang
-        state.language = lang
-        cache.setSession('language', lang)
+    SET_LOGS(state, error) {
+        state.logs.unshift(error)
     },
-    set_theme(state, color) {
-        state.theme = color
+    SET_USER(state, val) {
+        state.user = val
     },
-    set_logs(state, error) {
-        state.logs.push(error)
+    SET_ROLE(state, val) {
+        state.user.role = val
     },
-    loginOut(state) {
+    SET_LOGOUT(state) {
         state.user = ''
         cache.removeToken()
     },
-    set_user(state, val) {
-        state.user = val
+    SET_SIDEBAR_STATUS(state) {
+        let status = !state.sidebarStatus
+        state.sidebarStatus = status
+        cache.setCookie('sidebarStatus', status)
     },
-    set_role(state, role) {
-        state.user.role = role
+    SET_LANGUAGE(state, lang) {
+        state.language = lang
+        i18n.locale = lang
+        cache.setCookie('language', lang)
+    },
+    SET_THEME(state, color) {
+        state.theme = color
     }
 }
-
 const actions = {
     // 获取登录数据
-    async get_login_data({ commit }, params) {
+    async GET_LOGIN_DATA({ commit }, params) {
         return new Promise((resolve, reject) => {
             getLogin(params).then(res => {
                 // console.log('login', res)
@@ -52,25 +56,23 @@ const actions = {
                 } else {
                     reject(new Error('nothing login data'))
                 }
-            })
-            .catch(err => {
+            }).catch(err => {
                 reject(err)
             })
         })
     },
     // 获取用户数据
-    async get_user_data({ commit }, token) {
+    async GET_USER_DATA({ commit }, token) {
         return new Promise((resolve, reject) => {
             getUser(token).then(res => {
                 // console.log('user', res)
                 if (res && res.code === 200 && res.data) {
-                    commit('set_user', res.data)
+                    commit('SET_USER', res.data)
                     resolve(res.data)
                 } else {
                     reject(new Error('nothing user data'))
                 }
-            })
-            .catch(err => {
+            }).catch(err => {
                 reject(err)
             })
         })

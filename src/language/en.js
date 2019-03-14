@@ -1,47 +1,125 @@
 export default {
-    translations: 'Translations',
-    logOut: 'logOut',
-    routes: {
+    route: {
         index: 'Index',
         home: 'Home',
         documents: 'Documents',
+        guide: 'Guide',
+        permission: 'Permission',
+        icons: 'Icons',
         components: 'Components',
+        loading: 'Loading',
         sticky: 'Sticky',
-        breadcrumb: 'Breadcrumb',
         backTop: 'BackTop',
         numTo: 'NumTo',
-        loading: 'Loading',
-        collections: 'Collections',
-        progressbar: 'Progressbar',
         clipboard: 'Clipboard',
+        progressbar: 'Progressbar',
         editor: 'Editor',
         markdown: 'Markdown',
-        example: 'Example',
-        dragList: 'DragList',
-        dragTable: 'DragTable',
-        charts: 'Charts',
-        pie: 'Pie',
-        radar: 'Radar',
-        scatter: 'Scatter',
-        Excel: 'Excel',
+        excel: 'Excel',
         exportExcel: 'ExportExcel',
         exportSelected: 'ExportSelected',
         importExcel: 'ImportExcel',
-        upload: 'Upload',
+        zip: 'Zip',
+        exportZip: 'ExportZip',
         errorPage: 'Error Pages',
-        page401: '401',
-        page404: '404',
-        more: 'More',
+        '401': '401',
+        '404': '404',
         errorLog: 'ErrorLog',
-        icons: 'Icons',
-        i18nView: 'I18n',
-        permission: 'Permission'
+        i18n: 'I18n'
+    },
+    header: {
+        github: 'Github',
+        logout: 'Log Out'
+    },
+    guide: {
+        description: 'This feature allows user to focus on one thing, and it will be great to guide new user. Based on',
+        button: 'Show Guide',
+        Cola: {
+            title: 'Cola',
+            description: 'Open && Close sidebar'
+        },
+        Breadcrumb: {
+            title: 'Breadcrumb',
+            description: 'Indicate the current page location'
+        },
+        Language: {
+            title: 'Switch Language',
+            description: 'Switch the system language'
+        }
+    },
+    permission: {
+        description: `Admin is required to access this page. If you are visitor, you can't access this page.Please refresh`
+    },
+    icons: {
+        description: 'All svg icons for this project'
+    },
+    sticky: {
+        description: 'A Vue.js component to sticky to the page',
+        top: 'Fixed to the top',
+        bottom: 'Fixed to the bottom',
+        fixed50: 'Fixed at 50px from the top and listen status changes'
+    },
+    backTop: {
+        description: 'A Vue.js components to scroll to top',
+        default: 'Default Use',
+        changeStyle: 'Change Style and Listen Complete Callback',
+        changeButton: 'Go Top'
+    },
+    numTo: {
+        description: 'A Vue.js components to dynamic increase or decrease for number',
+        start: 'Start Value',
+        end: 'End Value',
+        duration: 'Duration',
+        prefix: 'Prefix',
+        suffix: 'Suffix',
+        decimals: 'Decimals',
+        decimal: 'Decimal',
+        autoplay: 'Autoplay',
+        ease: 'Ease',
+        button: {
+            start: 'Start',
+            pause: 'Pause',
+            resume: 'Resume',
+            reset: 'Reset'
+        }
+    },
+    progressbar: {
+        description: 'Indicate current progress'
+    },
+    clipboard: {
+        description: 'A Vue.js directive to Copy or Cut',
+        copy: 'Copy',
+        cut: 'Cut',
+        default: 'Function',
+        directive: 'Directive（Recommend）'
+    },
+    editor: {
+        description: 'Rich Editor'
+    },
+    markdown: {
+        description: 'Markdown Editor'
+    },
+    excel: {
+        filename: 'file name (example)',
+        exportExcel: 'Export All To Excel',
+        exportSelected: 'Export Selected To Excel',
+        importExcel: 'Import Excel File',
+        export: 'Export',
+        import: 'Import'
+    },
+    errorLog: {
+        description: 'Now the management system is basically in the form of SPA, which improves the user experience, but also increases the possibility of page problems, small negligence may lead to the deadlock of the entire page. Fortunately, Vue provides a way to catch exceptions, and you can handle errors or staggered errors in hooks. see details of',
+        tip: 'Please click the bug icon in the upper right corner',
+        button: 'Add One Error'
     },
     login: {
-        login: 'Login',
-        username: 'username',
-        password: 'password',
-        weChat: 'weChat',
-        qq: 'QQ'
+        step: 'Sign in to continue',
+        username: 'Username',
+        password: 'Password',
+        submit: 'Sign in',
+        usernameMsg: 'Please enter username',
+        passwordMsg: 'Please enter password',
+        successMsg: 'Login Success',
+        errorMsg: 'Login Error'
     }
 }
