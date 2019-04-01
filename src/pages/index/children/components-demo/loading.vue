@@ -11,9 +11,13 @@
     </div>
 </template>
 <script>
+import Loading from '@/components/Loading'
 import { getList } from '@/api'
 export default {
     name: 'loading_view',
+    components: {
+        'app-loading': Loading
+    },
     data() {
         return {
             loading: false
@@ -30,11 +34,10 @@ export default {
                 } else {
                     this.loading = 'nothing'
                 }
+            }).catch(err => {
+                console.log(err)
+                this.loading = 'error'
             })
-                .catch(err => {
-                    console.log(err)
-                    this.loading = 'error'
-                })
         },
         handleLoading(type) {
             this.loading = type

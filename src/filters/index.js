@@ -1,4 +1,6 @@
-export default {
+import Vue from 'vue'
+
+const filters = {
     devide_10k: function (num) {
         return num >= 10000 ? (num / 10000).toFixed(1) + '万' : num
     },
@@ -35,3 +37,10 @@ export default {
         return time_str
     }
 }
+
+// 注册全局过滤
+Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
+})
+// 挂在到全局
+Vue.prototype.$filter = filters

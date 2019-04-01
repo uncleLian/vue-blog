@@ -2,40 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // 视图组件
 const view = () => import('@/layout/view')
-// index
-const index = () => import('@/pages/index/index')
-// home
-const home = () => import('@/pages/index/children/home/home')
-// guide
-const guide = () => import('@/pages/index/children/guide/guide')
-// permission
-const permission = () => import('@/pages/index/children/permission/permission')
-// icons
-const icons = () => import('@/pages/index/children/icons/icons')
-// components-demo
-const loading = () => import('@/pages/index/children/components-demo/loading')
-const sticky = () => import('@/pages/index/children/components-demo/sticky')
-const backTop = () => import('@/pages/index/children/components-demo/backTop')
-const numTo = () => import('@/pages/index/children/components-demo/numTo')
-const progressbar = () => import('@/pages/index/children/components-demo/progressbar')
-const clipboard = () => import('@/pages/index/children/components-demo/clipboard')
-const editor = () => import('@/pages/index/children/components-demo/editor')
-const markdown = () => import('@/pages/index/children/components-demo/markdown')
-// excel
-const exportExcel = () => import('@/pages/index/children/excel/exportExcel')
-const exportSelected = () => import('@/pages/index/children/excel/exportSelected')
-const importExcel = () => import('@/pages/index/children/excel/importExcel')
-// zip
-const exportZip = () => import('@/pages/index/children/zip/exportZip')
-// errorLog
-const errorLog = () => import('@/pages/index/children/errorLog/errorLog')
-// i18n-demo
-const i18n = () => import('@/pages/index/children/i18n-demo')
-// login
-const login = () => import('@/pages/login/login')
-// other
-const page401 = () => import('@/pages/other/page401')
-const page404 = () => import('@/pages/other/page404')
 
 Vue.use(Router)
 
@@ -52,11 +18,11 @@ Vue.use(Router)
 */
 
 // 要在侧边栏渲染的路由
-export const sideRoutes = setRedirect([
+export let sideRoutes = [
     {
         name: 'home',
         path: 'home',
-        component: home,
+        component: () => import('@/pages/index/children/home/home'),
         meta: {
             icon: 'dashboard'
         }
@@ -71,7 +37,7 @@ export const sideRoutes = setRedirect([
     {
         name: 'guide',
         path: 'guide',
-        component: guide,
+        component: () => import('@/pages/index/children/guide/guide'),
         meta: {
             icon: 'paper-plane'
         }
@@ -79,7 +45,7 @@ export const sideRoutes = setRedirect([
     {
         name: 'permission',
         path: 'permission',
-        component: permission,
+        component: () => import('@/pages/index/children/permission/permission'),
         meta: {
             icon: 'lock',
             role: 'admin'
@@ -88,7 +54,7 @@ export const sideRoutes = setRedirect([
     {
         name: 'icons',
         path: 'icons',
-        component: icons,
+        component: () => import('@/pages/index/children/icons/icons'),
         meta: {
             icon: 'icons'
         }
@@ -105,7 +71,7 @@ export const sideRoutes = setRedirect([
 
                 name: 'loading',
                 path: 'loading',
-                component: loading,
+                component: () => import('@/pages/index/children/components-demo/loading'),
                 meta: {
                     icon: 'spinner'
                 }
@@ -113,7 +79,7 @@ export const sideRoutes = setRedirect([
             {
                 name: 'sticky',
                 path: 'sticky',
-                component: sticky,
+                component: () => import('@/pages/index/children/components-demo/sticky'),
                 meta: {
                     icon: 'thumbtack'
                 }
@@ -121,7 +87,7 @@ export const sideRoutes = setRedirect([
             {
                 name: 'backTop',
                 path: 'backTop',
-                component: backTop,
+                component: () => import('@/pages/index/children/components-demo/backTop'),
                 meta: {
                     icon: 'backtop'
                 }
@@ -130,7 +96,7 @@ export const sideRoutes = setRedirect([
 
                 name: 'numTo',
                 path: 'numTo',
-                component: numTo,
+                component: () => import('@/pages/index/children/components-demo/numTo'),
                 meta: {
                     icon: 'number'
                 }
@@ -139,7 +105,7 @@ export const sideRoutes = setRedirect([
 
                 name: 'progressbar',
                 path: 'progressbar',
-                component: progressbar,
+                component: () => import('@/pages/index/children/components-demo/progressbar'),
                 meta: {
                     icon: 'progressbar'
                 }
@@ -148,7 +114,7 @@ export const sideRoutes = setRedirect([
 
                 name: 'clipboard',
                 path: 'clipboard',
-                component: clipboard,
+                component: () => import('@/pages/index/children/components-demo/clipboard'),
                 meta: {
                     icon: 'clipboard'
                 }
@@ -157,7 +123,7 @@ export const sideRoutes = setRedirect([
 
                 name: 'editor',
                 path: 'editor',
-                component: editor,
+                component: () => import('@/pages/index/children/components-demo/editor'),
                 meta: {
                     icon: 'editor'
                 }
@@ -166,10 +132,35 @@ export const sideRoutes = setRedirect([
 
                 name: 'markdown',
                 path: 'markdown',
-                component: markdown,
+                component: () => import('@/pages/index/children/components-demo/markdown'),
                 meta: {
                     icon: 'markdown'
                 }
+            },
+            {
+                name: 'dragDemo',
+                path: 'drag',
+                component: view,
+                children: [
+                    {
+
+                        name: 'dragDialog',
+                        path: 'dragDialog',
+                        component: () => import('@/pages/index/children/components-demo/dragDialog')
+                    },
+                    {
+
+                        name: 'dragTable',
+                        path: 'dragTable',
+                        component: () => import('@/pages/index/children/components-demo/dragTable')
+                    },
+                    {
+
+                        name: 'dragList',
+                        path: 'dragList',
+                        component: () => import('@/pages/index/children/components-demo/dragList')
+                    }
+                ]
             }
         ]
     },
@@ -184,17 +175,17 @@ export const sideRoutes = setRedirect([
             {
                 name: 'exportExcel',
                 path: 'exportExcel',
-                component: exportExcel
+                component: () => import('@/pages/index/children/excel/exportExcel')
             },
             {
                 name: 'exportSelected',
                 path: 'exportSelected',
-                component: exportSelected
+                component: () => import('@/pages/index/children/excel/exportSelected')
             },
             {
                 name: 'importExcel',
                 path: 'importExcel',
-                component: importExcel
+                component: () => import('@/pages/index/children/excel/importExcel')
             }
         ]
     },
@@ -209,7 +200,7 @@ export const sideRoutes = setRedirect([
             {
                 name: 'exportZip',
                 path: 'exportZip',
-                component: exportZip
+                component: () => import('@/pages/index/children/zip/exportZip')
             }
         ]
     },
@@ -224,19 +215,19 @@ export const sideRoutes = setRedirect([
             {
                 name: '401',
                 path: '401',
-                component: page401
+                component: () => import('@/pages/other/page401')
             },
             {
                 name: '404',
                 path: '404',
-                component: page404
+                component: () => import('@/pages/other/page404')
             }
         ]
     },
     {
         name: 'errorLog',
         path: 'errorLog',
-        component: errorLog,
+        component: () => import('@/pages/index/children/errorLog/errorLog'),
         meta: {
             icon: 'bug'
         }
@@ -244,50 +235,51 @@ export const sideRoutes = setRedirect([
     {
         name: 'i18n',
         path: 'i18n',
-        component: i18n,
+        component: () => import('@/pages/index/children/i18n-demo'),
         meta: {
             icon: 'global'
         }
+    }
+]
+
+const routes = setRedirect([
+    {
+        path: '',
+        redirect: '/index'
+    },
+    {
+        name: 'index',
+        path: '/index',
+        component: () => import('@/pages/index/index'),
+        meta: {
+            login: true
+        },
+        children: sideRoutes
+    },
+    {
+        name: 'login',
+        path: '/login',
+        component: () => import('@/pages/login/login')
+    },
+    {
+        name: 'page401',
+        path: '/page401',
+        component: () => import('@/pages/other/page401')
+    },
+    {
+        name: 'page404',
+        path: '/page404',
+        component: () => import('@/pages/other/page404')
+    },
+    {
+        path: '*',
+        redirect: '/page404'
     }
 ])
 
 export default new Router({
     // mode: 'history',
-    routes: [
-        {
-            path: '',
-            redirect: '/index'
-        },
-        {
-            name: 'index',
-            path: '/index',
-            component: index,
-            redirect: '/index/home',
-            meta: {
-                login: true
-            },
-            children: sideRoutes
-        },
-        {
-            name: 'login',
-            path: '/login',
-            component: login
-        },
-        {
-            name: 'page401',
-            path: '/page401',
-            component: page401
-        },
-        {
-            name: 'page404',
-            path: '/page404',
-            component: page404
-        },
-        {
-            path: '*',
-            redirect: '/page404'
-        }
-    ],
+    routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition
@@ -298,7 +290,7 @@ export default new Router({
 })
 
 // 自动设置路由的重定向（有子路由前提下）
-function setRedirect(routes, redirect = '/index') {
+function setRedirect(routes, redirect = '') {
     routes.forEach(route => {
         if (route.children && route.children.length > 0) {
             if (!route.redirect) {

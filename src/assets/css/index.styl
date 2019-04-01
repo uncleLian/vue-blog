@@ -1,10 +1,7 @@
 // 主色调
 $appColor = #42b983;
 $appColorRGB = 66, 185, 131;
-// 侧边栏颜色
-$menuBg = #304156;
-$menuText = #bfcbd9;
-$menuWidth = 180px;
+
 // 水平垂直居中
 flex-center() {
     display: flex;
@@ -18,11 +15,7 @@ text-ellipsis() {
     overflow: hidden;
 }
 
-// the :export directive is the magic sauce for webpack
 :export {
     appColor: $appColor;
-    appColorRGB: $appColorRGB;
-    menuBg: $menuBg;
-    menuText: $menuText;
-    menuWidth: $menuWidth;
+    appColorRGB: $appColorRGB
 }

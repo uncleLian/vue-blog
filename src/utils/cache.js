@@ -1,9 +1,10 @@
+import Vue from 'vue'
 import Cookies from 'js-cookie'
 
 const TokenKey = 'vue-bolg-template-token' // Token键值
 const cookieTime = 7 // cookie过期时间
 
-export default {
+const cache = {
     // token
     getToken: function () {
         return Cookies.get(TokenKey)
@@ -57,3 +58,7 @@ export default {
         window.localStorage.removeItem(name)
     }
 }
+
+Vue.prototype.$cache = cache
+
+export default cache

@@ -3,7 +3,7 @@
         <div class="login-wrapper">
             <div class="login-container">
                 <div class="login-brand">
-                    <img src="~@/assets/img/logo.jpg">
+                    <img src="~@/assets/img/logo.png">
                 </div>
                 <div class="login-box">
                     <el-form class="login-form" :model="form" @submit.native.prevent="verify" label-position="top">
@@ -67,8 +67,8 @@ export default {
 }
 </script>
 <style lang='stylus'>
-$loginPrimary = #44a0b3;
-$loginPrimaryRGB = 68, 160, 179;
+$loginPrimary = #304352;
+$loginPrimaryRGB = 48,67,82;
 $loginGrey = rgba($loginPrimaryRGB, 0.06);
 $loginDark = rgba($loginPrimaryRGB, 0.5);
 #login {
@@ -76,7 +76,7 @@ $loginDark = rgba($loginPrimaryRGB, 0.5);
     width: 100%;
     min-height: 100vh;
     background: rgba($loginPrimary, 0.4);
-    background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
+    background-image: linear-gradient(to bottom, #d7d2cc 0%, #304352 100%);
     .login-wrapper {
         width: 360px;
         padding: 150px 0;

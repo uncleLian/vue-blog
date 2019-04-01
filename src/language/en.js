@@ -15,6 +15,10 @@ export default {
         clipboard: 'Clipboard',
         editor: 'Editor',
         markdown: 'Markdown',
+        dragDemo: 'DragDemo',
+        dragDialog: 'DragDialog',
+        dragTable: 'DragTable',
+        dragList: 'DragList',
         excel: 'Excel',
         exportExcel: 'ExportExcel',
         exportSelected: 'ExportSelected',
@@ -48,7 +52,8 @@ export default {
         }
     },
     permission: {
-        description: `Admin is required to access this page. If you are visitor, you can't access this page.Please refresh`
+        description: `Admin is required to access this page. If you are visitor, you can't access this page.Please refresh`,
+        permissionMsg: 'Only admin permission can see this message'
     },
     icons: {
         description: 'All svg icons for this project'
@@ -98,6 +103,17 @@ export default {
     },
     markdown: {
         description: 'Markdown Editor'
+    },
+    dragDialog: {
+        description: 'v-drag directive base on el-dialog',
+        button: 'Open Dialog',
+        title: 'Please Drag'
+    },
+    dragTable: {
+        description: 'Designate element to drag table'
+    },
+    dragList: {
+        description: 'dragList'
     },
     excel: {
         filename: 'file name (example)',

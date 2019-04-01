@@ -20,6 +20,7 @@ router.beforeEach((to, from, next) => {
                         console.log(err)
                         // 可根据错误信息，做相应需求，这里默认token值失效
                         window.alert('登录已失效，请重新登录')
+                        store.commit('SET_LOGOUT')
                         next({ path: '/login', query: { redirect: to.fullPath } })
                     })
                 }
@@ -36,7 +37,7 @@ router.beforeEach((to, from, next) => {
     }
 })
 
-// 验证权限
+// 验证权限（页面级）
 function assessPermission(userRole, pageRole, next) {
     let pass = false
     // 页面无需权限 || 用户是管理员

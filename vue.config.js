@@ -74,7 +74,7 @@ module.exports = {
                         commons: {
                             name: 'chunk-commons',
                             test: resolve('src/components'), // 可自定义拓展你的规则
-                            minChunks: 3, // 最小公用次数
+                            minChunks: 2, // 最小公用次数
                             priority: 5,
                             reuseExistingChunk: true
                         }

@@ -1,8 +1,8 @@
 <template>
-    <div class="sideBar" :style="{'min-width': isCollapse ? '36px' : variables.menuWidth}">
-        <el-aside id="side" :width="isCollapse ? '36px' : variables.menuWidth" :style="{'background': variables.menuBg}">
+    <div class="sideBar" :style="{'min-width': minWidth}">
+        <el-aside id="side" :width="minWidth" :style="{'background': $style.menuBg}">
             <el-scrollbar wrap-class="scrollbar-wrapper">
-                <el-menu :default-active="$route.name" :collapse="isCollapse" :default-openeds="defaultOpeneds" :background-color="variables.menuBg" :text-color="variables.menuText" mode="vertical">
+                <el-menu :default-active="$route.name" :collapse="isCollapse" :default-openeds="defaultOpeneds" :background-color="$style.menuBg" :text-color="$style.menuText" mode="vertical">
                     <side-item :json="filterRoutes"></side-item>
                 </el-menu>
             </el-scrollbar>
@@ -12,7 +12,6 @@
 <script>
 import sideItem from './sideItem'
 import { sideRoutes } from '@/router'
-import variables from '@/assets/css/index.styl'
 export default {
     components: { sideItem },
     data() {
@@ -22,11 +21,11 @@ export default {
         }
     },
     computed: {
-        variables() {
-            return variables
-        },
         isCollapse() {
             return !this.$store.state.sidebarStatus
+        },
+        minWidth() {
+            return this.isCollapse ? '36px' : this.$style.menuWidth
         }
     },
     created() {
@@ -59,7 +58,14 @@ export default {
     }
 }
 </script>
-<style lang='stylus'>
+<style module>
+:export {
+    menuBg: #304156;
+    menuText: #bfcbd9;
+    menuWidth: 180px;
+}
+</style>
+<style lang="stylus">
 .sideBar {
     transition: min-width 0.28s;
     #side {
@@ -72,6 +78,7 @@ export default {
         height: 100%;
         user-select: none;
         transition: width 0.28s;
+        transform: translateZ(0); // 防止抖动
         .scrollbar-wrapper {
             overflow-x: hidden !important;
         }

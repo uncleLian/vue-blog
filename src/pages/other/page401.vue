@@ -1,5 +1,5 @@
 <template>
-    <div id="page401">
+    <div id="page401" :style="{ 'background': $store.state.theme }">
         <div class="people">
             <img src="~@/assets/img/people.png">
         </div>
@@ -24,7 +24,7 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: $appColor;
+    // background: $appColor;
     .people {
         position: absolute;
         left: 20%;

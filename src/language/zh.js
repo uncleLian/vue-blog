@@ -15,6 +15,10 @@ export default {
         clipboard: '剪贴板',
         editor: '富文本编辑器',
         markdown: 'Markdown',
+        dragDemo: '拖拽示例',
+        dragDialog: '拖拽弹框',
+        dragTable: '拖拽表格',
+        dragList: '拖拽列表',
         excel: 'Excel',
         exportExcel: '导出Excel',
         exportSelected: '导出Selected',
@@ -48,7 +52,8 @@ export default {
         }
     },
     permission: {
-        description: '进入此页面需要admin权限，如果你是visitor则无法进入此页面，请刷新重新查看'
+        description: '进入此页面需要admin权限，如果你是visitor则无法进入此页面，请刷新重新查看',
+        permissionMsg: '只有 admin 权限才能看到此条信息'
     },
     icons: {
         description: '本项目所有SVG图标'
@@ -98,6 +103,17 @@ export default {
     },
     markdown: {
         description: 'Markdown编辑器'
+    },
+    dragDialog: {
+        description: '拖拽指令基于 el-dialog 实现',
+        button: '打开弹框',
+        title: '请拖拽'
+    },
+    dragTable: {
+        description: '指定元素拖拽表格'
+    },
+    dragList: {
+        description: '拖拽列表'
     },
     excel: {
         filename: '请输入文件名（默认example）',

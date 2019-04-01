@@ -12,8 +12,14 @@
     </div>
 </template>
 <script>
+import header from '@/layout/header'
+import sidebar from '@/layout/Sidebar'
 export default {
-    name: 'index'
+    name: 'index',
+    components: {
+        'app-header': header,
+        'app-menu': sidebar
+    }
 }
 </script>
 <style lang='stylus'>

@@ -3,7 +3,7 @@
         <h3>{{$t('errorLog.tip')}}</h3>
         <div class="app-introduce">
             {{$t('errorLog.description')}}
-            <a>/utils/errorLog && /utils/permission</a>
+            <a>/utils/errorLog.js</a>
         </div>
         <el-button type="danger" @click="handleClick">{{$t('errorLog.button')}}</el-button>
     </div>

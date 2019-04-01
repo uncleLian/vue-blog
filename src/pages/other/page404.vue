@@ -1,5 +1,5 @@
 <template>
-    <div id="page404">
+    <div id="page404" :style="{ 'background': $store.state.theme }">
         <div class="wrapper">
             <img class="logo" src="~@/assets/img/404.gif">
             <p class="text">The page you are looking for is either stolen by aliens or never existed.</p>
@@ -23,7 +23,7 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: $appColor;
+    // background: $appColor;
     .wrapper {
         position: absolute;
         max-width: 320px;

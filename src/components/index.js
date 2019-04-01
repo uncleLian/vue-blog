@@ -1,10 +1,11 @@
-import header from '@/layout/header'
-import sidebar from '@/layout/Sidebar'
+import Vue from 'vue'
 import view from '@/layout/view'
-import Loading from '@/components/Loading'
-export default {
-    'app-header': header,
-    'app-menu': sidebar,
-    'app-view': view,
-    'app-loading': Loading
+
+const components = {
+    'app-view': view
 }
+
+// 注册全局组件
+Object.keys(components).forEach(key => {
+    Vue.component(key, components[key])
+})
