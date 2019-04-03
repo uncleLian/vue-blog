@@ -14,14 +14,12 @@
 - [在线访问](http://blog.liansixin.win)
 - [使用文档](https://unclelian.github.io/vue-blog-docs/)
 
-##### 注：本项目的定位是后台集成方案，不适合当基础模板来进行二次开发。你可以把它当做工具集，在基础模板上进行开发时，想要什么功能或者组件就去复制过来。
+注：本项目的定位是后台集成方案，不适合当基础模板来进行二次开发。你可以把它当做工具集，在基础模板上进行开发时，想要什么功能或者组件就去复制过来。
 
 - 基础模板：[vueBlog-template](https://github.com/uncleLian/vueBlog-template)
 
 ## 前序准备
 你的本地环境需要安装 [Node](https://nodejs.org/en/) 和 [Git](https://git-scm.com/)，本项目技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[vue](https://cn.vuejs.org)、[vue-router](https://router.vuejs.org/zh-cn/)、[vuex](https://vuex.vuejs.org/zh-cn/)、[axios](https://github.com/axios/axios) 和 [element-ui](http://element-cn.eleme.io/#/zh-CN/component/installation)，所有的请求数据都使用 [mock.js](http://mockjs.com/) 模拟，提前了解和学习这些知识会对使用本项目有很大的帮助。
-
-##### 注：[Node](https://nodejs.org/en/) 版本推荐 8.11.0+或稳定版，你可以使用 [nvm](https://github.com/creationix/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows) 在同一台电脑中管理多个 Node 版本。
 
 如果你是Vue初学者，这里有一些资源可以帮助到你
 
@@ -109,18 +107,17 @@ npm run build:report
 ## 版本日志
 [发行说明](https://github.com/uncleLian/vue2-blog/releases)中记录了每个版本的详细更改。
 
+## Browsers support
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --------- | --------- | --------- | --------- | --------- |
+| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
 ## 捐赠
 
 如果觉得这个项目帮助到了你，你可以请作者喝杯饮料表示支持 :green_heart:
 
 ![image](http://poci6sbqi.bkt.clouddn.com/donate.jpg)
-
-## Browsers support
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --------- | --------- | --------- | --------- | --------- |
-| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
 ## 交流
 欢迎热爱学习、忠于分享的朋友一起来交流
