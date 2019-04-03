@@ -2,6 +2,7 @@
     <el-color-picker class="themePicker" popper-class="themePicker-dropdown" v-model="theme" />
 </template>
 <script>
+import { request } from '@/utils/request'
 export default {
     data() {
         return {
@@ -36,18 +37,19 @@ export default {
                 if (!this.chalk) {
                     const links = Array.from(document.querySelectorAll('link')).filter(link => {
                         const url = link.href
-                        return new RegExp('css/app', 'i').test(url)
+                        return new RegExp('/css/app.+?css$', 'i').test(url)
                     })
+                    console.log('links', links)
                     if (links.length > 0) {
-                        this.$http.get(links[0].href).then(res => {
-                            if (res.data) {
-                                this.chalk = res.data
-                                let newStyle = document.createElement('style')
-                                newStyle.setAttribute('id', 'chalk-style')
-                                newStyle.type = 'text/css'
-                                this.chalk = newStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
-                                document.head.appendChild(newStyle)
-                            }
+                        request(links[0].href, 'GET').then(res => {
+                            this.chalk = res
+                            let newStyle = document.createElement('style')
+                            newStyle.setAttribute('id', 'chalk-style')
+                            newStyle.type = 'text/css'
+                            this.chalk = newStyle.innerText = this.updateStyle(this.chalk, this.newTheme, this.oldTheme)
+                            document.head.appendChild(newStyle)
+                        }).catch(err => {
+                            console.log(err)
                         })
                     }
                 } else {

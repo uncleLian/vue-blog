@@ -6,7 +6,6 @@ import store from '@/store'
 // 第三方
 import ElementUI from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css' // element-ui 默认颜色
-
 import VueProgressBar from 'vue-progressbar' // 进度条
 import vueSticky from 'vue-position-sticky' // 图钉
 import vueBacktop from 'vue-backtop-pack' // 返回顶部
