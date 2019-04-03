@@ -3,7 +3,9 @@
 [![image](https://img.shields.io/badge/vue-2.6.8-brightgreen.svg)](https://github.com/vuejs/vue)
 [![image](https://img.shields.io/badge/vue--router-3.0.2-brightgreen.svg)](https://github.com/vuejs/vue-router)
 [![image](https://img.shields.io/badge/vuex-3.1.0-brightgreen.svg)](https://github.com/vuejs/vuex)
+[![image](https://img.shields.io/badge/vue--cli-3.x-brightgreen.svg)](https://cli.vuejs.org/zh/)
 [![image](https://img.shields.io/badge/element--ui-2.7.0-9cf.svg)](https://github.com/ElemeFE/element)
+[![GitHub release](https://img.shields.io/github/release/uncleLian/vue-blog.svg)](https://github.com/uncleLian/vue-blog/releases)
 
 ## 简介
 
