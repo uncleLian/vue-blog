@@ -34,7 +34,7 @@ export default {
     data() {
         return {
             form: {
-                username: 'uncleLian',
+                username: 'admin',
                 password: '123456'
             },
             pwdWatch: false
@@ -56,7 +56,10 @@ export default {
             let successMsg = this.$t('login.successMsg')
             let errorMsg = this.$t('login.errorMsg')
             this.$store.dispatch('GET_LOGIN_DATA', this.form).then((res) => {
-                this.$message.success(successMsg)
+                this.$message.success({
+                    message: successMsg,
+                    duration: 2000
+                })
                 this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
             }).catch((err) => {
                 console.log(err)

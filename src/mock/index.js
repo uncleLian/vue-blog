@@ -10,7 +10,7 @@ Mock.mock(base_mock_url + '/api/user', {
     code: 200,
     msg: 'success',
     data: {
-        nickname: 'uncleLian',
+        nickname: 'admin',
         headimgurl: 'http://poci6sbqi.bkt.clouddn.com/avatar.jpg',
         role: 'admin'
     }

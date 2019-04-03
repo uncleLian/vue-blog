@@ -29,7 +29,7 @@ export let sideRoutes = [
     },
     {
         name: 'documents',
-        path: 'http://liansixin.win/vue-blog-book/',
+        path: 'https://unclelian.github.io/vue-blog-docs/',
         meta: {
             icon: 'documentation'
         }
@@ -39,7 +39,7 @@ export let sideRoutes = [
         path: 'guide',
         component: () => import('@/pages/index/children/guide/guide'),
         meta: {
-            icon: 'paper-plane'
+            icon: 'guide'
         }
     },
     {
@@ -75,6 +75,34 @@ export let sideRoutes = [
                 meta: {
                     icon: 'spinner'
                 }
+            },
+            {
+                name: 'dragDemo',
+                path: 'drag',
+                component: view,
+                meta: {
+                    icon: 'move'
+                },
+                children: [
+                    {
+
+                        name: 'dragDialog',
+                        path: 'dragDialog',
+                        component: () => import('@/pages/index/children/components-demo/dragDialog')
+                    },
+                    {
+
+                        name: 'dragTable',
+                        path: 'dragTable',
+                        component: () => import('@/pages/index/children/components-demo/dragTable')
+                    },
+                    {
+
+                        name: 'dragList',
+                        path: 'dragList',
+                        component: () => import('@/pages/index/children/components-demo/dragList')
+                    }
+                ]
             },
             {
                 name: 'sticky',
@@ -136,31 +164,6 @@ export let sideRoutes = [
                 meta: {
                     icon: 'markdown'
                 }
-            },
-            {
-                name: 'dragDemo',
-                path: 'drag',
-                component: view,
-                children: [
-                    {
-
-                        name: 'dragDialog',
-                        path: 'dragDialog',
-                        component: () => import('@/pages/index/children/components-demo/dragDialog')
-                    },
-                    {
-
-                        name: 'dragTable',
-                        path: 'dragTable',
-                        component: () => import('@/pages/index/children/components-demo/dragTable')
-                    },
-                    {
-
-                        name: 'dragList',
-                        path: 'dragList',
-                        component: () => import('@/pages/index/children/components-demo/dragList')
-                    }
-                ]
             }
         ]
     },

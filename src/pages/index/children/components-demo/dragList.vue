@@ -28,7 +28,6 @@
 </template>
 <script>
 import draggable from 'vuedraggable'
-import { getList } from '@/api'
 export default {
     name: 'dragList',
     components: { draggable },
@@ -45,7 +44,7 @@ export default {
     methods: {
         getTableList() {
             this.loading = true
-            getList().then(res => {
+            this.$store.dispatch('GET_LIST_DATA').then(res => {
                 if (res) {
                     let length = res.data.length / 2
                     this.defaultJson = res.data.slice(0, length)
@@ -59,12 +58,6 @@ export default {
 </script>
 <style lang='stylus'>
 #dragList {
-    .sortable-chosen {
-        background-color: #f0f9eb !important;
-    }
-    .sortable-ghost {
-        background-color: rgba($appColorRGB, 0.1) !important;
-    }
     .draglist-contianer {
         display: flex;
         .list-group {

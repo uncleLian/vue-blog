@@ -1,6 +1,6 @@
 <template>
     <div id="table-music">
-        <el-table :data="tableJson" style="width: 100%" border fit :header-cell-style="{'text-align': 'center'}">
+        <el-table :data="json" style="width: 100%" border fit :header-cell-style="{'text-align': 'center'}">
             <!-- 序号 -->
             <el-table-column type="index" align="center" label="序号" width="50">
                 <template slot-scope="scope">
@@ -47,17 +47,16 @@
     </div>
 </template>
 <script>
-import { getList } from '@/api'
 export default {
     data() {
         return {
-            tableJson: []
+            json: []
         }
     },
     mounted() {
-        getList().then(res => {
+        this.$store.dispatch('GET_LIST_DATA').then(res => {
             if (res) {
-                this.tableJson = res.data.slice(0, 7)
+                this.json = res.data.slice(0, 7)
             }
         })
     }

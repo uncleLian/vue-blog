@@ -10,8 +10,3 @@ export function getUser(token) {
     let res = request('/api/user', 'GET', token)
     return res
 }
-// 列表
-export function getList() {
-    let res = request('/api/list', 'GET')
-    return res
-}

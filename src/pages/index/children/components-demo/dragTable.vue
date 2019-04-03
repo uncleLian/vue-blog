@@ -49,7 +49,6 @@
 </template>
 <script>
 import Sortable from 'sortablejs'
-import { getList } from '@/api'
 export default {
     name: 'dragTable',
     data() {
@@ -64,7 +63,7 @@ export default {
     methods: {
         getTableList() {
             this.loading = true
-            getList().then(res => {
+            this.$store.dispatch('GET_LIST_DATA').then(res => {
                 if (res) {
                     this.json = res.data
                     this.setDrag()
@@ -77,9 +76,7 @@ export default {
             Sortable.create(el, {
                 handle: '.drag-block',
                 onEnd: evt => {
-                    // 同步数据
-                    const tempIndex = this.json.splice(evt.oldIndex, 1)[0]
-                    this.json.splice(evt.newIndex, 0, tempIndex)
+                    // console.log(evt)
                 }
             })
         }
@@ -88,12 +85,6 @@ export default {
 </script>
 <style lang='stylus'>
 #dragTable {
-    .sortable-chosen {
-        background-color: #f0f9eb !important;
-    }
-    .sortable-ghost {
-        background-color: rgba($appColorRGB, 0.1) !important;
-    }
     .drag-block {
         cursor: move;
     }

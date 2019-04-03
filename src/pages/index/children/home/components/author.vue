@@ -15,20 +15,18 @@
                     <div>
                         <svg-icon class="info-icon" icon-class="qq" />
                         <el-tooltip effect="dark" content="Copy" placement="top">
-                            <a href="javascript:;" v-clipboard:copy="771674109" v-clipboard:success="onCopySuccess">771674109</a>
+                            <a href="javascript:;" v-clipboard:copy="338241465" v-clipboard:success="onCopySuccess">338241465</a>
                         </el-tooltip>
                     </div>
                     <div>
-                        <i class="info-icon el-icon-message" />
-                        <el-tooltip effect="dark" content="Send Email" placement="top">
-                            <a href="mailto:771674109@qq.com">771674109@qq.com</a>
-                        </el-tooltip>
-                    </div>
-                    <div>
-                        <svg-icon class="info-icon" icon-class="link" />
+                        <svg-icon class="info-icon" icon-class="github" />
                         <el-tooltip effect="dark" content="Github" placement="top">
                             <a href="https://github.com/uncleLian" target="_blank">https://github.com/uncleLian</a>
                         </el-tooltip>
+                    </div>
+                    <div>
+                        <svg-icon class="info-icon" icon-class="issue" />
+                        <a href="https://github.com/uncleLian/vue-blog/issues" target="_blank">vue-blog issues</a>
                     </div>
                 </div>
             </div>
@@ -83,17 +81,14 @@ export default {
             .info {
                 margin-top: 16px;
                 div {
-                    margin-top: 5px;
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                    margin-top: 6px;
                     .info-icon {
-                        vertical-align: middle;
-                        margin-top: 2px;
                         margin-right: 8px;
                         font-size: 16px;
                         color: #6a737d;
-                    }
-                    span, a {
-                        font-size: 14px;
-                        vertical-align: middle;
                     }
                 }
             }

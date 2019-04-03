@@ -58,7 +58,6 @@
     </el-table>
 </template>
 <script>
-import { getList } from '@/api'
 export default {
     props: {
         isSelect: {
@@ -79,7 +78,7 @@ export default {
     methods: {
         getTableList() {
             this.loading = true
-            getList().then(res => {
+            this.$store.dispatch('GET_LIST_DATA').then(res => {
                 if (res) {
                     this.json = res.data
                     this.$emit('completed', this.json)

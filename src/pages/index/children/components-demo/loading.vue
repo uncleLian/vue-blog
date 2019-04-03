@@ -12,7 +12,6 @@
 </template>
 <script>
 import Loading from '@/components/Loading'
-import { getList } from '@/api'
 export default {
     name: 'loading_view',
     components: {
@@ -26,7 +25,7 @@ export default {
     methods: {
         getData() {
             this.loading = true
-            getList().then(res => {
+            this.$store.dispatch('GET_LIST_DATA').then(res => {
                 // console.log(res)
                 this.$message.success('请求成功')
                 if (res) {

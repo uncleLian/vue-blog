@@ -5,14 +5,14 @@
     "scripts": {
         "dev": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "build:sit": "vue-cli-service build --mode sit",
+        "build:stage": "vue-cli-service build --mode stage",
         "build:report": "vue-cli-service build --report",
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
         "axios": "^0.18.0",
         "driver.js": "^0.9.5",
-        "element-ui": "^2.6.1",
+        "element-ui": "^2.7.0",
         "file-saver": "^2.0.1",
         "js-cookie": "^2.2.0",
         "jszip": "^3.2.0",

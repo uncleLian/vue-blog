@@ -36,7 +36,7 @@ export default {
     name: 'sticky_view',
     methods: {
         stickeyChange(val) {
-            this.$message.info('sticky的值为：' + val)
+            console.log('sticky的值为：', val)
         }
     }
 }

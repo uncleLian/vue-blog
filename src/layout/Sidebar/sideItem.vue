@@ -56,9 +56,7 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
-$sideTextColor = #BFCBD9;
 .sideItem {
-    color: $sideTextColor;
     a {
         display: block;
     }

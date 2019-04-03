@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import cache from '@/utils/cache'
-import { getLogin, getUser } from '@/api'
+import { getLogin, getUser } from '@/api/login'
+import { getList } from '@/api/list'
 import i18n from '@/language'
 import variables from '@/assets/css/index.styl'
 
@@ -76,6 +77,9 @@ const actions = {
                 reject(err)
             })
         })
+    },
+    GET_LIST_DATA(state) {
+        return getList()
     }
 }
 export default new Vuex.Store({

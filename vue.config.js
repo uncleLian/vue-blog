@@ -5,7 +5,7 @@ function resolve(dir) {
 const name = require('./package.json').name
 
 module.exports = {
-    publicPath: '/',
+    publicPath: `/`,
     outputDir: 'dist',
     lintOnSave: true,
     productionSourceMap: false,

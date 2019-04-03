@@ -24,8 +24,8 @@ export default {
         return {
             list: [
                 {
-                    icon: 'paper-plane',
-                    title: 'Page View',
+                    icon: 'view',
+                    title: 'Page Views',
                     endVal: random(10000, 20000)
                 },
                 {

@@ -61,7 +61,7 @@ export default {
 <style module>
 :export {
     menuBg: #304156;
-    menuText: #bfcbd9;
+    menuText: #f5f5f5;
     menuWidth: 180px;
 }
 </style>
