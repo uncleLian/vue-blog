@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 // 视图组件
 const view = () => import('@/layout/view')
 
@@ -297,13 +298,16 @@ function setRedirect(routes, redirect = '') {
     routes.forEach(route => {
         if (route.children && route.children.length > 0) {
             if (!route.redirect) {
-                let redirectIndex = route.meta && route.meta.redirectIndex ? route.meta.redirectIndex : 0
-                let redirectRoute = route.children[redirectIndex]
-                let redirectName = redirectRoute && redirectRoute.name ? redirectRoute.name : route.children[0].name
+                let defaultRedirectRoute = route.children.filter(item => !item.meta || !item.meta.hidden)[0]
+                let redirectIndex = route.meta && route.meta.redirectIndex
+                if (redirectIndex) {
+                    defaultRedirectRoute = route.children[redirectIndex]
+                }
+                let redirectName = defaultRedirectRoute.name
                 route.redirect = `${redirect}/${route.name}/${redirectName}`
             }
-            let index = route.redirect.lastIndexOf('/')
-            let fatherDir = route.redirect.substring(0, index)
+            let index = route.redirect && route.redirect.lastIndexOf('/')
+            let fatherDir = route.redirect && route.redirect.substring(0, index)
             route.children = setRedirect(route.children, fatherDir)
         }
     })

@@ -44,7 +44,7 @@ instance.interceptors.response.use(response => {
 */
 export const request = async (url = '', type = 'GET', data = {}, isForm = false) => {
     let result
-    type = type.toUpperCase() // 转为大写
+    type = type.toUpperCase()
     let requestOptions = {
         method: type,
         url: url

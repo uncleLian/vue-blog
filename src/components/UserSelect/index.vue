@@ -1,7 +1,7 @@
 <template>
     <el-dropdown class="userSelect" placement="bottom" trigger="click" @command="onSelected">
         <div class="userSelect-container">
-            <img :src="user.headimgurl">
+            <img src="~@/assets/img/logo.png">
             <span>{{user.nickname}}</span>
         </div>
         <el-dropdown-menu slot="dropdown">
