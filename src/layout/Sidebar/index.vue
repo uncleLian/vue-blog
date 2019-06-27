@@ -52,8 +52,10 @@ export default {
                         route.children = this.handleRoutes(route.children)
                     }
                     return true
-                } else {
-                    console.warn(`路由【${route.path}】：缺少name属性，存在bug隐患`)
+                } else {Ï
+                    if (!route.path.includes('redirect')) {
+                        console.warn(`路由【${route.path}】：缺少name属性，存在bug隐患`)
+                    }
                     return false
                 }
             })

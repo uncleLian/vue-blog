@@ -11,7 +11,7 @@ export default {
             state.tagsView = [...views]
         },
         ADD_TAGS_VIEW(state, view) {
-            if (view.name) {
+            if (view.name && view.meta && !view.meta.hidden) {
                 if (state.tagsView.some(v => v.path === view.path)) return
                 state.tagsView.push({ ...view })
             }

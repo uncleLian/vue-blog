@@ -24,8 +24,9 @@ router.beforeEach((to, from, next) => {
                     console.log(err)
                     // 可根据错误信息，做相应需求，这里默认token值失效
                     window.alert('登录已失效，请重新登录')
-                    store.commit('login/SET_LOGOUT')
-                    next({ path: '/login', query: { redirect: to.fullPath } })
+                    store.dispatch('login/logout').then(() => {
+                        next({ path: '/login', query: { redirect: to.fullPath } })
+                    })
                 })
             }
         }
