@@ -39,7 +39,6 @@ const asyncParentRoutes = {
     children: []
 }
 const extraPanentRoutes = {
-    name: 'redirect',
     path: 'redirect/:path*',
     component: () => import('@/pages/other/redirect'),
     meta: {
