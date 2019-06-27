@@ -1,7 +1,7 @@
 export default {
     route: {
         index: '首页',
-        home: '主页',
+        dashboard: '主页',
         documents: '文档',
         guide: '引导页',
         permission: '权限测试',
@@ -137,5 +137,11 @@ export default {
         passwordMsg: '请输入密码',
         successMsg: '登录成功',
         errorMsg: '账号密码错误'
+    },
+    tagsView: {
+        refresh: '刷新',
+        close: '关闭',
+        closeOthers: '关闭其它',
+        closeAll: '关闭所有'
     }
 }

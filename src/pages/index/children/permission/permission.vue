@@ -47,9 +47,9 @@ export default {
     watch: {
         permission(val) {
             if (val) {
-                this.$store.commit('SET_ROLE', 'visitor')
+                this.$store.commit('login/SET_ROLE', 'visitor')
             } else {
-                this.$store.commit('SET_ROLE', 'admin')
+                this.$store.commit('login/SET_ROLE', 'admin')
             }
             this.index++
         }

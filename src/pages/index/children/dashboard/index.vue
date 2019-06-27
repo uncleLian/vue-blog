@@ -1,5 +1,5 @@
 <template>
-    <div id="home">
+    <div id="dashboard">
         <app-banner />
         <app-card />
         <el-row :gutter="12">
@@ -36,8 +36,8 @@ export default {
     }
 }
 </script>
-<style lang='stylus'>
-#home {
+<style lang='stylus' scoped>
+#dashboard {
     padding-top: 10px;
     padding-bottom: 20px;
     padding-right: 30px;

@@ -12,7 +12,7 @@ Mock.mock(base_mock_url + '/api/user', {
     data: {
         nickname: 'admin',
         headimgurl: 'http://poci6sbqi.bkt.clouddn.com/avatar.jpg',
-        role: 'admin'
+        roles: 'admin'
     }
 })
 Mock.mock(base_mock_url + '/api/list', {

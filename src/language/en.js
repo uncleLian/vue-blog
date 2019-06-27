@@ -1,7 +1,7 @@
 export default {
     route: {
         index: 'Index',
-        home: 'Home',
+        dashboard: 'Dashboard',
         documents: 'Documents',
         guide: 'Guide',
         permission: 'Permission',
@@ -137,5 +137,11 @@ export default {
         passwordMsg: 'Please enter password',
         successMsg: 'Login Success',
         errorMsg: 'Login Error'
+    },
+    tagsView: {
+        refresh: 'Refresh',
+        close: 'Close',
+        closeOthers: 'Close Others',
+        closeAll: 'Close All'
     }
 }

@@ -1,4 +1,5 @@
 <script>
+import { isExternal } from '@/utils/validate'
 export default {
     name: 'sideLink',
     functional: true,
@@ -10,8 +11,7 @@ export default {
     render(h, context) {
         const { to } = context.props
         const vnodes = []
-        const isExternal = /^(https?:|mailto:|tel:)/.test(to.path)
-        if (isExternal) {
+        if (isExternal(to.path)) {
             vnodes.push(<a href={to.path} target='_blank'>{context.children}</a>)
         } else {
             vnodes.push(<router-link to={{ 'name': to.name }}>{context.children}</router-link>)

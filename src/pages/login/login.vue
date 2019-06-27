@@ -36,8 +36,7 @@ export default {
             form: {
                 username: 'admin',
                 password: '123456'
-            },
-            pwdWatch: false
+            }
         }
     },
     methods: {
@@ -55,14 +54,13 @@ export default {
         login() {
             let successMsg = this.$t('login.successMsg')
             let errorMsg = this.$t('login.errorMsg')
-            this.$store.dispatch('GET_LOGIN_DATA', this.form).then((res) => {
+            this.$store.dispatch('login/getLoginToken', this.form).then((res) => {
                 this.$message.success({
                     message: successMsg,
                     duration: 2000
                 })
-                this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
-            }).catch((err) => {
-                console.log(err)
+                this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/index')
+            }).catch(() => {
                 this.$message.error(errorMsg)
             })
         }
@@ -71,7 +69,7 @@ export default {
 </script>
 <style lang='stylus'>
 $loginPrimary = #304352;
-$loginPrimaryRGB = 48,67,82;
+$loginPrimaryRGB = 48, 67, 82;
 $loginGrey = rgba($loginPrimaryRGB, 0.06);
 $loginDark = rgba($loginPrimaryRGB, 0.5);
 #login {

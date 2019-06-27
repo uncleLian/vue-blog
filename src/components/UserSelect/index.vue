@@ -17,9 +17,9 @@
 import { mapState } from 'vuex'
 export default {
     computed: {
-        ...mapState([
-            'user'
-        ]),
+        ...mapState('login', {
+            user: state => state.user
+        }),
         version() {
             return 'v' + require('../../../package.json').version
         }
@@ -27,8 +27,9 @@ export default {
     methods: {
         onSelected(val) {
             if (val === 'exit') {
-                this.$store.commit('SET_LOGOUT')
-                this.$router.push('/login')
+                this.$store.dispatch('login/logout').then(() => {
+                    this.$router.push('/login')
+                })
             }
         }
     }

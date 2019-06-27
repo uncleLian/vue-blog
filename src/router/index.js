@@ -2,30 +2,32 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // 视图组件
-const view = () => import('@/layout/view')
+const PageView = () => import('@/layout/PageView')
 
 Vue.use(Router)
 
-/* sideRoutes config
+/* Routes Config
 * @meta
 * icon: ''                      菜单图标（支持svg-icon、el-icon）
 * title: ''                     菜单标题
 * login: false                  是否需要登录
 * role: 'admin' || ['admin']    是否需要权限
-* keep: false                   是否需要缓存
+* keep: false                   是否需要缓存（需要name才能生效）
 * hidden: false                 是否显示在菜单
 * open: false                   是否展开菜单（有子菜单前提下）
 * redirectIndex: 0              重定向到第index位子菜单（有子菜单前提下）
+* affix: false                  是否常驻在tagView组件上（外链无效）
 */
 
-// 要在侧边栏渲染的路由
-export let sideRoutes = [
+// 异步路由
+export const asyncRoutes = [
     {
-        name: 'home',
-        path: 'home',
-        component: () => import('@/pages/index/children/home/home'),
+        name: 'dashboard',
+        path: 'dashboard',
+        component: () => import('@/pages/index/children/dashboard'),
         meta: {
-            icon: 'dashboard'
+            icon: 'dashboard',
+            affix: true
         }
     },
     {
@@ -63,7 +65,7 @@ export let sideRoutes = [
     {
         name: 'components',
         path: 'components',
-        component: view,
+        component: PageView,
         meta: {
             icon: 'component'
         },
@@ -80,7 +82,7 @@ export let sideRoutes = [
             {
                 name: 'dragDemo',
                 path: 'drag',
-                component: view,
+                component: PageView,
                 meta: {
                     icon: 'move'
                 },
@@ -171,7 +173,7 @@ export let sideRoutes = [
     {
         name: 'excel',
         path: 'excel',
-        component: view,
+        component: PageView,
         meta: {
             icon: 'excel'
         },
@@ -196,7 +198,7 @@ export let sideRoutes = [
     {
         name: 'zip',
         path: 'zip',
-        component: view,
+        component: PageView,
         meta: {
             icon: 'zip'
         },
@@ -211,7 +213,7 @@ export let sideRoutes = [
     {
         name: 'errorPage',
         path: 'errorPage',
-        component: view,
+        component: PageView,
         meta: {
             icon: '404'
         },
@@ -246,70 +248,38 @@ export let sideRoutes = [
     }
 ]
 
-const routes = setRedirect([
+// 本地路由
+export const localRoutes = [
     {
         path: '',
-        redirect: '/index'
+        redirect: '/login'
     },
     {
-        name: 'index',
-        path: '/index',
-        component: () => import('@/pages/index/index'),
-        meta: {
-            login: true
-        },
-        children: sideRoutes
-    },
-    {
-        name: 'login',
         path: '/login',
         component: () => import('@/pages/login/login')
     },
     {
-        name: 'page401',
         path: '/page401',
         component: () => import('@/pages/other/page401')
     },
     {
-        name: 'page404',
         path: '/page404',
         component: () => import('@/pages/other/page404')
-    },
-    {
-        path: '*',
-        redirect: '/page404'
     }
-])
+]
 
-export default new Router({
+const createRouter = () => new Router({
     // mode: 'history',
-    routes,
-    scrollBehavior(to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            return { x: 0, y: 0 }
-        }
-    }
+    routes: localRoutes,
+    scrollBehavior: () => ({ y: 0 })
 })
 
-// 自动设置路由的重定向（有子路由前提下）
-function setRedirect(routes, redirect = '') {
-    routes.forEach(route => {
-        if (route.children && route.children.length > 0) {
-            if (!route.redirect) {
-                let defaultRedirectRoute = route.children.filter(item => !item.meta || !item.meta.hidden)[0]
-                let redirectIndex = route.meta && route.meta.redirectIndex
-                if (redirectIndex) {
-                    defaultRedirectRoute = route.children[redirectIndex]
-                }
-                let redirectName = defaultRedirectRoute.name
-                route.redirect = `${redirect}/${route.name}/${redirectName}`
-            }
-            let index = route.redirect && route.redirect.lastIndexOf('/')
-            let fatherDir = route.redirect && route.redirect.substring(0, index)
-            route.children = setRedirect(route.children, fatherDir)
-        }
-    })
-    return routes
+const router = createRouter()
+
+// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
+export function resetRouter() {
+    const newRouter = createRouter()
+    router.matcher = newRouter.matcher // reset router
 }
+
+export default router

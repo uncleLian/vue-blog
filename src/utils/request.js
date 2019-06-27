@@ -35,13 +35,13 @@ instance.interceptors.response.use(response => {
     return Promise.reject(error)
 })
 
-/*
-* request方法（统一axios请求方法的格式）
-* url       请求URL
-* type      请求类型
-* data      参数
-* isForm    是否表单数据
-*/
+/**
+ * @param   {String}    url     请求链接
+ * @param   {String}    type    http方法
+ * @param   {Object}    data    数据
+ * @param   {Boolean}   isForm  是否表单格式
+ * @returns {Promise}
+ */
 export const request = async (url = '', type = 'GET', data = {}, isForm = false) => {
     let result
     type = type.toUpperCase()
@@ -52,8 +52,14 @@ export const request = async (url = '', type = 'GET', data = {}, isForm = false)
     if (isForm) {
         let form = new FormData()
         Object.keys(data).forEach(key => {
-            console.log('key', key)
-            form.append(key, data[key])
+            let value = data[key]
+            if (Array.isArray(value)) {
+                value.forEach(item => {
+                    form.append(key, item)
+                })
+            } else {
+                form.append(key, data[key])
+            }
         })
         data = form
     }

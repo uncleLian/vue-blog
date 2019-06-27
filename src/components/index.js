@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import view from '@/layout/view'
+import PageView from '@/layout/PageView'
 
 const components = {
-    'app-view': view
+    'app-pageView': PageView
 }
 
 // 注册全局组件

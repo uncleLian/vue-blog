@@ -7,6 +7,6 @@ export function getLogin(form) {
 }
 // 用户信息
 export function getUser(token) {
-    let res = request('/api/user', 'GET', token)
+    let res = request('/api/user', 'POST', token)
     return res
 }

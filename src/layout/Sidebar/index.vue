@@ -11,7 +11,6 @@
 </template>
 <script>
 import sideItem from './sideItem'
-import { sideRoutes } from '@/router'
 export default {
     components: { sideItem },
     data() {
@@ -21,20 +20,24 @@ export default {
         }
     },
     computed: {
+        sideRoutes() {
+            return this.$store.state.routes.sideRoutes[0].children
+        },
         isCollapse() {
             return !this.$store.state.sidebarStatus
         },
         minWidth() {
-            return this.isCollapse ? '36px' : this.$style.menuWidth
+            return this.isCollapse ? this.$style.menuIconWidth : this.$style.menuWidth
         }
     },
     created() {
-        this.filterRoutes = this.handleRoutes(sideRoutes)
+        this.filterRoutes = this.handleRoutes(this.sideRoutes)
     },
     methods: {
         // 递归过滤路由
         handleRoutes(Arr) {
             const Routes = Arr.filter(route => {
+                // 侧边栏路由强制写name，不然会导致很多问题（缓存、跳转等问题）
                 if (route.name) {
                     if (route.meta) {
                         if (route.meta.hidden) {
@@ -50,6 +53,7 @@ export default {
                     }
                     return true
                 } else {
+                    console.warn(`路由【${route.path}】：缺少name属性，存在bug隐患`)
                     return false
                 }
             })
@@ -62,7 +66,8 @@ export default {
 :export {
     menuBg: #304156;
     menuText: #f5f5f5;
-    menuWidth: 180px;
+    menuWidth: 210px;
+    menuIconWidth: 36px;
 }
 </style>
 <style lang="stylus">
@@ -79,8 +84,8 @@ export default {
         user-select: none;
         transition: width 0.28s;
         transform: translateZ(0); // 防止抖动
-        .scrollbar-wrapper {
-            overflow-x: hidden !important;
+        .el-scrollbar__bar.is-horizontal {
+            display: none;
         }
         .el-menu {
             width: 100%;

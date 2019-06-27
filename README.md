@@ -27,7 +27,7 @@
 - [ES6入门 阮一峰](http://es6.ruanyifeng.com/)
 - [Vue入门项目系列](https://github.com/uncleLian/vue2-echo)
 
-<img src="http://poci6sbqi.bkt.clouddn.com/vue-blog.jpg" width="900px" style="max-width: 100%;"/>
+<img src="https://github.com/uncleLian/vue-blog/raw/gh-pages/screenshots/dashboard.png" width="900px" style="max-width: 100%;"/>
 
 ## 功能
 功能持续迭代中，欢迎 [pr](https://github.com/uncleLian/vue-blog/pulls) 和 [issue](https://github.com/uncleLian/vue-blog/issues)
@@ -44,6 +44,7 @@
         - stage
     - 动态侧边栏
     - 动态面包屑
+    - 导航标签
     - 错误处理
         - 401
         - 404
@@ -117,7 +118,7 @@ npm run build:report
 
 如果觉得这个项目帮助到了你，你可以请作者喝杯饮料表示支持 :green_heart:
 
-![image](http://poci6sbqi.bkt.clouddn.com/donate.jpg)
+![image](https://github.com/uncleLian/vue-blog/raw/gh-pages/screenshots/donate.jpg)
 
 ## 交流
 欢迎热爱学习、忠于分享的朋友一起来交流
