@@ -77,8 +77,9 @@ export default {
         duration: 'Duration',
         prefix: 'Prefix',
         suffix: 'Suffix',
-        decimals: 'Decimals',
+        separator: 'Separator',
         decimal: 'Decimal',
+        decimals: 'Decimals',
         autoplay: 'Autoplay',
         ease: 'Ease',
         button: {

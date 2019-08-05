@@ -11,7 +11,7 @@ Vue.use(Router)
 * icon: ''                      菜单图标（支持svg-icon、el-icon）
 * title: ''                     菜单标题
 * login: false                  是否需要登录
-* role: 'admin' || ['admin']    是否需要权限
+* ss: 'admin' || ['admin']    是否需要权限
 * keep: false                   是否需要缓存（需要name才能生效）
 * hidden: false                 是否显示在菜单
 * open: false                   是否展开菜单（有子菜单前提下）
@@ -51,7 +51,7 @@ export const asyncRoutes = [
         component: () => import('@/pages/index/children/permission/permission'),
         meta: {
             icon: 'lock',
-            role: 'admin'
+            roles: 'admin'
         }
     },
     {

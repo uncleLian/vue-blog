@@ -11,7 +11,7 @@ export default {
 }
 
 export function checkPermission(permissionRole) {
-    let currentRole = (store.state.user && store.state.user.role) || 'visitor'
+    let currentRole = (store.state.login.user && store.state.login.user.roles) || 'visitor'
     if (typeof currentRole === 'string') {
         currentRole = [currentRole]
     }

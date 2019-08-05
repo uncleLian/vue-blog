@@ -13,7 +13,7 @@ export default {
         },
         // 只做权限测试页使用
         SET_ROLE(state, val) {
-            state.user.role = val
+            state.user.roles = val
         }
     },
     actions: {

@@ -114,10 +114,12 @@ export default {
         scrollToCurrenTag() {
             const tags = this.$refs.tags
             this.$nextTick(() => {
-                for (const tag of tags) {
-                    if (tag.to.path === this.$route.path) {
+                if (tags && tags.length > 0) {
+                    for (const tag of tags) {
+                        if (tag.to.path === this.$route.path) {
                         this.$refs.scrollPane.scrollTo(tag)
-                        break
+                            break
+                        }
                     }
                 }
             })

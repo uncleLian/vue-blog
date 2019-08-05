@@ -77,8 +77,9 @@ export default {
         duration: '时长',
         prefix: '前缀',
         suffix: '后缀',
-        decimals: '小数点符号',
-        decimal: '小数点后几位',
+        separator: '分隔符',
+        decimals: '小数点后几位',
+        decimal: '小数点符号',
         autoplay: '自动开始',
         ease: '平滑动画',
         button: {

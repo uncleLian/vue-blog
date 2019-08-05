@@ -5,7 +5,7 @@
             <a href="https://github.com/uncleLian/vue-num-to" target="_blank">vue-num-to</a>
         </div>
         <div class="demo">
-            <vue-num-to class="number" ref="numTo" :startVal="startVal" :endVal="endVal" :duration="duration || 0" :autoplay="autoplay" :prefix="prefix" :suffix="suffix" :decimals="decimals" :decimal="decimal" :ease="ease" @complete="handleComplete">
+            <vue-num-to class="number" ref="numTo" :startVal="startVal" :endVal="endVal" :duration="duration || 0" :autoplay="autoplay" :prefix="prefix" :suffix="suffix" :separator="separator" :decimals="decimals" :decimal="decimal" :ease="ease" @complete="handleComplete">
             </vue-num-to>
         </div>
         <div class="demo">
@@ -39,6 +39,12 @@
                     <template #prepend>{{$t('numTo.suffix')}}</template>
                 </el-input>
             </div>
+            <!-- separator -->
+            <div class="demo-item">
+                <el-input :clearable="true" v-model.trim="separator">
+                    <template #prepend>{{$t('numTo.separator')}}</template>
+                </el-input>
+            </div>
             <!-- decimal -->
             <div class="demo-item">
                 <el-input :clearable="true" v-model.trim="decimal">
@@ -69,15 +75,16 @@ export default {
     name: 'numTo_view',
     data() {
         return {
-            startVal: 0,
-            endVal: new Date().getFullYear(),
-            duration: 3000,
-            prefix: '￥',
-            suffix: '',
-            decimal: '.',
-            decimals: 0,
-            autoplay: true,
-            ease: true
+            startVal: 0, // 开始值
+            endVal: new Date().getFullYear(), // 结束值
+            duration: 3000, // 时长
+            prefix: '￥', // 前缀
+            suffix: '', // 后缀
+            separator: ',', // 分隔符
+            decimal: '.', // 小数点符号
+            decimals: 0, // 小数点后几位
+            autoplay: true, // 是否自动开始
+            ease: true // 是否平滑过渡
         }
     },
     methods: {
