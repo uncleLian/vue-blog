@@ -15,7 +15,7 @@ export default {
                 const isHas = state.tagsView.some((v, index) => {
                     if (v.path === view.path) {
                         // 存在时进行替换（场景：参数变化）
-                        state.tagsView.splice(index, 1, view)
+                        state.tagsView.splice(index, 1, { ...view })
                         return true
                     }
                 })
