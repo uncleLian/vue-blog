@@ -81,7 +81,7 @@ export const asyncRoutes = [
             },
             {
                 name: 'dragDemo',
-                path: 'drag',
+                path: 'dragDemo',
                 component: PageView,
                 meta: {
                     icon: 'move'

@@ -1,5 +1,5 @@
 import { getLogin, getUser } from '@/api/login'
-import { resetRouter } from '@/router'
+import router, { resetRouter } from '@/router'
 import cache from '@/utils/cache'
 
 export default {
@@ -52,9 +52,14 @@ export default {
         },
         logout({ commit }) {
             return new Promise((resolve, reject) => {
+                // 删除本地token
                 cache.removeToken()
+                // 重置路由
                 resetRouter()
+                // 删除用户信息
                 commit('SET_USER', '')
+                // 跳转到登录页
+                router.push('/login')
                 resolve()
             })
         }

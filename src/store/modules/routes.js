@@ -64,8 +64,9 @@ function setRedirect(routes, redirect = '') {
                 let redirectName = defaultRedirectRoute.name
                 route.redirect = `${redirect}/${route.name}/${redirectName}`
             }
-            let index = route.redirect && route.redirect.lastIndexOf('/')
-            let fatherDir = route.redirect && route.redirect.substring(0, index)
+            // let index = route.redirect && route.redirect.lastIndexOf('/')
+            // let fatherDir = route.redirect && route.redirect.substring(0, index)
+            let fatherDir = route.redirect && `${redirect}/${route.name}`
             route.children = setRedirect(route.children, fatherDir)
         }
     })

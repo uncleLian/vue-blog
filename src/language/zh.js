@@ -32,8 +32,9 @@ export default {
         i18n: '国际化'
     },
     header: {
-        github: '项目地址',
-        logout: '退出'
+        logout: '退出',
+        userInfo: '个人信息',
+        password: '修改密码'
     },
     guide: {
         description: '该功能可以让用户聚焦于一点，用来引导新用户将会非常棒。基于',
@@ -144,5 +145,23 @@ export default {
         close: '关闭',
         closeOthers: '关闭其它',
         closeAll: '关闭所有'
+    },
+    updateUserInfo: {
+        updateUserInfo: '修改个人信息',
+        nickName: '名称',
+        roleName: '角色',
+        emptyErrorMsg: '不能为空'
+    },
+    updateUserPassword: {
+        updatePawwrod: '修改密码',
+        orginPassword: '原密码',
+        newPassword: '新密码',
+        againNewPassword: '再次输入新密码',
+        emptyErrorMsg: '不能为空',
+        sameErrorMsg: '两个新密码不相同'
+    },
+    dialog: {
+        update: '修 改',
+        cancle: '取 消'
     }
 }

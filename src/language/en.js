@@ -32,8 +32,9 @@ export default {
         i18n: 'I18n'
     },
     header: {
-        github: 'Github',
-        logout: 'Log Out'
+        logout: 'Log Out',
+        userInfo: 'Change Info',
+        password: 'Change Pwd'
     },
     guide: {
         description: 'This feature allows user to focus on one thing, and it will be great to guide new user. Based on',
@@ -144,5 +145,21 @@ export default {
         close: 'Close',
         closeOthers: 'Close Others',
         closeAll: 'Close All'
+    },
+    updateUserInfo: {
+        nickName: 'NickName',
+        roleName: 'Role',
+        emptyErrorMsg: 'Not Empty'
+    },
+    updateUserPassword: {
+        orginPassword: 'Orgin Password',
+        newPassword: 'New Password',
+        againNewPassword: 'Again New Password',
+        emptyErrorMsg: 'Not Empty',
+        sameErrorMsg: 'Two new passwords are different'
+    },
+    dialog: {
+        update: 'Change',
+        cancle: 'Cancle'
     }
 }

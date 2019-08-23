@@ -12,7 +12,14 @@ export default {
         },
         ADD_TAGS_VIEW(state, view) {
             if (view.name && view.meta && !view.meta.hidden) {
-                if (state.tagsView.some(v => v.path === view.path)) return
+                const isHas = state.tagsView.some((v, index) => {
+                    if (v.path === view.path) {
+                        // 存在时进行替换（场景：参数变化）
+                        state.tagsView.splice(index, 1, view)
+                        return true
+                    }
+                })
+                if (isHas) return
                 state.tagsView.push({ ...view })
             }
         },

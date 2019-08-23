@@ -6,10 +6,10 @@
                     <img src="~@/assets/img/logo.png">
                 </div>
                 <div class="login-box">
-                    <el-form class="login-form" :model="form" @submit.native.prevent="verify" label-position="top">
+                    <el-form class="login-form" :model="form" @submit.native.prevent="verify" label-position="top" v-loading="loading" element-loading-text="Login" element-loading-background="rgba(255, 255, 255, 0.7)">
                         <el-form-item class="tip">{{$t('login.step')}}</el-form-item>
                         <el-form-item :label="$t('login.username')">
-                            <el-input v-model="form.username" auto-complete='off' />
+                            <el-input v-model.trim="form.username" auto-complete='off' />
                         </el-form-item>
                         <el-form-item :label="$t('login.password')">
                             <el-input v-model="form.password" auto-complete='off' type="password" show-password />
@@ -36,7 +36,8 @@ export default {
             form: {
                 username: 'admin',
                 password: '123456'
-            }
+            },
+            loading: false
         }
     },
     methods: {
@@ -52,16 +53,16 @@ export default {
             }
         },
         login() {
+            this.loading = true
             let successMsg = this.$t('login.successMsg')
             let errorMsg = this.$t('login.errorMsg')
             this.$store.dispatch('login/getLoginToken', this.form).then((res) => {
-                this.$message.success({
-                    message: successMsg,
-                    duration: 2000
-                })
                 this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/index')
+                this.$message.success(successMsg)
+                this.loading = false
             }).catch(() => {
                 this.$message.error(errorMsg)
+                this.loading = false
             })
         }
     }

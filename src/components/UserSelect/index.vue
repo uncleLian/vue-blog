@@ -1,21 +1,32 @@
 <template>
-    <el-dropdown class="userSelect" placement="bottom" trigger="click" @command="onSelected">
+    <el-dropdown class="userSelect" placement="bottom" trigger="click">
         <div class="userSelect-container">
             <img src="~@/assets/img/logo.png">
             <span>{{user.nickname}}</span>
         </div>
         <el-dropdown-menu slot="dropdown">
             <el-dropdown-item :disabled="true">{{version}}</el-dropdown-item>
-            <el-dropdown-item>
-                <a style="color:inherit;" href="https://github.com/uncleLian/vue-blog" target="_blank">{{$t('header.github')}}</a>
-            </el-dropdown-item>
-            <el-dropdown-item divided command="exit">{{$t('header.logout')}}</el-dropdown-item>
+            <el-dropdown-item divided @click.native="infoVisible = true">{{$t('header.userInfo')}}</el-dropdown-item>
+            <el-dropdown-item @click.native="passwordVisible = true">{{$t('header.password')}}</el-dropdown-item>
+            <el-dropdown-item @click.native="handleLogout">{{$t('header.logout')}}</el-dropdown-item>
         </el-dropdown-menu>
+        <!-- dialog -->
+        <info-dialog :title="$t('header.userInfo')" v-if="infoVisible" :visible.sync="infoVisible" @onSubmit="handleChangeUserInfo" disabled :json="user" />
+        <password-dialog :title="$t('header.password')" v-if="passwordVisible" :visible.sync="passwordVisible" @onSubmit="handleChangeUserPassword" />
     </el-dropdown>
 </template>
 <script>
 import { mapState } from 'vuex'
+import infoDialog from './infoDialog'
+import passwordDialog from './passwordDialog'
 export default {
+    components: { infoDialog, passwordDialog },
+    data() {
+        return {
+            infoVisible: false,
+            passwordVisible: false
+        }
+    },
     computed: {
         ...mapState('login', {
             user: state => state.user
@@ -25,12 +36,20 @@ export default {
         }
     },
     methods: {
-        onSelected(val) {
-            if (val === 'exit') {
-                this.$store.dispatch('login/logout').then(() => {
-                    this.$router.push('/login')
-                })
-            }
+        handleLogout(val) {
+            this.$store.dispatch('login/logout')
+        },
+        handleChangeUserInfo(form) {
+            // 假修改
+            const user = { ...this.user, ...form }
+            this.$store.commit('login/SET_USER', user)
+            this.infoVisible = false
+            this.$message.success('success')
+        },
+        handleChangeUserPassword(form) {
+            // 假修改
+            this.passwordVisible = false
+            this.$message.success('success')
         }
     }
 }
@@ -40,6 +59,9 @@ $avatarSize = 30px;
 .userSelect {
     font-size: 14px !important;
     user-select: none;
+    a {
+        color: inherit;
+    }
     .userSelect-container {
         flex-center();
         height: 100%;

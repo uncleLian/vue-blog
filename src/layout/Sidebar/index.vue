@@ -1,7 +1,7 @@
 <template>
     <div class="sideBar" :style="{'min-width': minWidth}">
         <el-aside id="side" :width="minWidth" :style="{'background': $style.menuBg}">
-            <el-scrollbar wrap-class="scrollbar-wrapper">
+            <el-scrollbar style="height:100%;" wrap-class="scrollbar-wrapper">
                 <el-menu :default-active="$route.name" :collapse="isCollapse" :default-openeds="defaultOpeneds" :background-color="$style.menuBg" :text-color="$style.menuText" mode="vertical">
                     <side-item :json="filterRoutes"></side-item>
                 </el-menu>
