@@ -27,7 +27,7 @@
     </div>
 </template>
 <script>
-import LanguageSelect from '@/components/LanguageSelect'
+import LanguageSelect from '@/layout/NavBar/LanguageSelect'
 export default {
     name: 'login',
     components: { LanguageSelect },

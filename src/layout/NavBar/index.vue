@@ -21,9 +21,9 @@
     </div>
 </template>
 <script>
-import Cola from './Cola'
-import Breadcrumb from './Breadcrumb'
-import ErrorLog from './ErrorLog'
+import Cola from '@/components/Base/Cola'
+import Breadcrumb from '@/components/Base/Breadcrumb'
+import ErrorLog from '@/components/Base/ErrorLog'
 import Screenfull from './Screenfull'
 import LanguageSelect from './LanguageSelect'
 import ThemePicker from './ThemePicker'
