@@ -11,6 +11,8 @@ export default {
 }
 
 export function checkPermission(permissionRole) {
+    // 不能作为通用方案，判断权限的方法需自行实现
+    // 当前采用登录角色是否包含被验证的permissionRole
     let currentRole = (store.state.login.user && store.state.login.user.roles) || 'visitor'
     if (typeof currentRole === 'string') {
         currentRole = [currentRole]

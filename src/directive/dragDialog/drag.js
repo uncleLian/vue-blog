@@ -29,7 +29,8 @@ export default {
             const maxDragDomLeft = screenWidth - dragDom.offsetLeft - dragDomWidth
 
             const minDragDomTop = dragDom.offsetTop
-            const maxDragDomTop = screenHeight - dragDom.offsetTop - dragDomHeight
+            let maxDragDomTop = screenHeight - dragDom.offsetTop - dragDomHeight
+            maxDragDomTop = maxDragDomTop >= 0 ? maxDragDomTop : 'unLimit' // // 修复弹框高度大于可视区域的问题
 
             // 获取到的值带px 正则匹配替换
             let styL = getStyle(dragDom, 'left')
@@ -57,8 +58,10 @@ export default {
 
                 if (-(top) > minDragDomTop) {
                     top = -minDragDomTop
-                } else if (top > maxDragDomTop) {
-                    top = maxDragDomTop
+                } else if (maxDragDomTop !== 'unLimit') { // 修复弹框高度大于可视区域的问题
+                    if (top > maxDragDomTop) {
+                        top = maxDragDomTop
+                    }
                 }
 
                 // 移动当前元素

@@ -29,7 +29,8 @@ export default {
         '401': '401',
         '404': '404',
         errorLog: 'ErrorLog',
-        i18n: 'I18n'
+        i18n: 'I18n',
+        singleMessage: 'SingleMessage'
     },
     header: {
         logout: 'Log Out',
@@ -161,5 +162,9 @@ export default {
     dialog: {
         update: 'Change',
         cancle: 'Cancle'
+    },
+    singleMessage: {
+        description: 'SingleMessage base on el-message',
+        tip: 'Please keep click to see example'
     }
 }

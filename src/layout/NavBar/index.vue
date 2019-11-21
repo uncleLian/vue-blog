@@ -21,22 +21,22 @@
     </div>
 </template>
 <script>
-import Cola from '@/components/Cola'
-import Breadcrumb from '@/components/Breadcrumb'
-import UserSelect from '@/components/UserSelect'
-import ErrorLog from '@/components/ErrorLog'
-import LanguageSelect from '@/components/LanguageSelect'
-import ThemePicker from '@/components/ThemePicker'
-import Screenfull from '@/components/Screenfull'
+import Cola from './Cola'
+import Breadcrumb from './Breadcrumb'
+import ErrorLog from './ErrorLog'
+import Screenfull from './Screenfull'
+import LanguageSelect from './LanguageSelect'
+import ThemePicker from './ThemePicker'
+import UserSelect from './UserSelect'
 export default {
     components: {
         Cola,
         Breadcrumb,
-        UserSelect,
         ErrorLog,
+        Screenfull,
         LanguageSelect,
         ThemePicker,
-        Screenfull
+        UserSelect
     }
 }
 </script>

@@ -29,7 +29,8 @@ export default {
         '401': '401',
         '404': '404',
         errorLog: '错误日志',
-        i18n: '国际化'
+        i18n: '国际化',
+        singleMessage: '单个弹框'
     },
     header: {
         logout: '退出',
@@ -163,5 +164,9 @@ export default {
     dialog: {
         update: '修 改',
         cancle: '取 消'
+    },
+    singleMessage: {
+        description: '单个弹框基于 el-message 实现',
+        tip: '连续点击弹框查看效果'
     }
 }

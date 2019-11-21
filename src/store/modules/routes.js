@@ -17,8 +17,10 @@ export default {
     actions: {
         generateRoutes({ commit }) {
             return new Promise(resolve => {
+                // 这里可以根据项目需求自行对asyncRoutes进行过滤得到finalAsyncRoutes
+                const finalAsyncRoutes = [...asyncRoutes]
                 let finalAsyncParentRoutes = { ...asyncParentRoutes }
-                finalAsyncParentRoutes.children = [...asyncRoutes, extraPanentRoutes]
+                finalAsyncParentRoutes.children = [...finalAsyncRoutes, extraPanentRoutes]
                 const sideRoutes = setRedirect([finalAsyncParentRoutes])
                 const addRoutes = [...sideRoutes, extraGlobalRoutes] // 实际动态添加的路由
                 const allRoutes = [...localRoutes, ...addRoutes] // 所有路由

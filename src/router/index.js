@@ -167,6 +167,14 @@ export const asyncRoutes = [
                 meta: {
                     icon: 'markdown'
                 }
+            },
+            {
+                name: 'singleMessage',
+                path: 'singleMessage',
+                component: () => import('@/pages/index/children/components-demo/singleMessage'),
+                meta: {
+                    icon: 'el-icon-message-solid'
+                }
             }
         ]
     },

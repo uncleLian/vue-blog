@@ -32,7 +32,7 @@ export default {
             user: state => state.user
         }),
         version() {
-            return 'v' + require('../../../package.json').version
+            return 'v' + require('../../../../package.json').version
         }
     },
     methods: {
